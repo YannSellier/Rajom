@@ -29,7 +29,24 @@ public class CraftManager
 
     public bool CraftPart(Part part, Head head)
     {
-        return false;
+        if (part == null || head == null)
+            return false;
+
+        PartModification modification = CreatePartModification(head);
+        part.AddModification(modification);
+
+        if (!ValidateCraftingResult(part))
+            return false;
+        
+        return true;
+    }
+    private bool ValidateCraftingResult(Part resultPart)
+    {
+        return true;
+    }
+    private PartModification CreatePartModification(Head head)
+    {
+        return new PartModification(head.GetHeadType());
     }
 
     #endregion

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Part : MonoBehaviour
@@ -10,6 +11,7 @@ public class Part : MonoBehaviour
     #region VARIABLES
 
     [SerializeField] private EPartType _headType;
+    [SerializeField] private List<PartModification> _modifications;
 
     public Action<EPartType> onPartDeleted;
 
@@ -17,7 +19,11 @@ public class Part : MonoBehaviour
 
     #region GETTERS / SETTERS
 
+    // part type
     public EPartType GetPartType() => _headType;
+    
+    // modifications
+    public List<PartModification> GetModifications() => _modifications;
 
     #endregion
 
@@ -42,5 +48,15 @@ public class Part : MonoBehaviour
     }
 
     #endregion
+
+    #region PART MODIFICATIONS
+
+    public void AddModification(PartModification modification)
+    {
+        _modifications.Add(modification);
+    }
+
+    #endregion
+
         
 }
