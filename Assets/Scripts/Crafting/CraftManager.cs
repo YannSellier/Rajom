@@ -40,6 +40,7 @@ public class CraftManager
         
         return true;
     }
+    
     private bool ValidateCraftingResult(Part resultPart)
     {
         return true;
