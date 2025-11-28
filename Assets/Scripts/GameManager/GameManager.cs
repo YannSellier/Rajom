@@ -1,6 +1,7 @@
+using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GameManager
+public class GameManager : MonoBehaviour
 {
     //=============================================================================
     // VARIABLES
@@ -12,7 +13,9 @@ public class GameManager
     public static GameManager GetRef()
     {
         if (_instance == null)
-            _instance = new GameManager();
+            _instance = FindObjectOfType<GameManager>();
+        if (_instance == null)
+            Debug.LogError("GameManager: No instance found in scene!");
         
         return _instance;
     }
@@ -22,6 +25,9 @@ public class GameManager
     #region VARIABLES
 
     private EGameState _gameState;
+    
+    // references to other managers
+    private VacuumSpawner _vacuumSpawner;
 
     #endregion
 
@@ -42,6 +48,22 @@ public class GameManager
     #endregion
 
 
+    
+    //=============================================================================
+    // BUILT IN
+    //=============================================================================
+
+    #region BUILT IN
+
+    protected void Awake()
+    {
+        // get references to other managers
+        _vacuumSpawner = FindObjectOfType<VacuumSpawner>();
+    }
+
+    #endregion
+
+
 
     //=============================================================================
     // GAME MANAGER
@@ -52,6 +74,8 @@ public class GameManager
     public void StartGame()
     {
         SetGameState(EGameState.IN_GAME);
+        
+        TriggerNextVacuum();
     }
     public void PauseGame()
     {
@@ -72,11 +96,11 @@ public class GameManager
 
     public void OnVacuumComplete()
     {
-        
+        TriggerNextVacuum();
     }
     public void TriggerNextVacuum()
     {
-        
+        _vacuumSpawner.SpawnAllParts();
     }
 
     #endregion
