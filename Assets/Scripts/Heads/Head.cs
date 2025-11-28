@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PartModification
+public class Head : MonoBehaviour
 {
     //=============================================================================
     // VARIABLES
@@ -20,11 +20,7 @@ public class PartModification
 
     #region CONSTRUCTOR
 
-    public PartModification(EHeadType headType)
-    {
-        _headType = headType;
-    }
 
     #endregion
-        
+            
 }
