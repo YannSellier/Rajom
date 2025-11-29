@@ -13,7 +13,8 @@ public class HeadManager : MonoBehaviour
     private Head _currentGrabbedHead;
     private Head _currentHeadUnderHead = null;
     [SerializeField] private EInput changeHeadInput = EInput.ChangeHead1;
-    [SerializeField] private Transform _grabPosition;
+    //test sans _grabPosition
+    [SerializeField] private Transform _armGrabPosition;
     
     private List<Head> heads;
     
@@ -21,7 +22,7 @@ public class HeadManager : MonoBehaviour
     void Start()
     {
         heads = new List<Head>(GetComponentsInChildren<Head>());
-        RefreshHeadVisibility();
+        RefreshArmHeadVisibility();
     }
 
     // Update is called once per frame
@@ -39,7 +40,9 @@ public class HeadManager : MonoBehaviour
     {
         return _currentGrabbedHead;
     }
-    public void RefreshHeadVisibility()
+    
+    //Refresh can set active head on the arm
+    public void RefreshArmHeadVisibility()
     {
         foreach (Head h in heads)
         {
@@ -47,16 +50,20 @@ public class HeadManager : MonoBehaviour
             h.gameObject.SetActive(shouldBeActive);
         }
     }
+
+
+    #region  GRAB INPUT RELEASE
     
     private void OnGrabInput()
     {
         if (_currentGrabbedHead != null)
         {
-            Debug.Log("(bug)");
+            //drop la head
+            ReleaseCurrentGrabbedHead();
         }
         else
         {
-            Debug.Log("try Grabbing");
+            //Debug.Log("try Grabbing");
             TryGrabbingHeadUnderHead();
         }
     }
@@ -65,30 +72,39 @@ public class HeadManager : MonoBehaviour
     {
         if (_currentHeadUnderHead != null)
         {
-            GrabHead(_currentHeadUnderHead);
+            GrabCurrentHeadUnderHead();
             _currentHeadUnderHead = null;
         }
     }
 
-    private void GrabHead(Head head)
+    private void GrabCurrentHeadUnderHead()
     {
-        if (head == null || _grabPosition == null)
+        if (_currentHeadUnderHead == null || _armGrabPosition == null)
             return;
         
         _currentGrabbedHead = _currentHeadUnderHead;
-        RefreshHeadVisibility();
-        head.gameObject.SetActive(false);
+        RefreshArmHeadVisibility();
+        _currentGrabbedHead.gameObject.SetActive(false);
     }
-
-    /*
-    private void ReleasePart(Head head)
+    
+    private void ReleaseCurrentGrabbedHead()
     {
-        if (head == null)
+        if (_currentGrabbedHead == null)
             return;
-
-        head.transform.
+        // release current grabbed head at transform position of arm
+        _currentGrabbedHead.transform.position = _armGrabPosition.position;
+        _currentGrabbedHead.gameObject.SetActive(true);
+        _currentGrabbedHead = null;
+        RefreshArmHeadVisibility();
+        
     }
-    */
+
+    #endregion
+    
+    
+    
+    
+    
     
     #region HEAD UNDER HEAD
     private void UpdateHeadUnderHead()
@@ -98,7 +114,7 @@ public class HeadManager : MonoBehaviour
         if (headUnderHead != _currentHeadUnderHead)
             SetCurrentHeadUnderHead(headUnderHead);
     }
-
+    
     private void SetCurrentHeadUnderHead(Head headUnderHead)
     {
         _currentHeadUnderHead = headUnderHead;
