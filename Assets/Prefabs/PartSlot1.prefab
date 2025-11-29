@@ -123,3 +123,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _validPartColor: {r: 0.14907439, g: 0.4716981, b: 0.14907439, a: 0.7921569}
   _invalidPartColor: {r: 0.7075472, g: 0.19691172, b: 0.19691172, a: 0.83137256}
+  _emptyPartColor: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 0.8235294}

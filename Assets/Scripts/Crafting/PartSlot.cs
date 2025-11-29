@@ -15,6 +15,7 @@ public class PartSlot : MonoBehaviour
 
     [SerializeField] private Color _validPartColor = Color.green;
     [SerializeField] private Color _invalidPartColor = Color.red;
+    [SerializeField] private Color _emptyPartColor = Color.grey;
 
     #endregion
 
@@ -101,11 +102,17 @@ public class PartSlot : MonoBehaviour
 
     private void RefreshVisuals()
     {
-        bool isValid = IsPartValidForSlot();
-        Color targetColor = isValid ? _validPartColor : _invalidPartColor;
+        Color targetColor = GetSlotColor();
         Renderer renderer = GetComponent<Renderer>();
         if (renderer != null)
             renderer.material.color = targetColor;
+    }
+    private Color GetSlotColor()
+    {
+        if (_currentPart == null)
+            return _emptyPartColor;
+
+        return IsPartValidForSlot() ? _validPartColor : _invalidPartColor;
     }
     private bool IsPartValidForSlot()
     {
