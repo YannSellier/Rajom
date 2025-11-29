@@ -12,6 +12,7 @@ public class Part : MonoBehaviour
 
     private MeshRenderer _meshRenderer;
     private MeshFilter _meshFilter;
+    private Rigidbody _rigidbody;
 
     #endregion
 
@@ -26,6 +27,10 @@ public class Part : MonoBehaviour
 
     #region GETTERS / SETTERS
 
+    
+    // components
+    public Rigidbody GetRigidbody() => _rigidbody;
+    
     // part type
     public EPartType GetPartType() => _partData.GetPartType();
     
@@ -57,6 +62,7 @@ public class Part : MonoBehaviour
     {
         _meshRenderer = gameObject.GetComponent<MeshRenderer>();
         _meshFilter = gameObject.GetComponent<MeshFilter>();
+        _rigidbody = gameObject.GetComponent<Rigidbody>();
     }
     public void Delete()
     {
