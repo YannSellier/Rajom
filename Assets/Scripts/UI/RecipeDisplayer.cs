@@ -13,13 +13,15 @@ public class RecipeDisplayer
     private VisualTreeAsset _recipePart_assets;
     private VisualElement _partData_Container;
     
+    private VisualTreeAsset _recipePartModificationsAssets;
     private List<PartDataDisplayer> _partData_Displayers = new List<PartDataDisplayer>();
     
-    public RecipeDisplayer(Recipe recipe, VisualElement root, VisualTreeAsset recipePartAssets)
+    public RecipeDisplayer(Recipe recipe, VisualElement root, VisualTreeAsset recipePartAssets, VisualTreeAsset recipePartModificationsAssets)
     {
         _recipe = recipe;
         _root = root;
         _recipePart_assets = recipePartAssets;
+        _recipePartModificationsAssets = recipePartModificationsAssets;
             
         _nameLabel = root.Q<Label>("RecipeName_Label");
         _descriptionLabel = root.Q<Label>("RecipeDescription_Label");
@@ -47,7 +49,7 @@ public class RecipeDisplayer
     {
         VisualElement partDataDisplayer_root = _recipePart_assets.Instantiate();
         _partData_Container.Add(partDataDisplayer_root);
-        PartDataDisplayer partDataDisplayer = new PartDataDisplayer(partData, partDataDisplayer_root);
+        PartDataDisplayer partDataDisplayer = new PartDataDisplayer(partData, partDataDisplayer_root, _recipePartModificationsAssets);
         _partData_Displayers.Add(partDataDisplayer);
     }
     

@@ -1,3 +1,5 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Label name="Recipe_part_modification" />
+    <ui:VisualElement name="RecipePartModification" style="flex-grow: 1;">
+        <ui:Label name="RecipePartModification_Label" />
+    </ui:VisualElement>
 </ui:UXML>

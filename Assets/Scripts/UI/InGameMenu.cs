@@ -13,6 +13,8 @@ public class InGameMenu : UIDisplayer
     private Label _timerLabel;
     
     [SerializeField] private VisualTreeAsset _recipePartAssets;
+    [SerializeField] private VisualTreeAsset _recipePartModificationsAssets;
+    
     private RecipeDisplayer _recipeDisplayer;
     private VisualElement _recipe_Root; 
 
@@ -112,7 +114,7 @@ public class InGameMenu : UIDisplayer
 
     public void CreateRecipeDisplayer(Recipe recipe)
     {
-        _recipeDisplayer = new RecipeDisplayer(recipe, _recipe_Root, _recipePartAssets); 
+        _recipeDisplayer = new RecipeDisplayer(recipe, _recipe_Root, _recipePartAssets, _recipePartModificationsAssets); 
         _recipeDisplayer.RefreshUI();
     }
     
