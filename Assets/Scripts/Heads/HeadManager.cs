@@ -10,6 +10,8 @@ public class HeadManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    #region VARIABLES
+
     [SerializeField] private PlayerInput playerInput;
     private HeadPickUp _currentGrabbedHead;
     private HeadPickUp _currentHeadUnderHead;
@@ -19,7 +21,13 @@ public class HeadManager : MonoBehaviour
     
     private List<Head> heads;
     
+
+    #endregion
+
     
+    
+    #region START UPDATE
+
     void Start()
     {
         heads = new List<Head>(GetComponentsInChildren<Head>());
@@ -33,14 +41,30 @@ public class HeadManager : MonoBehaviour
             OnGrabInput();
             
         UpdateHeadUnderHead();
-            // PickNextHead(); plus utile
+        // PickNextHead(); plus utile
     }
 
+    #endregion
+
+    
+    
+    #region GETTERS
 
     public Head GetCurrentHead()
     {
-        return _currentGrabbedHead.getHead();
+        if (_currentHeadUnderHead != null)
+        {
+            return _currentGrabbedHead.getHead();
+        }
+        return null;
     }
+
+    #endregion
+    
+    
+    
+    #region  GRAB INPUT RELEASE
+    
     //Refresh can set active head on the arm
     public void RefreshArmHeadVisibility()
     {
@@ -55,17 +79,18 @@ public class HeadManager : MonoBehaviour
             h.gameObject.SetActive(shouldBeActive);
         }
     }
-
-
-    #region  GRAB INPUT RELEASE
     
     private void OnGrabInput()
     {
-        if (_currentGrabbedHead != null)
+        if (_currentGrabbedHead != null && _currentHeadUnderHead == null)
         {
             //drop la head
             ReleaseCurrentGrabbedHead();
-        }
+        } 
+        else if (_currentGrabbedHead != null && _currentHeadUnderHead != null)
+        {
+            SwitchHeadToHeadPickUp();
+        } 
         else
         {
             //Debug.Log("try Grabbing");
@@ -109,9 +134,6 @@ public class HeadManager : MonoBehaviour
     
     
     
-    
-    
-    
     #region HEAD UNDER HEAD
     private void UpdateHeadUnderHead()
     {
@@ -140,5 +162,17 @@ public class HeadManager : MonoBehaviour
         return null;
     }
     
+    #endregion
+
+
+
+    #region SWITCH
+
+    private void SwitchHeadToHeadPickUp()
+    {
+        ReleaseCurrentGrabbedHead();
+        GrabCurrentHeadUnderHead();
+    }
+
     #endregion
 }
