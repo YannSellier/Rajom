@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using System.Collections.Generic;
 using DefaultNamespace;
+using Unity.VisualScripting;
 
 public class HeadManager : MonoBehaviour
 {
@@ -94,6 +95,7 @@ public class HeadManager : MonoBehaviour
         // release current grabbed head at transform position of arm
         _currentGrabbedHead.transform.position = _armGrabPosition.position;
         _currentGrabbedHead.gameObject.SetActive(true);
+        _currentGrabbedHead.GetComponent<Rigidbody>().useGravity = true;
         _currentGrabbedHead = null;
         RefreshArmHeadVisibility();
         
