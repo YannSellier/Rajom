@@ -2884,7 +2884,7 @@ PrefabInstance:
       objectReference: {fileID: 856966468}
     - target: {fileID: 7684140785280182143, guid: ba62b200131bd45baaa6c4824a036dd5, type: 3}
       propertyPath: changeHeadInput
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8145077421206299208, guid: ba62b200131bd45baaa6c4824a036dd5, type: 3}
       propertyPath: m_Name
