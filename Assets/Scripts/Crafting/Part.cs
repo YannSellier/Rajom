@@ -23,6 +23,7 @@ public class Part : MonoBehaviour
     public Action<Part> onPartDeleted;
     public Action onPartCrafted;
 
+    [SerializeField] private Transform _visualEvolutionsParent;
     private List<Transform> stateModificationsVisualObjects;
 
     private int indexStateVisible = 0;
@@ -71,11 +72,8 @@ public class Part : MonoBehaviour
     private void initiateStateModifications()
     {
         stateModificationsVisualObjects = new List<Transform>();
-        foreach (Transform child in transform)
+        foreach (Transform child in _visualEvolutionsParent)
         {
-            if (child == _selectionVisualObject.transform)
-                continue;
-            
             stateModificationsVisualObjects.Add(child);
         }
         indexStateVisible = 0;
@@ -101,10 +99,12 @@ public class Part : MonoBehaviour
         onPartCrafted?.Invoke();
         
         indexStateVisible++;
+        if (indexStateVisible >= stateModificationsVisualObjects.Count)
+            indexStateVisible = stateModificationsVisualObjects.Count - 1;
+        
         refreshState();
         Debug.Log("Part modification added: " + modification.GetHeadType().ToString());
     }
-
     public void refreshState()
     {
         {

@@ -38,6 +38,7 @@ public class RecipesManager
     {
         _currentRecipeIndex = (_currentRecipeIndex + 1) % _recipes.Count;
     }
+    public List<PartSlot> GetPartsSlots() => _currentPartsSlots;
     
     #endregion
     
