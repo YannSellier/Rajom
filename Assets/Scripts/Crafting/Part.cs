@@ -23,6 +23,9 @@ public class Part : MonoBehaviour
     public Action<Part> onPartDeleted;
     public Action onPartCrafted;
 
+    [SerializeField] private List<Transform> stateModifications;
+
+    private int indexStateVisible = 0;
     #endregion
 
     #region GETTERS / SETTERS
@@ -48,6 +51,7 @@ public class Part : MonoBehaviour
     protected void Start()
     {
         CreateComponents();
+        initiateStateModifications();
     }
 
     #endregion
@@ -63,6 +67,17 @@ public class Part : MonoBehaviour
         _meshRenderer = gameObject.GetComponent<MeshRenderer>();
         _meshFilter = gameObject.GetComponent<MeshFilter>();
         _rigidbody = gameObject.GetComponent<Rigidbody>();
+    }
+
+    private void initiateStateModifications()
+    {
+        stateModifications = new List<Transform>();
+        foreach (Transform child in transform)
+        {
+            stateModifications.Add(child);
+        }
+        indexStateVisible = 0;
+        refreshState();
     }
     public void Delete()
     {
@@ -83,7 +98,20 @@ public class Part : MonoBehaviour
         
         onPartCrafted?.Invoke();
         
+        indexStateVisible++;
+        refreshState();
         Debug.Log("Part modification added: " + modification.GetHeadType().ToString());
+    }
+
+    public void refreshState()
+    {
+        {
+            foreach (Transform stateObject in stateModifications)
+            {
+                Boolean verif = stateModifications[indexStateVisible] == stateObject;
+                stateObject.gameObject.SetActive(verif);
+            }
+        }
     }
 
     #endregion
