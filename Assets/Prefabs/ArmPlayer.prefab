@@ -344,6 +344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 0}
   changeHeadInput: 6
+  _armGrabPosition: {fileID: 1840639673253929600}
 --- !u!1 &3898651960588114363
 GameObject:
   m_ObjectHideFlags: 0
