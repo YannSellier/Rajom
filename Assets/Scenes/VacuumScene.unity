@@ -1452,12 +1452,12 @@ Transform:
   m_GameObject: {fileID: 990853816}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.96961, y: 1.17, z: -0.06368}
+  m_LocalPosition: {x: 0.96961, y: 1.2, z: -0.06368}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1962675891}
   - {fileID: 1352081518}
+  - {fileID: 1962675891}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1156139147
@@ -1643,7 +1643,7 @@ PrefabInstance:
       objectReference: {fileID: 856966468}
     - target: {fileID: 8145077421206299208, guid: ba62b200131bd45baaa6c4824a036dd5, type: 3}
       propertyPath: m_Name
-      value: RobotArm1 (1)
+      value: RobotArm1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2884,11 +2884,15 @@ PrefabInstance:
       objectReference: {fileID: 856966468}
     - target: {fileID: 7684140785280182143, guid: ba62b200131bd45baaa6c4824a036dd5, type: 3}
       propertyPath: changeHeadInput
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8145077421206299208, guid: ba62b200131bd45baaa6c4824a036dd5, type: 3}
       propertyPath: m_Name
-      value: RobotArm1
+      value: RobotArm2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180463587653316283, guid: ba62b200131bd45baaa6c4824a036dd5, type: 3}
+      propertyPath: _grabInput
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
