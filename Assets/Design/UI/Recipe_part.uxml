@@ -1,9 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Template name="Recipe_part_modification" src="project://database/Assets/Design/UI/Recipe_part_modification.uxml?fileID=9197481963319205126&amp;guid=9363efa82f31ef947ba4d7c36df7f9c7&amp;type=3#Recipe_part_modification" />
     <ui:VisualElement name="Recipe_part" class="part-item">
         <ui:Label name="Recipe_part_type" />
-        <ui:VisualElement name="Recipe_part_modifications" class="modifications-container">
-            <ui:Instance template="Recipe_part_modification" name="Recipe_part_modification" />
-        </ui:VisualElement>
+        <ui:VisualElement name="Recipe_part_modifications_container" class="modifications-container" />
     </ui:VisualElement>
 </ui:UXML>

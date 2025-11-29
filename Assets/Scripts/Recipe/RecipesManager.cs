@@ -103,7 +103,7 @@ public class RecipesManager
             }
         }
         
-        VacuumAssembler.GetRef().AssembleVacuum();
+        // VacuumAssembler.GetRef().AssembleVacuum();
     }
 
     #endregion

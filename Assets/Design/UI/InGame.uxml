@@ -6,6 +6,6 @@
                 <ui:Label text="02:35" name="Timer_Label" style="color: rgb(243, 243, 243); font-size: 16px; align-self: center; justify-content: center; align-content: center; align-items: center;" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:Instance template="Recipe_Root" />
+        <ui:Instance template="Recipe_Root" name="Recipe_Root" />
     </ui:VisualElement>
 </ui:UXML>

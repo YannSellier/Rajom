@@ -25,6 +25,18 @@ public class InGameMenu : UIDisplayer
     
     private const string TIMER_LABEL_NAME = "Timer_Label";
 
+    [SerializeField] private VisualTreeAsset _recipe_asset; 
+    [SerializeField] private VisualTreeAsset _recipe_part_asset; 
+    [SerializeField] private VisualTreeAsset _recipe_part_modifications_asset; 
+    
+    private const string RECIPE_CONTAINER_NAME = "Recipe_Root";
+    private const string RECIPE_PART_CONTAINER_NAME = "Recipe_parts";
+    private const string RECIPE_PART_MODIFIACTION_CONTAINER_NAME = "Recipe_part_modifications";
+    
+    private VisualElement _recipesContainer;
+    private VisualElement _recipesPartsContainer;
+    private VisualElement _recipesPartModificationsContainer;
+    
     #endregion
 
 
@@ -40,7 +52,11 @@ public class InGameMenu : UIDisplayer
         base.FindUIReferences();
         
         _timerLabel = FindVisualElement<Label>(TIMER_LABEL_NAME);
+        _recipesContainer = FindVisualElement<VisualElement>(RECIPE_CONTAINER_NAME);
+        _recipesPartsContainer = FindVisualElement<VisualElement>(RECIPE_PART_CONTAINER_NAME);
+        _recipesPartModificationsContainer = FindVisualElement<VisualElement>(RECIPE_PART_MODIFIACTION_CONTAINER_NAME);
     }
+    
     protected override void BindListeners()
     {
         base.BindListeners();
@@ -48,7 +64,9 @@ public class InGameMenu : UIDisplayer
         // other
         TimerManager.GetRef().onTimerUpdated += RefreshUI;
         GameManager.GetRef().onGameStateChanged += OnGameStateChanged;
+        RecipesCreator.GetRef().GetRecipesesManager().onRecipeChange += RefreshUI;
     }
+    
     protected override void UnbindListeners()
     {
         base.UnbindListeners();
@@ -56,6 +74,8 @@ public class InGameMenu : UIDisplayer
         // other
         TimerManager.GetRef().onTimerUpdated -= RefreshUI;
         GameManager.GetRef().onGameStateChanged -= OnGameStateChanged;
+        RecipesCreator.GetRef().GetRecipesesManager().onRecipeChange -= RefreshUI;
+        
     }
 
     #endregion
@@ -67,6 +87,8 @@ public class InGameMenu : UIDisplayer
         base.RefreshUI();
         
         _timerLabel.text = GetTimerString();
+         
+        CreateRecipe();
     }
     private string GetTimerString()
     {
@@ -91,8 +113,46 @@ public class InGameMenu : UIDisplayer
 
     #endregion
 
+    #region BUILD RECIPE
 
+    private void CreateRecipe()
+    {
+        Recipe currentRecipe = RecipesCreator.GetRef().GetRecipesesManager().GetCurrentRecipe();
+        string recipeElementId = $"recipe-{currentRecipe.GetName()}";
 
+        VisualElement existing = _recipesContainer.Q<VisualElement>(recipeElementId);
+        if (existing != null)
+            return;
+        
+        VisualElement newRecipeElement = _recipe_asset.Instantiate();
+        newRecipeElement.name = recipeElementId;
 
+        newRecipeElement.Q<Label>("Recipe_name").text = currentRecipe.GetName();
+        newRecipeElement.Q<Label>("Recipe_description").text = currentRecipe.GetDescription();
+        
+        foreach (PartData partData in currentRecipe.GetParts())
+        {
+            VisualElement partElement = _recipe_part_asset.CloneTree();
 
+            Label recipePartTypeElement = partElement.Q<Label>("Recipe_part_type");
+            if (recipePartTypeElement != null)
+                recipePartTypeElement.text = partData.GetPartType().ToString();
+            
+            foreach (PartModification modification in partData.GetModifications())
+            {
+                VisualElement modificationElement = _recipe_part_modifications_asset.CloneTree();
+
+                Label modificationLabel = modificationElement.Q<Label>("Recipe_part_modification");
+                if (modificationLabel != null)
+                    modificationLabel.text = modification.GetHeadType().ToString();
+
+                _recipesPartModificationsContainer.Add(modificationElement);
+            }
+
+            _recipesPartsContainer.Add(partElement);
+        }
+
+        _recipesContainer.Add(newRecipeElement);
+    }
+    #endregion
 }
