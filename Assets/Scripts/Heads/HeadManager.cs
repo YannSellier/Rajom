@@ -14,43 +14,39 @@ public class HeadManager : MonoBehaviour
     private PlayerInput playerInput;
 
     private List<Head> heads;
-    [SerializeField] 
-    private Head actualHead;
+    private int currentHeadIndex = 0;
+    
     void Start()
     {
         heads = new List<Head>(GetComponentsInChildren<Head>());
-        setVoid();
-        setHead(heads[3]);
+        RefreshHeadVisibility();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (playerInput.actions[inputParam].WasPressedThisFrame())
-        {
-            setHead(heads[1]);
-        }
+            PickNextHead();
     }
 
-    
-    public void setHead(Head head)
+
+    public void PickNextHead()
     {
+        currentHeadIndex = (currentHeadIndex + 1) % heads.Count;
+        RefreshHeadVisibility();
+    }
+    public Head GetCurrentHead()
+    {
+        return heads[currentHeadIndex];
+    }
+    public void RefreshHeadVisibility()
+    {
+        Head currentHead = GetCurrentHead();
+        
         foreach (Head h in heads)
         {
-            h.gameObject.SetActive(h==head);
+            bool shouldBeActive = h == currentHead;
+            h.gameObject.SetActive(shouldBeActive);
         }
-    }
-
-    public void setVoid()
-    {
-        foreach (Head h in heads)
-        {
-            h.gameObject.SetActive(false);
-        }
-    }
-
-    public EHeadType getHeadTyp()
-    {
-        return actualHead.GetHeadType();
     }
 }

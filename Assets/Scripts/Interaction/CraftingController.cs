@@ -9,9 +9,8 @@ public class CraftingController : MonoBehaviour
 
     #region VARIABLES
 
-    [SerializeField] private Head _currentHead;
-    
     private Part _partUnderHead = null;
+    private HeadManager _headManager;
     
     private PlayerInput _playerInput;
 
@@ -19,6 +18,13 @@ public class CraftingController : MonoBehaviour
 
     #region GETTERS / SETTERS
 
+    private HeadManager GetHeadManager()
+    {
+        if (_headManager == null)
+            _headManager = GetComponentInChildren<HeadManager>();
+        return _headManager;
+    }
+    private Head GetCurrentHead() => GetHeadManager()?.GetCurrentHead();
 
     #endregion
 
@@ -57,10 +63,10 @@ public class CraftingController : MonoBehaviour
 
     public void TryCrafting()
     {
-        if (_currentHead == null || _partUnderHead == null)
+        if (GetCurrentHead() == null || _partUnderHead == null)
             return;
 
-        CraftManager.GetRef().CraftPart(_partUnderHead, _currentHead);
+        CraftManager.GetRef().CraftPart(_partUnderHead, GetCurrentHead());
     }
 
     #endregion
@@ -72,7 +78,7 @@ public class CraftingController : MonoBehaviour
         // Ray cast under
         RaycastHit hit;
         LayerMask mask = 1 << LayerMask.NameToLayer("Part");
-        if (Physics.Raycast(_currentHead.transform.position, Vector3.down, out hit, 2f, mask))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f, mask))
         {
             Part part = hit.collider.GetComponent<Part>();
             if (part != null)
