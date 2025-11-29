@@ -16,10 +16,9 @@ public class Part : MonoBehaviour
     #endregion
 
     #region VARIABLES
-
-    [SerializeField] private EPartType _headType;
-    [SerializeField] private List<PartModification> _modifications = new List<PartModification>();
-
+    
+    private PartData _partData;
+    
     public Action<Part> onPartDeleted;
 
     #endregion
@@ -27,18 +26,12 @@ public class Part : MonoBehaviour
     #region GETTERS / SETTERS
 
     // part type
-    public EPartType GetPartType() => _headType;
+    public EPartType GetPartType() => _partData.GetPartType();
     
     // modifications
-    public List<PartModification> GetModifications() => _modifications;
+    public List<PartModification> GetModifications() => _partData.GetModifications();
 
     #endregion
-
-    #region CONSTRUCTOR
-
-
-    #endregion
-
 
     //=============================================================================
     // BUILT IN
@@ -52,9 +45,7 @@ public class Part : MonoBehaviour
     }
 
     #endregion
-
-
-
+    
     //=============================================================================
     // PART
     //=============================================================================
@@ -79,7 +70,7 @@ public class Part : MonoBehaviour
 
     public void AddModification(PartModification modification)
     {
-        _modifications.Add(modification);
+        _partData.AddModification(modification);
         
         Debug.Log("Part modification added: " + modification.GetHeadType().ToString());
     }
