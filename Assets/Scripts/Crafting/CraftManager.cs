@@ -9,6 +9,18 @@ public class CraftManager
 
     #endregion
 
+    #region STATIC
+
+    private static CraftManager _instance;
+    public static CraftManager GetRef()
+    {
+        if (_instance == null)
+            _instance = new CraftManager();
+        return _instance;
+    }
+
+    #endregion
+
     #region GETTERS / SETTERS
 
 

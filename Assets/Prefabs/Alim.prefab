@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3716766487652689366}
   - component: {fileID: 1188329464364378725}
   - component: {fileID: 8109546558144166284}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Alim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
