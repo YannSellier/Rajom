@@ -10,8 +10,6 @@ public class Part : MonoBehaviour
 
     #region COMPONENTS
 
-    private MeshRenderer _meshRenderer;
-    private MeshFilter _meshFilter;
     private Rigidbody _rigidbody;
 
     #endregion
@@ -19,10 +17,15 @@ public class Part : MonoBehaviour
     #region VARIABLES
 
     [SerializeField] private PartData _partData = new PartData();
-    
+
+    [SerializeField] private GameObject _selectionVisualObject;
+
     public Action<Part> onPartDeleted;
     public Action onPartCrafted;
 
+    private List<Transform> stateModificationsVisualObjects;
+
+    private int indexStateVisible = 0;
     #endregion
 
     #region GETTERS / SETTERS
@@ -48,6 +51,7 @@ public class Part : MonoBehaviour
     protected void Start()
     {
         CreateComponents();
+        initiateStateModifications();
     }
 
     #endregion
@@ -60,9 +64,21 @@ public class Part : MonoBehaviour
 
     private void CreateComponents()
     {
-        _meshRenderer = gameObject.GetComponent<MeshRenderer>();
-        _meshFilter = gameObject.GetComponent<MeshFilter>();
         _rigidbody = gameObject.GetComponent<Rigidbody>();
+    }
+
+    private void initiateStateModifications()
+    {
+        stateModificationsVisualObjects = new List<Transform>();
+        foreach (Transform child in transform)
+        {
+            if (child == _selectionVisualObject.transform)
+                continue;
+            
+            stateModificationsVisualObjects.Add(child);
+        }
+        indexStateVisible = 0;
+        refreshState();
     }
     public void Delete()
     {
@@ -83,7 +99,20 @@ public class Part : MonoBehaviour
         
         onPartCrafted?.Invoke();
         
+        indexStateVisible++;
+        refreshState();
         Debug.Log("Part modification added: " + modification.GetHeadType().ToString());
+    }
+
+    public void refreshState()
+    {
+        {
+            foreach (Transform stateObject in stateModificationsVisualObjects)
+            {
+                Boolean verif = stateModificationsVisualObjects[indexStateVisible] == stateObject;
+                stateObject.gameObject.SetActive(verif);
+            }
+        }
     }
 
     #endregion
@@ -93,14 +122,11 @@ public class Part : MonoBehaviour
     private Color baseColor;
     public void OnHoverEnter()
     {
-        baseColor = _meshRenderer.material.color;
-        if (_meshRenderer != null)
-            _meshRenderer.material.color = Color.yellow;
+        _selectionVisualObject.SetActive(true);
     }
     public void OnHoverExit()
     {
-        if (_meshRenderer != null)
-            _meshRenderer.material.color = baseColor;
+        _selectionVisualObject.SetActive(false);
     }
 
     #endregion

@@ -10,8 +10,10 @@ public class VacuumSpawner : MonoBehaviour
 
     [SerializeField] private Transform[] _spawnPoints = new Transform[4];
 
-    [SerializeField] private GameObject[] _vacuumPrefabs = new GameObject[4]; 
+    [SerializeField] private GameObject[] _vacuumPrefabs = new GameObject[4];
 
+    [SerializeField] private Transform _partsParent;
+    
     #endregion
 
     #region GETTERS / SETTERS
@@ -53,7 +55,9 @@ public class VacuumSpawner : MonoBehaviour
         if (prefab == null)
             throw new System.NullReferenceException("Prefab for part type " + partType + " is null.");
         
-        GameObject partInstance = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
+        GameObject partInstance = Instantiate(prefab, _partsParent);
+        partInstance.transform.position = spawnPoint.position;
+        partInstance.transform.localScale = Vector3.one;
         return partInstance.GetComponent<Part>();
     }
 
