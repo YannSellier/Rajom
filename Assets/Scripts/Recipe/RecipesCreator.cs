@@ -44,17 +44,6 @@ public class RecipesCreator
                 new PartData(EPartType.PIPE, new List<PartModification>{_welder}),
             }
         ),
-        new Recipe(
-            "Recipe2",
-            "Description de la seconde recette",
-            new List<PartData>
-            {
-                new PartData(EPartType.ALIM, new List<PartModification>{_welder,_drill, _saw}),
-                new PartData(EPartType.HANDLE, new List<PartModification>{_drill, _welder,_hammer}),
-                new PartData(EPartType.HEAD, new List<PartModification>{_welder, _hammer,_saw}),
-                new PartData(EPartType.PIPE, new List<PartModification>{_welder, _hammer,_drill }),
-            }
-        )
     };
 
     

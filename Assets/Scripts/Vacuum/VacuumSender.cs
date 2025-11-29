@@ -106,7 +106,6 @@ public class VacuumAssembler : MonoBehaviour
         // Start the assembling effect
         StartCoroutine(TriggerAssemblingEffect());
     }
-
     private IEnumerator TriggerAssemblingEffect()
     {
         _assemblingTimer = 0f;

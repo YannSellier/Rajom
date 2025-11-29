@@ -145,8 +145,6 @@ public class GameManager : MonoBehaviour
         _vacuumSpawner.SpawnAllParts();
         
         TimerManager.GetRef().StartTimer(_gameDuration);
-        
-        VacuumAssembler.GetRef().AssembleVacuum();
     }
 
     #endregion

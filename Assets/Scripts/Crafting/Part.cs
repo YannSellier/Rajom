@@ -44,6 +44,14 @@ public class Part : MonoBehaviour
     
     // modifications
     public List<PartModification> GetModifications() => _partData.GetModifications();
+    public PartData GetTargetPartData()
+    {
+        RecipesManager recipesManager = RecipesCreator.GetRef().GetRecipesesManager();
+        Recipe currentRecipe = recipesManager.GetCurrentRecipe();
+        
+        PartData targetPartData = currentRecipe.GetPartDataFromPartType(GetPartType());
+        return targetPartData;
+    }
     
     // assembling
     public Vector3 GetAssemblingRotation() => _assemblingRotation;
@@ -84,8 +92,13 @@ public class Part : MonoBehaviour
         {
             stateModificationsVisualObjects.Add(child);
         }
-        indexStateVisible = 0;
+        indexStateVisible = GetDefaultStateIndex();
         refreshState();
+    }
+    private int GetDefaultStateIndex()
+    {
+        int targetModificationCount = GetTargetPartData().GetModifications().Count;
+        return stateModificationsVisualObjects.Count - targetModificationCount;
     }
     public void Delete()
     {
@@ -115,12 +128,10 @@ public class Part : MonoBehaviour
     }
     public void refreshState()
     {
+        foreach (Transform stateObject in stateModificationsVisualObjects)
         {
-            foreach (Transform stateObject in stateModificationsVisualObjects)
-            {
-                Boolean verif = stateModificationsVisualObjects[indexStateVisible] == stateObject;
-                stateObject.gameObject.SetActive(verif);
-            }
+            Boolean verif = stateModificationsVisualObjects[indexStateVisible] == stateObject;
+            stateObject.gameObject.SetActive(verif);
         }
     }
 

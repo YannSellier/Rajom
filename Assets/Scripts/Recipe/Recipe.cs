@@ -44,15 +44,22 @@ public class Recipe
     {
         return _parts.Any(p => p.GetPartType() == partType);
     }
-    
-    
-    public List<PartModification> GetPartModificationsByTypeAndIndex(EPartType partType)
+
+
+    public PartData GetPartDataFromPartType(EPartType partType)
     {
         foreach (var part in _parts)
             if (part.GetPartType() == partType)
-                return part.GetModifications();
+                return part;
 
         return null;
+    }
+    public List<PartModification> GetPartModificationsByTypeAndIndex(EPartType partType)
+    {
+        PartData partData = GetPartDataFromPartType(partType);
+        if (partData != null)
+            return partData.GetModifications();
+        return new List<PartModification>();
     }
 
     
