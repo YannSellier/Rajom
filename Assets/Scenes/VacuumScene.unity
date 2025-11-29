@@ -1519,7 +1519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e6b05d29609434cb284a0860bf3e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 300
+  movementSpeed: 3
   anchorPoint: {x: -3, y: 0}
   distanceFromAnchor: 7
   playerInput: {fileID: 856966468}
@@ -2785,7 +2785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e6b05d29609434cb284a0860bf3e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 300
+  movementSpeed: 3
   anchorPoint: {x: 1, y: 0}
   distanceFromAnchor: 7
   playerInput: {fileID: 856966468}
