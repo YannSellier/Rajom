@@ -9,13 +9,14 @@ public class HeadManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    [SerializeField]
-    private PlayerInput playerInput;
-
+    [SerializeField] private PlayerInput playerInput;
+    private Head _currentGrabbedHead;
+    private Head _currentHeadUnderHead;
     [SerializeField] private EInput changeHeadInput = EInput.ChangeHead1;
-
+    [SerializeField] private Transform _grabPosition;
+    
     private List<Head> heads;
-    private int currentHeadIndex = 0;
+    
     
     void Start()
     {
@@ -27,27 +28,92 @@ public class HeadManager : MonoBehaviour
     void Update()
     {
         if (playerInput.actions[changeHeadInput.ToString()].WasPressedThisFrame())
-            PickNextHead();
+            OnGrabInput();
+            
+            // PickNextHead(); plus utile
     }
 
 
-    public void PickNextHead()
-    {
-        currentHeadIndex = (currentHeadIndex + 1) % heads.Count;
-        RefreshHeadVisibility();
-    }
     public Head GetCurrentHead()
     {
-        return heads[currentHeadIndex];
+        return _currentGrabbedHead;
     }
     public void RefreshHeadVisibility()
     {
-        Head currentHead = GetCurrentHead();
-        
+        if (_currentGrabbedHead == null)
+            return;
         foreach (Head h in heads)
         {
-            bool shouldBeActive = h == currentHead;
+            bool shouldBeActive = h == _currentGrabbedHead;
             h.gameObject.SetActive(shouldBeActive);
         }
     }
+    
+    private void OnGrabInput()
+    {
+        if (_currentGrabbedHead != null)
+        {
+        }
+        else
+        {
+            TryGrabbingHeadUnderHead();
+        }
+    }
+
+    private void TryGrabbingHeadUnderHead()
+    {
+        if (_currentHeadUnderHead != null)
+        {
+            GrabHead(_currentHeadUnderHead);
+            _currentGrabbedHead = _currentHeadUnderHead;
+            _currentHeadUnderHead = null;
+        }
+    }
+
+    private void GrabHead(Head head)
+    {
+        if (head == null || _grabPosition == null)
+            return;
+        
+        RefreshHeadVisibility();
+        head.gameObject.SetActive(false);
+    }
+
+    /*
+    private void ReleasePart(Head head)
+    {
+        if (head == null)
+            return;
+
+        head.transform.
+    }
+    */
+    
+    #region HEAD UNDER HEAD
+    private void UpdateHeadUnderHead()
+    {
+        Head headUnderHead = FindHeadUnderHead();
+        if (headUnderHead != _currentHeadUnderHead)
+            SetCurrentHeadUnderHead(headUnderHead);
+    }
+
+    private void SetCurrentHeadUnderHead(Head headUnderHead)
+    {
+        _currentHeadUnderHead = headUnderHead;
+    }
+    
+    private Head FindHeadUnderHead()
+    {
+        RaycastHit hit;
+        LayerMask mask = LayerMask.GetMask("Head");
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 100, mask))
+        {
+            Head head = hit.collider.GetComponent<Head>();
+            return head;
+        }
+
+        return null;
+    }
+    
+    #endregion
 }
