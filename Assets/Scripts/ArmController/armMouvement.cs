@@ -39,14 +39,15 @@ public class armMouvement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        velocity = new Vector2(move.x * movementSpeed, move.y * movementSpeed) * Time.deltaTime;
+        velocity = new Vector2(move.x * movementSpeed, move.y * movementSpeed);
         movement();
     }
 
     private void movement()
     {
         move = playerInput.actions[inputParam].ReadValue<Vector2>();
-        var arrivedPoint = getNewVelocity();
+        Vector2 newVelocity = getNewVelocity();
+        Vector2 arrivedPoint = new Vector2(transform.position.x, transform.position.z) + newVelocity * Time.deltaTime;
         clampVelocity(arrivedPoint);
     }
 
