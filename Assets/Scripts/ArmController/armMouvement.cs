@@ -52,12 +52,13 @@ public class armMouvement : MonoBehaviour
 
     private Vector2 getNewVelocity()
     {
-        return new Vector2(rigidBody.position.x + velocity.x, rigidBody.position.z + velocity.y);
+        return new Vector2(rigidBody.position.x + velocity.x - anchorPoint.x, rigidBody.position.z + velocity.y - anchorPoint.y);
     }
 
     private void clampVelocity(Vector2 arrivedPoint)
     {
         Debug.Log("arrived point = " + arrivedPoint);
+        
         if (!(Mathf.Sqrt(Mathf.Pow(arrivedPoint.x,2f) + Mathf.Pow(arrivedPoint.y, 2f)) > distanceFromAnchor))
         {
             setVelocity(new Vector3(velocity.x, 0.0f, velocity.y));
