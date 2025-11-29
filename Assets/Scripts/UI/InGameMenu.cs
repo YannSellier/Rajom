@@ -11,6 +11,10 @@ public class InGameMenu : UIDisplayer
 
     // ui refs
     private Label _timerLabel;
+    
+    [SerializeField] private VisualTreeAsset _recipePartAssets;
+    private RecipeDisplayer _recipeDisplayer;
+    private VisualElement _recipe_Root; 
 
     #endregion
 
@@ -24,15 +28,10 @@ public class InGameMenu : UIDisplayer
     protected override string ROOT_NAME => "InGameMenu_Root";
     
     private const string TIMER_LABEL_NAME = "Timer_Label";
-
-    private RecipeDisplayer _recipeDisplayer;
-    private VisualElement _recipe_Root; 
-    private const string _recipeDispayerElementName = "RecipeDisplayer_Root" ;
-    
+    private const string RECIPE_DISPLAYER_ROOT = "RecipeDisplayer_Root" ;
     
     #endregion
-
-
+    
 
     //=============================================================================
     // IN GAME MENU
@@ -51,7 +50,7 @@ public class InGameMenu : UIDisplayer
         base.FindUIReferences();
         
         _timerLabel = FindVisualElement<Label>(TIMER_LABEL_NAME);
-        _recipe_Root = FindVisualElement<VisualElement>(_recipeDispayerElementName);
+        _recipe_Root = FindVisualElement<VisualElement>(RECIPE_DISPLAYER_ROOT);
        
     }
     
@@ -113,10 +112,11 @@ public class InGameMenu : UIDisplayer
 
     public void CreateRecipeDisplayer(Recipe recipe)
     {
-        _recipeDisplayer = new RecipeDisplayer(recipe, _recipe_Root); 
+        _recipeDisplayer = new RecipeDisplayer(recipe, _recipe_Root, _recipePartAssets); 
         _recipeDisplayer.RefreshUI();
-
     }
+    
+
     
     #endregion
 }
