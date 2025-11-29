@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using NUnit.Framework;
+using UnityEngine;
 
 public class RecipesCreator
 {
@@ -9,41 +10,35 @@ public class RecipesCreator
     
     #region VARIABLES
 
-    private RecipesManager _recipesesManager;  
+    private RecipesManager _recipesesManager;
 
+    private static PartModification _drill = new PartModification(EHeadType.DRILL); 
+    private static PartModification _saw = new PartModification(EHeadType.SAW); 
+    private static PartModification _hammer = new PartModification(EHeadType.HAMMER); 
+    private static PartModification _welder = new PartModification(EHeadType.WELDER); 
+    
     private List<Recipe> _recipes = new List<Recipe>
     {
         new Recipe(
             "Recipe1",
             "Description de la première recette",
-            new List<TempPart>
+            new List<PartData>
             {
-                new TempPart(EPartType.ALIM, new List<string> { "setup", "build" }),
-                new TempPart(EPartType.HANDLE, new List<string> { "V8" }),
-                new TempPart(EPartType.HEAD, new List<string> { "V8" }),
-                new TempPart(EPartType.PIPE, new List<string> { "V8" }),
+                new PartData(EPartType.ALIM, new List<PartModification>{_drill, _saw}),
+                new PartData(EPartType.HANDLE, new List<PartModification>{_drill, _saw}),
+                new PartData(EPartType.HEAD, new List<PartModification>{_hammer, _hammer}),
+                new PartData(EPartType.PIPE, new List<PartModification>{_welder, _drill}),
             }
         ),
         new Recipe(
             "Recipe2",
-            "Description de la deuxième recette",
-            new List<TempPart>
+            "Description de la seconde recette",
+            new List<PartData>
             {
-                new TempPart(EPartType.ALIM, new List<string> { "setup", "build" }),
-                new TempPart(EPartType.HANDLE, new List<string> { "V8" }),
-                new TempPart(EPartType.HEAD, new List<string> { "V8" }),
-                new TempPart(EPartType.PIPE, new List<string> { "V8" }),
-            }
-        ),
-        new Recipe(
-            "Recipe3",
-            "Description de la troisième recette",
-            new List<TempPart>
-            {
-                new TempPart(EPartType.ALIM, new List<string> { "setup", "build" }),
-                new TempPart(EPartType.HANDLE, new List<string> { "V8" }),
-                new TempPart(EPartType.HEAD, new List<string> { "V8" }),
-                new TempPart(EPartType.PIPE, new List<string> { "V8" }),
+                new PartData(EPartType.ALIM, new List<PartModification>{_welder,_drill, _saw}),
+                new PartData(EPartType.HANDLE, new List<PartModification>{_drill, _welder,_hammer}),
+                new PartData(EPartType.HEAD, new List<PartModification>{_welder, _hammer,_saw}),
+                new PartData(EPartType.PIPE, new List<PartModification>{_welder, _hammer,_drill }),
             }
         )
     };

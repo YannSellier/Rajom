@@ -14,7 +14,7 @@ public class Recipe
 
     private string _name;
     private string _description;
-    private List<TempPart> _parts;
+    private List<PartData> _parts;
 
     #endregion
 
@@ -22,11 +22,11 @@ public class Recipe
     // CONSTRUCTOR
     //=============================================================================
 
-    public Recipe(string name, string description, List<TempPart> parts)
+    public Recipe(string name, string description, List<PartData> parts)
     {
         _name = name;
         _description = description;
-        _parts = parts ?? new List<TempPart>();
+        _parts = parts ?? new List<PartData>();
     }
     
     //=============================================================================
@@ -35,23 +35,23 @@ public class Recipe
     
     #region GETTERS / SETTERS
 
-    public List<TempPart> GetParts() => _parts; 
+    public List<PartData> GetParts() => _parts; 
     
     #endregion
 
     
     public bool IsPartTypeInRecipe(EPartType partType)
     {
-        return _parts.Any(p => p.Type == partType);
+        return _parts.Any(p => p.GetPartType() == partType);
     }
     
     
-    public List<string> GetPartModificationsByTypeAndIndex(EPartType partType, int index)
+    public List<PartModification> GetPartModificationsByTypeAndIndex(EPartType partType, int index)
     {
         if (index < 0 || index >= _parts.Count)
             throw new ArgumentOutOfRangeException(nameof(index), "Index hors limites de la liste des parts.");
 
-        return _parts[index].Modifications;
+        return _parts[index].GetModifications();
     }
 
     

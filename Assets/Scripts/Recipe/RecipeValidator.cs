@@ -20,22 +20,22 @@ public class RecipeValidator
     #region VALIDATOR
    
         
-    public static bool IsPartOfRecipes(TempPart part,  Recipe recipe )
+    public static bool IsPartOfRecipes(Part part,  Recipe recipe )
     {   
         if (part == null || recipe == null)
             return false;
         
-        if (!recipe.IsPartTypeInRecipe(part.Type))
+        if (!recipe.IsPartTypeInRecipe(part.GetPartType()))
             return false;
         
-        var recipeModifications = recipe.GetPartModificationsByTypeAndIndex(part.Type, 0);
+        var recipeModifications = recipe.GetPartModificationsByTypeAndIndex(part.GetPartType(), 0);
         
-        if (part.Modifications.Count != recipeModifications.Count)
+        if (part.GetModifications().Count != recipeModifications.Count)
             return false;
 
-        for (var i = 0; i < part.Modifications.Count; i++)
+        for (var i = 0; i < part.GetModifications().Count; i++)
         {
-            if (part.Modifications[i] != recipeModifications[i])
+            if (part.GetModifications()[i].GetHeadType() != recipeModifications[i].GetHeadType())
                 return false;
         }
 
