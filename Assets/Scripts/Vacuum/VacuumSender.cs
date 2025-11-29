@@ -123,8 +123,12 @@ public class VacuumAssembler : MonoBehaviour
     }
     private void UpdateAssemblingEffect()
     {
-        foreach (Part part in _partsBeingAssembled)
+        for (int i = 0 ; i < _partsBeingAssembled.Length; i++)
         {
+            Part part = GetPartByIndex(i);
+            if (part == null)
+                continue;
+            
             UpdateAssemblingEffectOnPart(part);
         }
     }
@@ -140,8 +144,10 @@ public class VacuumAssembler : MonoBehaviour
 
     private void UpdateRotationAssemblingEffectOnPart(Part part)
     {
-        Quaternion desiredRotation = Quaternion.Euler(part.GetAssemblingRotation());
-        part.transform.rotation = Quaternion.Slerp(part.transform.rotation, desiredRotation, Time.deltaTime / _assemblingDuration);
+        float remaningTime = Mathf.Max(_assemblingDuration - _assemblingTimer, 0.01f);
+        Quaternion desiredRotation = Quaternion.identity;
+            // Quaternion.Euler(part.GetAssemblingRotation());
+        part.transform.rotation = Quaternion.Slerp(part.transform.rotation, desiredRotation, Time.deltaTime / remaningTime);
     }
 
     #endregion
@@ -157,7 +163,7 @@ public class VacuumAssembler : MonoBehaviour
     private Vector3 GetDesiredPartPosition(Part part)
     {
         Vector3 vacuumOrigin = _currentVacuumObject.transform.position;
-        Vector3 vacuumDirection = _currentVacuumObject.transform.forward;
+        Vector3 vacuumDirection = -_currentVacuumObject.transform.forward;
         float partLengthOffset = GetPartLengthOffsetInVacuum(part);
         Vector3 desiredPosition = vacuumOrigin + vacuumDirection * partLengthOffset;
         return desiredPosition;
@@ -176,22 +182,43 @@ public class VacuumAssembler : MonoBehaviour
     }
     private Part GetPartByIndexInVacuum(int index)
     {
-        RecipesManager recipesManager = RecipesCreator.GetRef().GetRecipesesManager();
-        List<PartSlot> partSlots = recipesManager.GetPartsSlots();
-        if (index < 0 || index >= partSlots.Count)
-            return null;
-        return partSlots[index].GetCurrentPart();
+        EPartType partType = GetPartsTypesOrder()[index];
+        foreach (Part part in _partsBeingAssembled)
+        {
+            if (part.GetPartType() == partType)
+                return part;
+        }
+        return null;
     }
     private int GetPartIndexInVacuum(Part part)
     {
-        RecipesManager recipesManager = RecipesCreator.GetRef().GetRecipesesManager();
-        List<PartSlot> partSlots = recipesManager.GetPartsSlots();
-        for (int i = 0; i < partSlots.Count; i++)
-        {
-            if (partSlots[i].GetCurrentPart() == part)
+        EPartType[] partTypesOrder = GetPartsTypesOrder();
+        
+        EPartType partType = part.GetPartType();
+        for (int i = 0; i < partTypesOrder.Length; i++)
+            if (partType == partTypesOrder[i])
                 return i;
-        }
+        
         return -1;
+    }
+    private Part GetPartByIndex(int index)
+    {
+        foreach (Part part in _partsBeingAssembled)
+        {
+            if (GetPartIndexInVacuum(part) == index)
+                return part;
+        }
+        return null;
+    }
+    private EPartType[] GetPartsTypesOrder()
+    {
+        return new EPartType[]
+        {
+            EPartType.HANDLE,
+            EPartType.ALIM,
+            EPartType.PIPE,
+            EPartType.HEAD,
+        };
     }
 
     #endregion

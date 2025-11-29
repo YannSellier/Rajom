@@ -330,7 +330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5705027377422528007, guid: 1d2990dc317b5463e9b41b60cfe2eb32, type: 3}
       propertyPath: _assemblingLength
-      value: 3.4
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 5705027377422528007, guid: 1d2990dc317b5463e9b41b60cfe2eb32, type: 3}
       propertyPath: _assemblingRotation.x
