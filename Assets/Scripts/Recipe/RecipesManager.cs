@@ -65,4 +65,20 @@ public class RecipesManager
     }
     
     #endregion
+
+
+
+    //=============================================================================
+    // PART SLOTS
+    //=============================================================================
+
+    #region PART SLOTS
+
+    public void OnPartSlotChanged()
+    {
+        
+    }
+
+    #endregion
+
 }

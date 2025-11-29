@@ -20,6 +20,7 @@ public class Part : MonoBehaviour
     [SerializeField] private PartData _partData = new PartData();
     
     public Action<Part> onPartDeleted;
+    public Action onPartCrafted;
 
     #endregion
 
@@ -73,6 +74,8 @@ public class Part : MonoBehaviour
     public void AddModification(PartModification modification)
     {
         _partData.AddModification(modification);
+        
+        onPartCrafted?.Invoke();
         
         Debug.Log("Part modification added: " + modification.GetHeadType().ToString());
     }
