@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,7 +13,7 @@ public class HeadManager : MonoBehaviour
 
     #region VARIABLES
 
-    [SerializeField] private PlayerInput playerInput;
+    private PlayerInput playerInput;
     private HeadPickUp _currentGrabbedHead;
     private HeadPickUp _currentHeadUnderHead;
     [SerializeField] private EInput changeHeadInput = EInput.ChangeHead1;
@@ -28,6 +29,10 @@ public class HeadManager : MonoBehaviour
     
     #region START UPDATE
 
+    private void Awake()
+    {
+        playerInput = FindObjectOfType<PlayerInput>();
+    }
     void Start()
     {
         heads = new List<Head>(GetComponentsInChildren<Head>());
