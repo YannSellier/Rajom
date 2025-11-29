@@ -9,7 +9,6 @@ public class Head : MonoBehaviour
     #region VARIABLES
 
     [SerializeField] private EHeadType _headType;
-
     #endregion
 
     #region GETTERS / SETTERS
@@ -19,8 +18,6 @@ public class Head : MonoBehaviour
     #endregion
 
     #region CONSTRUCTOR
-
     
     #endregion
-            
 }

@@ -4,50 +4,175 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using System.Collections.Generic;
 using DefaultNamespace;
+using Unity.VisualScripting;
 
 public class HeadManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    [SerializeField]
-    private PlayerInput playerInput;
+    #region VARIABLES
 
+    [SerializeField] private PlayerInput playerInput;
+    private HeadPickUp _currentGrabbedHead;
+    private HeadPickUp _currentHeadUnderHead;
     [SerializeField] private EInput changeHeadInput = EInput.ChangeHead1;
-
-    private List<Head> heads;
-    private int currentHeadIndex = 0;
+    //test sans _grabPosition
+    [SerializeField] private Transform _armGrabPosition;
     
+    private List<Head> heads;
+    
+
+    #endregion
+
+    
+    
+    #region START UPDATE
+
     void Start()
     {
         heads = new List<Head>(GetComponentsInChildren<Head>());
-        RefreshHeadVisibility();
+        RefreshArmHeadVisibility();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (playerInput.actions[changeHeadInput.ToString()].WasPressedThisFrame())
-            PickNextHead();
+            OnGrabInput();
+            
+        UpdateHeadUnderHead();
+        // PickNextHead(); plus utile
     }
 
+    #endregion
 
-    public void PickNextHead()
-    {
-        currentHeadIndex = (currentHeadIndex + 1) % heads.Count;
-        RefreshHeadVisibility();
-    }
+    
+    
+    #region GETTERS
+
     public Head GetCurrentHead()
     {
-        return heads[currentHeadIndex];
+        if (_currentHeadUnderHead != null)
+        {
+            return _currentGrabbedHead.getHead();
+        }
+        return null;
     }
-    public void RefreshHeadVisibility()
+
+    #endregion
+    
+    
+    
+    #region  GRAB INPUT RELEASE
+    
+    //Refresh can set active head on the arm
+    public void RefreshArmHeadVisibility()
     {
-        Head currentHead = GetCurrentHead();
-        
         foreach (Head h in heads)
         {
-            bool shouldBeActive = h == currentHead;
+            bool shouldBeActive = false;
+            if (_currentGrabbedHead !=null)
+            {
+                Head head = _currentGrabbedHead.getHead();
+                shouldBeActive = _currentGrabbedHead != null && h.GetHeadType() == head.GetHeadType();
+            }
             h.gameObject.SetActive(shouldBeActive);
         }
     }
+    
+    private void OnGrabInput()
+    {
+        if (_currentGrabbedHead != null && _currentHeadUnderHead == null)
+        {
+            //drop la head
+            ReleaseCurrentGrabbedHead();
+        } 
+        else if (_currentGrabbedHead != null && _currentHeadUnderHead != null)
+        {
+            SwitchHeadToHeadPickUp();
+        } 
+        else
+        {
+            //Debug.Log("try Grabbing");
+            TryGrabbingHeadUnderHead();
+        }
+    }
+
+    private void TryGrabbingHeadUnderHead()
+    {
+        if (_currentHeadUnderHead != null)
+        {
+            GrabCurrentHeadUnderHead();
+            _currentHeadUnderHead = null;
+        }
+    }
+
+    private void GrabCurrentHeadUnderHead()
+    {
+        if (_currentHeadUnderHead == null || _armGrabPosition == null)
+            return;
+        
+        _currentGrabbedHead = _currentHeadUnderHead;
+        RefreshArmHeadVisibility();
+        _currentGrabbedHead.gameObject.SetActive(false);
+    }
+    
+    private void ReleaseCurrentGrabbedHead()
+    {
+        if (_currentGrabbedHead == null)
+            return;
+        // release current grabbed head at transform position of arm
+        _currentGrabbedHead.transform.position = _armGrabPosition.position;
+        _currentGrabbedHead.gameObject.SetActive(true);
+        _currentGrabbedHead.GetComponent<Rigidbody>().useGravity = true;
+        _currentGrabbedHead = null;
+        RefreshArmHeadVisibility();
+        
+    }
+
+    #endregion
+    
+    
+    
+    #region HEAD UNDER HEAD
+    private void UpdateHeadUnderHead()
+    {
+        HeadPickUp headUnderHead = FindHeadUnderHead();
+        
+        if (headUnderHead != _currentHeadUnderHead)
+            SetCurrentHeadUnderHead(headUnderHead);
+    }
+    
+    private void SetCurrentHeadUnderHead(HeadPickUp headUnderHead)
+    {
+        _currentHeadUnderHead = headUnderHead;
+    }
+    
+    private HeadPickUp FindHeadUnderHead()
+    {
+        RaycastHit hit;
+        LayerMask mask = LayerMask.GetMask("head");
+        if (Physics.Raycast(transform.position, -transform.up, out hit, 100, mask))
+        {
+            Debug.Log("ray cast");
+            HeadPickUp head = hit.collider.GetComponent<HeadPickUp>();
+            return head;
+        }
+
+        return null;
+    }
+    
+    #endregion
+
+
+
+    #region SWITCH
+
+    private void SwitchHeadToHeadPickUp()
+    {
+        ReleaseCurrentGrabbedHead();
+        GrabCurrentHeadUnderHead();
+    }
+
+    #endregion
 }
