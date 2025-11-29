@@ -1431,12 +1431,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856966467}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.96961, y: 1.17, z: -0.06368}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 990853817}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &990853816
 GameObject:
@@ -1463,12 +1463,11 @@ Transform:
   m_GameObject: {fileID: 990853816}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.96961, y: 0, z: -0.06368}
+  m_LocalPosition: {x: 0.96961, y: 1.17, z: -0.06368}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1962675891}
-  - {fileID: 856966469}
   - {fileID: 1043136319}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1485,6 +1484,8 @@ GameObject:
   - component: {fileID: 1043136321}
   - component: {fileID: 1043136320}
   - component: {fileID: 1043136323}
+  - component: {fileID: 1043136324}
+  - component: {fileID: 1043136325}
   m_Layer: 0
   m_Name: RobotArm2
   m_TagString: Untagged
@@ -1604,6 +1605,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1043136324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043136318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c3d5958732d4f509b6b1ada3f9da51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHead: {fileID: 1043136325}
+--- !u!114 &1043136325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043136318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a51f0865310148cfadd7540743b501ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _headType: 1
 --- !u!1 &1156139147
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,7 +2250,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 183
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2750,6 +2777,8 @@ GameObject:
   - component: {fileID: 1962675893}
   - component: {fileID: 1962675892}
   - component: {fileID: 1962675895}
+  - component: {fileID: 1962675896}
+  - component: {fileID: 1962675897}
   m_Layer: 0
   m_Name: RobotArm1
   m_TagString: Untagged
@@ -2870,6 +2899,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1962675896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962675890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c3d5958732d4f509b6b1ada3f9da51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHead: {fileID: 1962675897}
+--- !u!114 &1962675897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962675890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a51f0865310148cfadd7540743b501ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _headType: 0
 --- !u!1 &2048831955
 GameObject:
   m_ObjectHideFlags: 0
@@ -2975,6 +3030,7 @@ SceneRoots:
   - {fileID: 47974964}
   - {fileID: 311063612}
   - {fileID: 808769618}
+  - {fileID: 856966469}
   - {fileID: 419645306}
   - {fileID: 1769662777}
   - {fileID: 990853817}

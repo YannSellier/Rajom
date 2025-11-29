@@ -18,7 +18,7 @@ public class Part : MonoBehaviour
     #region VARIABLES
 
     [SerializeField] private EPartType _headType;
-    [SerializeField] private List<PartModification> _modifications;
+    [SerializeField] private List<PartModification> _modifications = new List<PartModification>();
 
     public Action<Part> onPartDeleted;
 
@@ -80,9 +80,29 @@ public class Part : MonoBehaviour
     public void AddModification(PartModification modification)
     {
         _modifications.Add(modification);
+        
+        Debug.Log("Part modification added: " + modification.GetHeadType().ToString());
     }
 
     #endregion
+
+    #region HOVER
+
+    private Color baseColor;
+    public void OnHoverEnter()
+    {
+        baseColor = _meshRenderer.material.color;
+        if (_meshRenderer != null)
+            _meshRenderer.material.color = Color.yellow;
+    }
+    public void OnHoverExit()
+    {
+        if (_meshRenderer != null)
+            _meshRenderer.material.color = baseColor;
+    }
+
+    #endregion
+
 
         
 }
