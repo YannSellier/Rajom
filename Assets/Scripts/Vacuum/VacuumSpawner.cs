@@ -25,6 +25,21 @@ public class VacuumSpawner : MonoBehaviour
 
     #endregion
 
+    #region STATIC 
+
+    private static VacuumSpawner _instance;
+    public static VacuumSpawner GetRef()
+    {
+        if (_instance == null)
+            _instance = FindObjectOfType<VacuumSpawner>();
+        if (_instance == null)
+            _instance = new GameObject("VacuumSpawner").AddComponent<VacuumSpawner>();
+        return _instance;
+    }
+
+    #endregion
+
+
 
 
     //=============================================================================

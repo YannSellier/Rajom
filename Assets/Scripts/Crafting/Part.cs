@@ -23,9 +23,14 @@ public class Part : MonoBehaviour
     public Action<Part> onPartDeleted;
     public Action onPartCrafted;
 
+    [SerializeField] private Transform _visualEvolutionsParent;
     private List<Transform> stateModificationsVisualObjects;
 
+    [SerializeField] private Vector3 _assemblingRotation;
+    [SerializeField] private float _assemblingLength = 1f;
+
     private int indexStateVisible = 0;
+    
     #endregion
 
     #region GETTERS / SETTERS
@@ -39,6 +44,18 @@ public class Part : MonoBehaviour
     
     // modifications
     public List<PartModification> GetModifications() => _partData.GetModifications();
+    public PartData GetTargetPartData()
+    {
+        RecipesManager recipesManager = RecipesCreator.GetRef().GetRecipesesManager();
+        Recipe currentRecipe = recipesManager.GetCurrentRecipe();
+        
+        PartData targetPartData = currentRecipe.GetPartDataFromPartType(GetPartType());
+        return targetPartData;
+    }
+    
+    // assembling
+    public Vector3 GetAssemblingRotation() => _assemblingRotation;
+    public float GetAssemblingLength() => _assemblingLength;
 
     #endregion
 
@@ -71,15 +88,17 @@ public class Part : MonoBehaviour
     private void initiateStateModifications()
     {
         stateModificationsVisualObjects = new List<Transform>();
-        foreach (Transform child in transform)
+        foreach (Transform child in _visualEvolutionsParent)
         {
-            if (child == _selectionVisualObject.transform)
-                continue;
-            
             stateModificationsVisualObjects.Add(child);
         }
-        indexStateVisible = 0;
+        indexStateVisible = GetDefaultStateIndex();
         refreshState();
+    }
+    private int GetDefaultStateIndex()
+    {
+        int targetModificationCount = GetTargetPartData().GetModifications().Count;
+        return stateModificationsVisualObjects.Count - targetModificationCount;
     }
     public void Delete()
     {
@@ -101,18 +120,18 @@ public class Part : MonoBehaviour
         onPartCrafted?.Invoke();
         
         indexStateVisible++;
+        if (indexStateVisible >= stateModificationsVisualObjects.Count)
+            indexStateVisible = stateModificationsVisualObjects.Count - 1;
+        
         refreshState();
         Debug.Log("Part modification added: " + modification.GetHeadType().ToString());
     }
-
     public void refreshState()
     {
+        foreach (Transform stateObject in stateModificationsVisualObjects)
         {
-            foreach (Transform stateObject in stateModificationsVisualObjects)
-            {
-                Boolean verif = stateModificationsVisualObjects[indexStateVisible] == stateObject;
-                stateObject.gameObject.SetActive(verif);
-            }
+            Boolean verif = stateModificationsVisualObjects[indexStateVisible] == stateObject;
+            stateObject.gameObject.SetActive(verif);
         }
     }
 

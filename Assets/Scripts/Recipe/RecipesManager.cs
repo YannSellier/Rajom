@@ -38,6 +38,7 @@ public class RecipesManager
     {
         _currentRecipeIndex = (_currentRecipeIndex + 1) % _recipes.Count;
     }
+    public List<PartSlot> GetPartsSlots() => _currentPartsSlots;
     
     #endregion
     
@@ -100,8 +101,7 @@ public class RecipesManager
             }
         }
         
-        // If yes, call game manager vaccum complete
-        GameManager.GetRef().OnVacuumComplete(); 
+        VacuumAssembler.GetRef().AssembleVacuum();
     }
 
     #endregion

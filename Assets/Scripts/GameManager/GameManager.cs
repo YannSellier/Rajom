@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     private EGameState _gameState;
 
     [SerializeField] private float _gameDuration = 120f;
+    [SerializeField] private float _delayBetweenVacuums = 2f;
     
     // references to other managers
     private VacuumSpawner _vacuumSpawner;
@@ -126,9 +128,15 @@ public class GameManager : MonoBehaviour
 
     public void OnVacuumComplete()
     {
-        TriggerNextVacuum();
+        StartCoroutine(TriggerNextVacuumAfterDelay());
         
         TimerManager.GetRef().StopTimer();
+    }
+    public IEnumerator TriggerNextVacuumAfterDelay()
+    {
+        yield return new WaitForSeconds(_delayBetweenVacuums);
+        
+        TriggerNextVacuum();
     }
     public void TriggerNextVacuum()
     {
