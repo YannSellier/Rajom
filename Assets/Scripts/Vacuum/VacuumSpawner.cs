@@ -13,6 +13,7 @@ public class VacuumSpawner : MonoBehaviour
     [SerializeField] private GameObject[] _vacuumPrefabs = new GameObject[4];
 
     [SerializeField] private Transform _partsParent;
+    
     #endregion
 
     #region GETTERS / SETTERS
