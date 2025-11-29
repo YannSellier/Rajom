@@ -8,6 +8,7 @@ public class PartSlot : MonoBehaviour
 
     #region VARIABLES
 
+    [SerializeField] private EPartType _designatedPartType;
     private BoxCollider _trigger;
     private Part _currentPart;
     
@@ -21,7 +22,8 @@ public class PartSlot : MonoBehaviour
 
     #region GETTERS / SETTERS
     
-    public Part GetPart() => _currentPart;
+    public Part GetCurrentPart() => _currentPart;
+    public EPartType GetDesignatedPartType() => _designatedPartType;
 
     #endregion
 
@@ -121,7 +123,7 @@ public class PartSlot : MonoBehaviour
 
         Recipe currentRecipe = _recipesManager.GetCurrentRecipe();
         RecipeValidator recipeValidator = _recipesManager.GetRecipeValidator();
-        return recipeValidator.IsPartFullyValidForRecipe(_currentPart, currentRecipe);
+        return recipeValidator.IsPartFullyValidForRecipe(_currentPart, currentRecipe, _designatedPartType);
     }
     
     #endregion
