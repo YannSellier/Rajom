@@ -10,6 +10,7 @@ public class RecipesManager
     
     #region VARIABLES
 
+    public Action onRecipeChange;  
     private List<Recipe> _recipes;
     private RecipeValidator _recipeValidator = new RecipeValidator();
     private int _currentRecipeIndex = -1;
@@ -37,6 +38,7 @@ public class RecipesManager
     public void PickNextRecipe()
     {
         _currentRecipeIndex = (_currentRecipeIndex + 1) % _recipes.Count;
+        onRecipeChange?.Invoke();
     }
     public List<PartSlot> GetPartsSlots() => _currentPartsSlots;
     
@@ -85,7 +87,7 @@ public class RecipesManager
 
     public void OnPartSlotChanged()
     {
-        Recipe currentRecipe = _recipes[_currentRecipeIndex];
+        Recipe currentRecipe = GetCurrentRecipe(); 
         if (currentRecipe.GetParts().Count != _currentPartsSlots.Count)
         {
             return;
@@ -101,7 +103,7 @@ public class RecipesManager
             }
         }
         
-        VacuumAssembler.GetRef().AssembleVacuum();
+        // VacuumAssembler.GetRef().AssembleVacuum();
     }
 
     #endregion

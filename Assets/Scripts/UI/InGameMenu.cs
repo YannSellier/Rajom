@@ -11,6 +11,12 @@ public class InGameMenu : UIDisplayer
 
     // ui refs
     private Label _timerLabel;
+    
+    [SerializeField] private VisualTreeAsset _recipePartAssets;
+    [SerializeField] private VisualTreeAsset _recipePartModificationsAssets;
+    
+    private RecipeDisplayer _recipeDisplayer;
+    private VisualElement _recipe_Root; 
 
     #endregion
 
@@ -24,10 +30,10 @@ public class InGameMenu : UIDisplayer
     protected override string ROOT_NAME => "InGameMenu_Root";
     
     private const string TIMER_LABEL_NAME = "Timer_Label";
-
+    private const string RECIPE_DISPLAYER_ROOT = "RecipeDisplayer_Root" ;
+    
     #endregion
-
-
+    
 
     //=============================================================================
     // IN GAME MENU
@@ -35,12 +41,21 @@ public class InGameMenu : UIDisplayer
 
     #region SETUP
 
+    protected override void Initialize()
+    {
+        base.Initialize();
+        CreateRecipeDisplayer(RecipesCreator.GetRef().GetRecipesesManager().GetCurrentRecipe()); 
+    }
+
     protected override void FindUIReferences()
     {
         base.FindUIReferences();
         
         _timerLabel = FindVisualElement<Label>(TIMER_LABEL_NAME);
+        _recipe_Root = FindVisualElement<VisualElement>(RECIPE_DISPLAYER_ROOT);
+       
     }
+    
     protected override void BindListeners()
     {
         base.BindListeners();
@@ -48,7 +63,9 @@ public class InGameMenu : UIDisplayer
         // other
         TimerManager.GetRef().onTimerUpdated += RefreshUI;
         GameManager.GetRef().onGameStateChanged += OnGameStateChanged;
+        RecipesCreator.GetRef().GetRecipesesManager().onRecipeChange += RefreshUI;
     }
+    
     protected override void UnbindListeners()
     {
         base.UnbindListeners();
@@ -56,6 +73,8 @@ public class InGameMenu : UIDisplayer
         // other
         TimerManager.GetRef().onTimerUpdated -= RefreshUI;
         GameManager.GetRef().onGameStateChanged -= OnGameStateChanged;
+        RecipesCreator.GetRef().GetRecipesesManager().onRecipeChange -= RefreshUI;
+        
     }
 
     #endregion
@@ -91,8 +110,15 @@ public class InGameMenu : UIDisplayer
 
     #endregion
 
+    #region RECIPE
 
+    public void CreateRecipeDisplayer(Recipe recipe)
+    {
+        _recipeDisplayer = new RecipeDisplayer(recipe, _recipe_Root, _recipePartAssets, _recipePartModificationsAssets); 
+        _recipeDisplayer.RefreshUI();
+    }
+    
 
-
-
+    
+    #endregion
 }

@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: 4f7d938b6661b409c80303e3136bc291
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _recipe_asset: {fileID: 9197481963319205126, guid: 09ebf74637f334c4c9d3794f7417e081, type: 3}
+  - _recipe_part_asset: {fileID: 9197481963319205126, guid: 5d9d2041480b5ea46b9143d076ca7675, type: 3}
+  - _recipe_part_modifications_asset: {fileID: 9197481963319205126, guid: 9363efa82f31ef947ba4d7c36df7f9c7, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

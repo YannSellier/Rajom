@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Recipe_Root" style="width: auto; align-items: flex-start; justify-content: flex-start; align-self: flex-start; margin: 10px; align-content: center; background-color: rgba(0, 0, 0, 0.72); color: rgb(243, 243, 243); border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; margin-left: 5px; margin-right: 5px; margin-top: 10px; margin-bottom: 5px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;">
+        <ui:Label name="Recipe_name" />
+        <ui:Label name="Recipe_description" />
+        <ui:VisualElement name="Recipe_parts_container" class="parts-container" />
+    </ui:VisualElement>
+</ui:UXML>
