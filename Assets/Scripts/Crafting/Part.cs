@@ -52,6 +52,7 @@ public class Part : MonoBehaviour
     {
         CreateComponents();
         initiateStateModifications();
+        OnHoverExit();
     }
 
     #endregion

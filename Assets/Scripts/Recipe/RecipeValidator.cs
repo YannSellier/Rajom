@@ -46,9 +46,12 @@ public class RecipeValidator
         return true; 
         
     }
-    public bool IsPartFullyValidForRecipe(Part part, Recipe recipe)
+    public bool IsPartFullyValidForRecipe(Part part, Recipe recipe, EPartType desiredPartType)
     {
         if (part == null || recipe == null)
+            return false;
+        
+        if (part.GetPartType() != desiredPartType)
             return false;
         
         if (!recipe.IsPartTypeInRecipe(part.GetPartType()))

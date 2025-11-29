@@ -8,6 +8,7 @@ public class PartSlot : MonoBehaviour
 
     #region VARIABLES
 
+    [SerializeField] private EPartType _designatedPartType;
     private BoxCollider _trigger;
     private Part _currentPart;
     
@@ -15,12 +16,14 @@ public class PartSlot : MonoBehaviour
 
     [SerializeField] private Color _validPartColor = Color.green;
     [SerializeField] private Color _invalidPartColor = Color.red;
+    [SerializeField] private Color _emptyPartColor = Color.grey;
 
     #endregion
 
     #region GETTERS / SETTERS
     
-    public Part GetPart() => _currentPart;
+    public Part GetCurrentPart() => _currentPart;
+    public EPartType GetDesignatedPartType() => _designatedPartType;
 
     #endregion
 
@@ -101,11 +104,17 @@ public class PartSlot : MonoBehaviour
 
     private void RefreshVisuals()
     {
-        bool isValid = IsPartValidForSlot();
-        Color targetColor = isValid ? _validPartColor : _invalidPartColor;
+        Color targetColor = GetSlotColor();
         Renderer renderer = GetComponent<Renderer>();
         if (renderer != null)
             renderer.material.color = targetColor;
+    }
+    private Color GetSlotColor()
+    {
+        if (_currentPart == null)
+            return _emptyPartColor;
+
+        return IsPartValidForSlot() ? _validPartColor : _invalidPartColor;
     }
     private bool IsPartValidForSlot()
     {
@@ -114,7 +123,7 @@ public class PartSlot : MonoBehaviour
 
         Recipe currentRecipe = _recipesManager.GetCurrentRecipe();
         RecipeValidator recipeValidator = _recipesManager.GetRecipeValidator();
-        return recipeValidator.IsPartFullyValidForRecipe(_currentPart, currentRecipe);
+        return recipeValidator.IsPartFullyValidForRecipe(_currentPart, currentRecipe, _designatedPartType);
     }
     
     #endregion

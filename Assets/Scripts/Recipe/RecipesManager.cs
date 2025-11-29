@@ -92,7 +92,9 @@ public class RecipesManager
 
         for (int i = 0; i < _currentPartsSlots.Count ; i++)
         {
-            if (!_recipeValidator.IsPartFullyValidForRecipe(_currentPartsSlots[i].GetPart(), currentRecipe))
+            PartSlot slot = _currentPartsSlots[i];
+                
+            if (!_recipeValidator.IsPartFullyValidForRecipe(slot.GetCurrentPart(), currentRecipe, slot.GetDesignatedPartType()))
             {
                 return; 
             }
