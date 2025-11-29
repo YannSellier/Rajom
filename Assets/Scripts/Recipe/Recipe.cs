@@ -35,6 +35,8 @@ public class Recipe
     
     #region GETTERS / SETTERS
 
+    public string GetName() => _name; 
+    public string GetDescription() => _description; 
     public List<PartData> GetParts() => _parts; 
     
     #endregion
