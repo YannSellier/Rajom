@@ -109,12 +109,12 @@ public class PartGrabController : MonoBehaviour
     private void SetCurrentPartUnderHead(Part part)
     {
         if (_currentPartUnderHead != null)
-            _currentPartUnderHead.OnHoverEnter();
+            _currentPartUnderHead.OnHoverExit();
         
         _currentPartUnderHead = part;
         
         if (_currentPartUnderHead != null)
-            _currentPartUnderHead.OnHoverExit();
+            _currentPartUnderHead.OnHoverEnter();
     }
     private Part FindPartUnderHead()
     {
