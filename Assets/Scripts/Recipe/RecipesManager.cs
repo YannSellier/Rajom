@@ -76,6 +76,10 @@ public class RecipesManager
 
     public void OnPartSlotChanged()
     {
+        // Check on each slot part that the current parts still match the recipe
+        
+        // If yes, call game manager vaccum complete
+        
         
     }
 
