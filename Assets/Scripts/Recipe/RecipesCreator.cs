@@ -7,7 +7,21 @@ public class RecipesCreator
     //=============================================================================
     // VARIABLES
     //=============================================================================
-    
+
+
+    #region STATIC
+
+    private static RecipesCreator _instance;
+    public static RecipesCreator GetRef()
+    {
+        if (_instance == null)
+            _instance = new RecipesCreator();
+        
+        return _instance;
+    }
+
+    #endregion
+
     #region VARIABLES
 
     private RecipesManager _recipesesManager;

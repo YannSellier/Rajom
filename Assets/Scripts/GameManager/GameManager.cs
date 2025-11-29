@@ -127,6 +127,8 @@ public class GameManager : MonoBehaviour
     }
     public void TriggerNextVacuum()
     {
+        RecipesCreator.GetRef().GetRecipesesManager().PickNextRecipe();
+        
         _vacuumSpawner.SpawnAllParts();
         
         TimerManager.GetRef().StartTimer(_gameDuration);

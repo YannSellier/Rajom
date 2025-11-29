@@ -11,8 +11,33 @@ public class RecipesManager
     #region VARIABLES
 
     private List<Recipe> _recipes;
+    private RecipeValidator _recipeValidator = new RecipeValidator();
+    private int _currentRecipeIndex = -1;
     
     #endregion
+
+    #region GETTERS / SETTERS
+
+
+    public RecipeValidator GetRecipeValidator() => _recipeValidator;
+    public Recipe GetCurrentRecipe()
+    {
+        if (_recipes.Count == 0)
+            return null;
+
+        if (_currentRecipeIndex == -1)
+            _currentRecipeIndex = 0;
+
+        return _recipes[_currentRecipeIndex];
+    }
+    public void PickNextRecipe()
+    {
+        _currentRecipeIndex = (_currentRecipeIndex + 1) % _recipes.Count;
+    }
+    
+    #endregion
+    
+
 
     //=============================================================================
     // CONSTRUCTOR

@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class CraftManager
 {
     //=============================================================================
@@ -48,14 +50,25 @@ public class CraftManager
         part.AddModification(modification);
 
         if (!ValidateCraftingResult(part))
+        {
+            part.Delete();
             return false;
-        
+        }
+
         return true;
     }
     
     private bool ValidateCraftingResult(Part resultPart)
     {
-        return true;
+        RecipesManager recipesManager = RecipesCreator.GetRef().GetRecipesesManager();
+        RecipeValidator recipeValidator = recipesManager.GetRecipeValidator();
+        
+        bool result = recipeValidator.IsPartOfRecipes(resultPart, recipesManager.GetCurrentRecipe());
+        
+        if (result == false)
+            Debug.LogWarning("Crafting failed: Part does not match the recipe.");
+        
+        return result;
     }
     private PartModification CreatePartModification(Head head)
     {

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class PartData 
 {
     //=============================================================================
@@ -39,6 +40,11 @@ public class PartData
         _partType = partType;
         _modifications = partModifications;
     }
+    public PartData()
+    {
+        _modifications = new List<PartModification>();
+    }
+    
     #endregion
     
 
