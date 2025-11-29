@@ -2832,9 +2832,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d53205f85ee14841bea807ccd8cb6838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sendForce: 100
-  _sendDuration: 3
+  _sendForce: 20
+  _sendDuration: 1
   _assemblingDuration: 1.5
+  _timeBeforeSending: 1.5
 --- !u!4 &2064559194
 Transform:
   m_ObjectHideFlags: 0

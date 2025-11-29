@@ -56,7 +56,9 @@ public class VacuumAssembler : MonoBehaviour
         if (vacuumRigidbody != null)
         {
             vacuumRigidbody.isKinematic = false;
-            vacuumRigidbody.AddForce((Vector3.up + Vector3.forward) * _sendForce, ForceMode.Impulse);
+            vacuumRigidbody.useGravity = true;
+            Vector3 explosionPosition = _currentVacuumObject.transform.position - Vector3.forward - Vector3.up;
+            vacuumRigidbody.AddExplosionForce(_sendForce, explosionPosition, 5f, 1f, ForceMode.Impulse);
             Destroy(_currentVacuumObject, _sendDuration);
         }
         
