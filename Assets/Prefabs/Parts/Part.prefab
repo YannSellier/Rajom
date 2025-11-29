@@ -83,6 +83,8 @@ MonoBehaviour:
     _modifications: []
   _selectionVisualObject: {fileID: 6075355547619637907}
   _visualEvolutionsParent: {fileID: 83497442506631050}
+  _assemblingRotation: {x: 0, y: 0, z: 0}
+  _assemblingLength: 1
 --- !u!54 &-2311850377910618635
 Rigidbody:
   m_ObjectHideFlags: 0

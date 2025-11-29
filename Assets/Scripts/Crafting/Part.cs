@@ -98,7 +98,7 @@ public class Part : MonoBehaviour
     private int GetDefaultStateIndex()
     {
         int targetModificationCount = GetTargetPartData().GetModifications().Count;
-        return stateModificationsVisualObjects.Count - targetModificationCount;
+        return stateModificationsVisualObjects.Count - targetModificationCount - 1;
     }
     public void Delete()
     {
