@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -28,6 +29,10 @@ public class GameManager : MonoBehaviour
     
     // references to other managers
     private VacuumSpawner _vacuumSpawner;
+    
+    
+    // events
+    public Action<EGameState> onGameStateChanged;
 
     #endregion
 
@@ -38,6 +43,8 @@ public class GameManager : MonoBehaviour
     private void SetGameState(EGameState newState)
     {
         _gameState = newState;
+        
+        onGameStateChanged?.Invoke(_gameState);
     }
 
     #endregion
@@ -62,7 +69,7 @@ public class GameManager : MonoBehaviour
     }
     protected void Start()
     {
-        StartGame();
+        SetGameState(EGameState.MAIN_MENU);
     }
 
     #endregion
