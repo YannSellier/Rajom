@@ -46,12 +46,13 @@ public class Recipe
     }
     
     
-    public List<PartModification> GetPartModificationsByTypeAndIndex(EPartType partType, int index)
+    public List<PartModification> GetPartModificationsByTypeAndIndex(EPartType partType)
     {
-        if (index < 0 || index >= _parts.Count)
-            throw new ArgumentOutOfRangeException(nameof(index), "Index hors limites de la liste des parts.");
+        foreach (var part in _parts)
+            if (part.GetPartType() == partType)
+                return part.GetModifications();
 
-        return _parts[index].GetModifications();
+        return null;
     }
 
     

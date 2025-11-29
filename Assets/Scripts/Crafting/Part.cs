@@ -16,8 +16,8 @@ public class Part : MonoBehaviour
     #endregion
 
     #region VARIABLES
-    
-    private PartData _partData;
+
+    [SerializeField] private PartData _partData = new PartData();
     
     public Action<Part> onPartDeleted;
 
@@ -59,6 +59,8 @@ public class Part : MonoBehaviour
     }
     public void Delete()
     {
+        Debug.LogWarning("Part deleted: " + gameObject.name);
+        
         onPartDeleted?.Invoke(this);
         
         Destroy(gameObject);
