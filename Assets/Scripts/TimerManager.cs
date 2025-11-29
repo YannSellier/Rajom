@@ -90,10 +90,14 @@ public class TimerManager : MonoBehaviour
 
         SetRemainingTime(_remainTime - deltaTime);
         if (_remainTime <= 0f)
-        {
-            SetRemainingTime(0f);
-            _isRunning = false;
-        }
+            OnEndTimer();
+    }
+    private void OnEndTimer()
+    {
+        _isRunning = false;
+        SetRemainingTime(0);
+        
+        GameManager.GetRef().LostGame();
     }
     private void SetRemainingTime(float time)
     {

@@ -102,6 +102,12 @@ public class GameManager : MonoBehaviour
         
         TimerManager.GetRef().ResumeTimer();
     }
+    public void LostGame()
+    {
+        SetGameState(EGameState.GAME_OVER);
+        
+        TimerManager.GetRef().StopTimer();
+    }
     public void EndGame()
     {
         SetGameState(EGameState.GAME_OVER);
