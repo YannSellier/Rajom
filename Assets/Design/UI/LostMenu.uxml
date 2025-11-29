@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Lost_Menu_Root" style="flex-grow: 1; align-self: auto; align-content: flex-start;">
+        <ui:VisualElement name="background" style="flex-grow: 1; align-content: center; justify-content: flex-start; align-items: stretch; color: rgba(0, 0, 0, 0.75); background-color: rgba(0, 0, 0, 0.62); width: 100%; position: absolute; height: 100%;" />
+        <ui:VisualElement name="button" style="flex-grow: 1; align-content: center; justify-content: center; height: auto; width: auto; align-items: stretch; align-self: center;">
+            <ui:Button text="Retry" name="Retry_Button" style="left: auto; bottom: auto; top: auto; -unity-text-align: middle-center; justify-content: flex-start;" />
+            <ui:Button text="mainMenu" name="Main_Menu_Button" style="bottom: auto; top: auto;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
