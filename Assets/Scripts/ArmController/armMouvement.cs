@@ -58,7 +58,6 @@ public class armMouvement : MonoBehaviour
 
     private void clampVelocity(Vector2 arrivedPoint)
     {
-        Debug.Log("arrived point = " + arrivedPoint);
         
         if (!(Mathf.Sqrt(Mathf.Pow(arrivedPoint.x,2f) + Mathf.Pow(arrivedPoint.y, 2f)) > distanceFromAnchor))
         {
@@ -72,7 +71,6 @@ public class armMouvement : MonoBehaviour
     
     private void setVelocity(Vector3 velocity)
     {
-        Debug.Log(velocity);
         rigidBody.linearVelocity = velocity;
     }
 }
