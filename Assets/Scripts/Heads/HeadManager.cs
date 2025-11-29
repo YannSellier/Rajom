@@ -11,7 +11,7 @@ public class HeadManager : MonoBehaviour
 
     [SerializeField] private PlayerInput playerInput;
     private Head _currentGrabbedHead;
-    private Head _currentHeadUnderHead;
+    private Head _currentHeadUnderHead = null;
     [SerializeField] private EInput changeHeadInput = EInput.ChangeHead1;
     [SerializeField] private Transform _grabPosition;
     
@@ -30,6 +30,7 @@ public class HeadManager : MonoBehaviour
         if (playerInput.actions[changeHeadInput.ToString()].WasPressedThisFrame())
             OnGrabInput();
             
+        UpdateHeadUnderHead();
             // PickNextHead(); plus utile
     }
 
@@ -40,11 +41,9 @@ public class HeadManager : MonoBehaviour
     }
     public void RefreshHeadVisibility()
     {
-        if (_currentGrabbedHead == null)
-            return;
         foreach (Head h in heads)
         {
-            bool shouldBeActive = h == _currentGrabbedHead;
+            bool shouldBeActive = _currentGrabbedHead != null && h.GetHeadType() == _currentGrabbedHead.GetHeadType();
             h.gameObject.SetActive(shouldBeActive);
         }
     }
@@ -53,9 +52,11 @@ public class HeadManager : MonoBehaviour
     {
         if (_currentGrabbedHead != null)
         {
+            Debug.Log("(bug)");
         }
         else
         {
+            Debug.Log("try Grabbing");
             TryGrabbingHeadUnderHead();
         }
     }
@@ -65,7 +66,6 @@ public class HeadManager : MonoBehaviour
         if (_currentHeadUnderHead != null)
         {
             GrabHead(_currentHeadUnderHead);
-            _currentGrabbedHead = _currentHeadUnderHead;
             _currentHeadUnderHead = null;
         }
     }
@@ -75,6 +75,7 @@ public class HeadManager : MonoBehaviour
         if (head == null || _grabPosition == null)
             return;
         
+        _currentGrabbedHead = _currentHeadUnderHead;
         RefreshHeadVisibility();
         head.gameObject.SetActive(false);
     }
@@ -93,6 +94,7 @@ public class HeadManager : MonoBehaviour
     private void UpdateHeadUnderHead()
     {
         Head headUnderHead = FindHeadUnderHead();
+        
         if (headUnderHead != _currentHeadUnderHead)
             SetCurrentHeadUnderHead(headUnderHead);
     }
@@ -105,10 +107,11 @@ public class HeadManager : MonoBehaviour
     private Head FindHeadUnderHead()
     {
         RaycastHit hit;
-        LayerMask mask = LayerMask.GetMask("Head");
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 100, mask))
+        LayerMask mask = LayerMask.GetMask("head");
+        if (Physics.Raycast(transform.position, -transform.up, out hit, 100, mask))
         {
-            Head head = hit.collider.GetComponent<Head>();
+            Debug.Log("ray cast");
+            Head head = hit.collider.GetComponentInChildren<Head>();
             return head;
         }
 
