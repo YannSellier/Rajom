@@ -19,7 +19,8 @@ public class PartSlot : MonoBehaviour
     #endregion
 
     #region GETTERS / SETTERS
-
+    
+    public Part GetPart() => _currentPart;
 
     #endregion
 
@@ -39,6 +40,7 @@ public class PartSlot : MonoBehaviour
     protected void Awake()
     {
         _recipesManager = RecipesCreator.GetRef().GetRecipesesManager();
+        _recipesManager.RegisterPartSlot(this);
     }
     
     // on trigger enter

@@ -14,6 +14,10 @@ public class RecipesManager
     private RecipeValidator _recipeValidator = new RecipeValidator();
     private int _currentRecipeIndex = -1;
     
+    // All Part in the scene 
+    private List<PartSlot> _currentPartsSlots = new List<PartSlot>();
+        
+    
     #endregion
 
     #region GETTERS / SETTERS
@@ -63,7 +67,11 @@ public class RecipesManager
 
         _recipes.Add(recipe);
     }
-    
+
+    public void RegisterPartSlot(PartSlot partSlot)
+    {
+        _currentPartsSlots.Add(partSlot);
+    }
     #endregion
 
 
@@ -76,11 +84,22 @@ public class RecipesManager
 
     public void OnPartSlotChanged()
     {
-        // Check on each slot part that the current parts still match the recipe
+        Recipe currentRecipe = _recipes[_currentRecipeIndex];
+        if (currentRecipe.GetParts().Count != _currentPartsSlots.Count)
+        {
+            return;
+        }
+
+        for (int i = 0; i < _currentPartsSlots.Count ; i++)
+        {
+            if (!_recipeValidator.IsPartFullyValidForRecipe(_currentPartsSlots[i].GetPart(), currentRecipe))
+            {
+                return; 
+            }
+        }
         
         // If yes, call game manager vaccum complete
-        
-        
+        GameManager.GetRef().OnVacuumComplete(); 
     }
 
     #endregion
