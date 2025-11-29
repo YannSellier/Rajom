@@ -38,10 +38,10 @@ public class RecipesCreator
             "Description de la première recette",
             new List<PartData>
             {
-                new PartData(EPartType.ALIM, new List<PartModification>{_drill, _saw}),
-                new PartData(EPartType.HANDLE, new List<PartModification>{_drill, _saw}),
-                new PartData(EPartType.HEAD, new List<PartModification>{_hammer, _hammer}),
-                new PartData(EPartType.PIPE, new List<PartModification>{_welder, _drill}),
+                new PartData(EPartType.ALIM, new List<PartModification>{_drill}),
+                new PartData(EPartType.HANDLE, new List<PartModification>{_saw}),
+                new PartData(EPartType.HEAD, new List<PartModification>{_hammer}),
+                new PartData(EPartType.PIPE, new List<PartModification>{_welder}),
             }
         ),
         new Recipe(

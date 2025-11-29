@@ -1,4 +1,5 @@
 using System;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,7 +27,7 @@ public class armMouvement : MonoBehaviour
     private Rigidbody rigidBody;
 
     [SerializeField] 
-    private String inputParam;
+    private EInput inputParam = EInput.Move1;
     
     
     
@@ -45,7 +46,7 @@ public class armMouvement : MonoBehaviour
 
     private void movement()
     {
-        move = playerInput.actions[inputParam].ReadValue<Vector2>();
+        move = playerInput.actions[inputParam.ToString()].ReadValue<Vector2>();
         Vector2 newVelocity = getNewVelocity();
         Vector2 arrivedPoint = new Vector2(transform.position.x, transform.position.z) + newVelocity * Time.deltaTime;
         clampVelocity(arrivedPoint);

@@ -63,7 +63,7 @@ public class CraftManager
         RecipesManager recipesManager = RecipesCreator.GetRef().GetRecipesesManager();
         RecipeValidator recipeValidator = recipesManager.GetRecipeValidator();
         
-        bool result = recipeValidator.IsPartOfRecipes(resultPart, recipesManager.GetCurrentRecipe());
+        bool result = recipeValidator.IsPartPartiallyValidForRecipe(resultPart, recipesManager.GetCurrentRecipe());
         
         if (result == false)
             Debug.LogWarning("Crafting failed: Part does not match the recipe.");

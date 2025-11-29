@@ -3,54 +3,51 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using System.Collections.Generic;
+using DefaultNamespace;
+
 public class HeadManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    [SerializeField] 
-    private string inputParam;
-    
     [SerializeField]
     private PlayerInput playerInput;
 
+    [SerializeField] private EInput changeHeadInput = EInput.ChangeHead1;
+
     private List<Head> heads;
-    [SerializeField] 
-    private Head actualHead;
+    private int currentHeadIndex = 0;
+    
     void Start()
     {
         heads = new List<Head>(GetComponentsInChildren<Head>());
-        setVoid();
-        setHead(heads[3]);
+        RefreshHeadVisibility();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerInput.actions[inputParam].WasPressedThisFrame())
-        {
-            setHead(heads[1]);
-        }
+        if (playerInput.actions[changeHeadInput.ToString()].WasPressedThisFrame())
+            PickNextHead();
     }
 
-    
-    public void setHead(Head head)
+
+    public void PickNextHead()
     {
+        currentHeadIndex = (currentHeadIndex + 1) % heads.Count;
+        RefreshHeadVisibility();
+    }
+    public Head GetCurrentHead()
+    {
+        return heads[currentHeadIndex];
+    }
+    public void RefreshHeadVisibility()
+    {
+        Head currentHead = GetCurrentHead();
+        
         foreach (Head h in heads)
         {
-            h.gameObject.SetActive(h==head);
+            bool shouldBeActive = h == currentHead;
+            h.gameObject.SetActive(shouldBeActive);
         }
-    }
-
-    public void setVoid()
-    {
-        foreach (Head h in heads)
-        {
-            h.gameObject.SetActive(false);
-        }
-    }
-
-    public EHeadType getHeadTyp()
-    {
-        return actualHead.GetHeadType();
     }
 }
