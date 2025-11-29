@@ -63,8 +63,8 @@ public class Part : MonoBehaviour
 
     private void CreateComponents()
     {
-        _meshRenderer = gameObject.AddComponent<MeshRenderer>();
-        _meshFilter = gameObject.AddComponent<MeshFilter>();
+        _meshRenderer = gameObject.GetComponent<MeshRenderer>();
+        _meshFilter = gameObject.GetComponent<MeshFilter>();
     }
     public void Delete()
     {
