@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
     }
     protected void Start()
     {
-        SetGameState(EGameState.MAIN_MENU);
+        MainMenu();
     }
 
     #endregion
@@ -113,6 +113,11 @@ public class GameManager : MonoBehaviour
         SetGameState(EGameState.GAME_OVER);
         
         TimerManager.GetRef().StopTimer();
+    }
+
+    public void MainMenu()
+    {
+        SetGameState(EGameState.MAIN_MENU);
     }
 
     #endregion

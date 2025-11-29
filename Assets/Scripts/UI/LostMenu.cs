@@ -47,12 +47,12 @@ public class LostMenu : UIDisplayer
 
     private void OnRetryButtonClicked()
     {
-        
+        GameManager.GetRef().StartGame();
     }
 
     private void OnMainMenuButtonClicked()
     {
-        
+        GameManager.GetRef().MainMenu();
     }
 
     private void OnGameStateChanged(EGameState newState)
