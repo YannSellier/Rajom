@@ -1,0 +1,98 @@
+using UnityEngine;
+using UnityEngine.UIElements;
+
+public class InGameMenu : UIDisplayer
+{
+    //=============================================================================
+    // VARIABLES
+    //=============================================================================
+
+    #region VARIABLES
+
+    // ui refs
+    private Label _timerLabel;
+
+    #endregion
+
+    #region GETTERS / SETTERS
+
+
+    #endregion
+
+    #region UI ELEMENT NAMES
+
+    protected override string ROOT_NAME => "InGameMenu_Root";
+    
+    private const string TIMER_LABEL_NAME = "Timer_Label";
+
+    #endregion
+
+
+
+    //=============================================================================
+    // IN GAME MENU
+    //=============================================================================
+
+    #region SETUP
+
+    protected override void FindUIReferences()
+    {
+        base.FindUIReferences();
+        
+        _timerLabel = FindVisualElement<Label>(TIMER_LABEL_NAME);
+    }
+    protected override void BindListeners()
+    {
+        base.BindListeners();
+        
+        // other
+        TimerManager.GetRef().onTimerUpdated += RefreshUI;
+        GameManager.GetRef().onGameStateChanged += OnGameStateChanged;
+    }
+    protected override void UnbindListeners()
+    {
+        base.UnbindListeners();
+        
+        // other
+        TimerManager.GetRef().onTimerUpdated -= RefreshUI;
+        GameManager.GetRef().onGameStateChanged -= OnGameStateChanged;
+    }
+
+    #endregion
+
+    #region REFRESH UI
+
+    public override void RefreshUI()
+    {
+        base.RefreshUI();
+        
+        _timerLabel.text = GetTimerString();
+    }
+    private string GetTimerString()
+    {
+        float timeRemaining = TimerManager.GetRef().GetRemainingTime();
+        
+        int minutes = Mathf.FloorToInt(timeRemaining / 60f);
+        int seconds = Mathf.FloorToInt(timeRemaining % 60f);
+        return $"{minutes:00}:{seconds:00}";
+    }
+
+    #endregion
+
+    #region CALLBACKS
+
+    private void OnGameStateChanged(EGameState newState)
+    {
+        if (newState == EGameState.IN_GAME)
+            Open();
+        else
+            Close();
+    }
+
+    #endregion
+
+
+
+
+
+}

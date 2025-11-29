@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     #region VARIABLES
 
     private EGameState _gameState;
+
+    [SerializeField] private float _gameDuration = 120f;
     
     // references to other managers
     private VacuumSpawner _vacuumSpawner;
@@ -91,14 +93,26 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         SetGameState(EGameState.PAUSED);
+        
+        TimerManager.GetRef().PauseTimer();
     }
     public void ResumeGame()
     {
         SetGameState(EGameState.IN_GAME);
+        
+        TimerManager.GetRef().ResumeTimer();
+    }
+    public void LostGame()
+    {
+        SetGameState(EGameState.GAME_OVER);
+        
+        TimerManager.GetRef().StopTimer();
     }
     public void EndGame()
     {
         SetGameState(EGameState.GAME_OVER);
+        
+        TimerManager.GetRef().StopTimer();
     }
 
     #endregion
@@ -108,10 +122,14 @@ public class GameManager : MonoBehaviour
     public void OnVacuumComplete()
     {
         TriggerNextVacuum();
+        
+        TimerManager.GetRef().StopTimer();
     }
     public void TriggerNextVacuum()
     {
         _vacuumSpawner.SpawnAllParts();
+        
+        TimerManager.GetRef().StartTimer(_gameDuration);
     }
 
     #endregion
