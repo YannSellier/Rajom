@@ -6,7 +6,7 @@
             "id": "df70fa95-8a34-4494-b137-73ab6b9c7d37",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "Move1",
                     "type": "Value",
                     "id": "351f2ccd-1f9f-44bf-9bec-d62ac5c5f408",
                     "expectedControlType": "Vector2",
@@ -96,7 +96,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Arrow",
+                    "name": "Move2",
                     "type": "Value",
                     "id": "2e0e5a4f-b19c-43c2-aa82-c2e709941cb0",
                     "expectedControlType": "Vector2",
@@ -105,9 +105,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Craft",
+                    "name": "Craft1",
                     "type": "Button",
                     "id": "f057026b-785b-4cdb-a35e-c125f829a97a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Craft2",
+                    "type": "Button",
+                    "id": "463350e6-08c9-4695-8df3-868b55648fe5",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -117,6 +126,15 @@
                     "name": "ChangeHead1",
                     "type": "Button",
                     "id": "cadec304-eaad-4795-9bff-a5bfd94cb404",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeHead2",
+                    "type": "Button",
+                    "id": "d2a3b3ae-f9dd-4dac-9c5a-49218211bb37",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -131,7 +149,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Move",
+                    "action": "Move1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -142,7 +160,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Move1",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -153,7 +171,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Move1",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -164,7 +182,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Move1",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -175,7 +193,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Move1",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -186,7 +204,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Move",
+                    "action": "Move1",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -197,7 +215,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
-                    "action": "Move",
+                    "action": "Move1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -208,7 +226,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
-                    "action": "Move",
+                    "action": "Move1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -494,7 +512,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Arrow",
+                    "action": "Move2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -505,7 +523,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Arrow",
+                    "action": "Move2",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -516,7 +534,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Arrow",
+                    "action": "Move2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -527,7 +545,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Arrow",
+                    "action": "Move2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -538,7 +556,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Arrow",
+                    "action": "Move2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -549,7 +567,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Arrow",
+                    "action": "Move2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -560,7 +578,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Craft",
+                    "action": "Craft1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "480a241b-7e2b-45ee-abb7-392eebababde",
+                    "path": "<Keyboard>/semicolon",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Craft2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -572,6 +601,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ChangeHead1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "898c865a-3b93-4ed4-8893-0bb560f8aa45",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeHead2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -3,15 +3,16 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using System.Collections.Generic;
+using DefaultNamespace;
+
 public class HeadManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    [SerializeField] 
-    private string inputParam;
-    
     [SerializeField]
     private PlayerInput playerInput;
+
+    [SerializeField] private EInput changeHeadInput = EInput.ChangeHead1;
 
     private List<Head> heads;
     private int currentHeadIndex = 0;
@@ -25,7 +26,7 @@ public class HeadManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerInput.actions[inputParam].WasPressedThisFrame())
+        if (playerInput.actions[changeHeadInput.ToString()].WasPressedThisFrame())
             PickNextHead();
     }
 

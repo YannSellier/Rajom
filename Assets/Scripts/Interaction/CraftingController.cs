@@ -1,3 +1,4 @@
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,8 @@ public class CraftingController : MonoBehaviour
     private HeadManager _headManager;
     
     private PlayerInput _playerInput;
+
+    [SerializeField] private EInput _craftInput = EInput.Craft1;
 
     #endregion
 
@@ -44,7 +47,7 @@ public class CraftingController : MonoBehaviour
     {
         UpdatePartUnderHead();
         
-        if (_playerInput.actions["Craft"].WasPerformedThisFrame())
+        if (_playerInput.actions[_craftInput.ToString()].WasPerformedThisFrame())
         {
             TryCrafting();
         }
