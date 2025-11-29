@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3489319991457647186}
   - component: {fileID: 5762963407259639428}
+  - component: {fileID: 4118727119599427480}
   m_Layer: 8
   m_Name: HeadPickup
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 3.1179547, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1655390738229885836}
@@ -60,6 +61,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4118727119599427480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090325103192494294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b739595b0bbd84db34b3c566e1e8ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selectionVisualHead: {fileID: 3783957957313688464}
+  _headToPickUp: {fileID: 0}
 --- !u!1 &3783957957313688464
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +103,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4760582, y: 0.06434096, z: 1.4539007}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3489319991457647186}

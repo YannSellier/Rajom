@@ -11,8 +11,8 @@ public class HeadManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     [SerializeField] private PlayerInput playerInput;
-    private Head _currentGrabbedHead;
-    private Head _currentHeadUnderHead = null;
+    private HeadPickUp _currentGrabbedHead;
+    private HeadPickUp _currentHeadUnderHead;
     [SerializeField] private EInput changeHeadInput = EInput.ChangeHead1;
     //test sans _grabPosition
     [SerializeField] private Transform _armGrabPosition;
@@ -39,15 +39,19 @@ public class HeadManager : MonoBehaviour
 
     public Head GetCurrentHead()
     {
-        return _currentGrabbedHead;
+        return _currentGrabbedHead.getHead();
     }
-    
     //Refresh can set active head on the arm
     public void RefreshArmHeadVisibility()
     {
         foreach (Head h in heads)
         {
-            bool shouldBeActive = _currentGrabbedHead != null && h.GetHeadType() == _currentGrabbedHead.GetHeadType();
+            bool shouldBeActive = false;
+            if (_currentGrabbedHead !=null)
+            {
+                Head head = _currentGrabbedHead.getHead();
+                shouldBeActive = _currentGrabbedHead != null && h.GetHeadType() == head.GetHeadType();
+            }
             h.gameObject.SetActive(shouldBeActive);
         }
     }
@@ -111,25 +115,25 @@ public class HeadManager : MonoBehaviour
     #region HEAD UNDER HEAD
     private void UpdateHeadUnderHead()
     {
-        Head headUnderHead = FindHeadUnderHead();
+        HeadPickUp headUnderHead = FindHeadUnderHead();
         
         if (headUnderHead != _currentHeadUnderHead)
             SetCurrentHeadUnderHead(headUnderHead);
     }
     
-    private void SetCurrentHeadUnderHead(Head headUnderHead)
+    private void SetCurrentHeadUnderHead(HeadPickUp headUnderHead)
     {
         _currentHeadUnderHead = headUnderHead;
     }
     
-    private Head FindHeadUnderHead()
+    private HeadPickUp FindHeadUnderHead()
     {
         RaycastHit hit;
         LayerMask mask = LayerMask.GetMask("head");
         if (Physics.Raycast(transform.position, -transform.up, out hit, 100, mask))
         {
             Debug.Log("ray cast");
-            Head head = hit.collider.GetComponentInChildren<Head>();
+            HeadPickUp head = hit.collider.GetComponent<HeadPickUp>();
             return head;
         }
 
