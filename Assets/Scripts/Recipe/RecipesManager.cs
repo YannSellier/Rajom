@@ -101,8 +101,7 @@ public class RecipesManager
             }
         }
         
-        // If yes, call game manager vaccum complete
-        GameManager.GetRef().OnVacuumComplete(); 
+        VacuumAssembler.GetRef().AssembleVacuum();
     }
 
     #endregion

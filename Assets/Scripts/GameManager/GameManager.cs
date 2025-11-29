@@ -128,9 +128,6 @@ public class GameManager : MonoBehaviour
 
     public void OnVacuumComplete()
     {
-        VacuumAssembler.GetRef().AssembleVacuum();
-        VacuumAssembler.GetRef().SendVacuum();
-        
         StartCoroutine(TriggerNextVacuumAfterDelay());
         
         TimerManager.GetRef().StopTimer();
@@ -148,6 +145,8 @@ public class GameManager : MonoBehaviour
         _vacuumSpawner.SpawnAllParts();
         
         TimerManager.GetRef().StartTimer(_gameDuration);
+        
+        VacuumAssembler.GetRef().AssembleVacuum();
     }
 
     #endregion

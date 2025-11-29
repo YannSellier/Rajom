@@ -98,6 +98,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GunHandlePart
       objectReference: {fileID: 0}
+    - target: {fileID: 2344495140757157458, guid: b2156cff710e8489db1042a7b6170b9b, type: 3}
+      propertyPath: _assemblingLength
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2344495140757157458, guid: b2156cff710e8489db1042a7b6170b9b, type: 3}
+      propertyPath: _assemblingRotation.x
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 5539360641074722228, guid: b2156cff710e8489db1042a7b6170b9b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

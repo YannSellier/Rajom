@@ -26,7 +26,11 @@ public class Part : MonoBehaviour
     [SerializeField] private Transform _visualEvolutionsParent;
     private List<Transform> stateModificationsVisualObjects;
 
+    [SerializeField] private Vector3 _assemblingRotation;
+    [SerializeField] private float _assemblingLength = 1f;
+
     private int indexStateVisible = 0;
+    
     #endregion
 
     #region GETTERS / SETTERS
@@ -40,6 +44,10 @@ public class Part : MonoBehaviour
     
     // modifications
     public List<PartModification> GetModifications() => _partData.GetModifications();
+    
+    // assembling
+    public Vector3 GetAssemblingRotation() => _assemblingRotation;
+    public float GetAssemblingLength() => _assemblingLength;
 
     #endregion
 

@@ -328,6 +328,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 5705027377422528007, guid: 1d2990dc317b5463e9b41b60cfe2eb32, type: 3}
+      propertyPath: _assemblingLength
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5705027377422528007, guid: 1d2990dc317b5463e9b41b60cfe2eb32, type: 3}
+      propertyPath: _assemblingRotation.x
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 6048001961011872836, guid: 1d2990dc317b5463e9b41b60cfe2eb32, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0

@@ -2834,6 +2834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sendForce: 100
   _sendDuration: 3
+  _assemblingDuration: 1.5
 --- !u!4 &2064559194
 Transform:
   m_ObjectHideFlags: 0
@@ -2842,13 +2843,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064559192}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.20802, y: 0.29, z: -0.20709}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.20802, y: 2.295, z: -0.20709}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1001 &5910490929405711981
 PrefabInstance:
   m_ObjectHideFlags: 0
