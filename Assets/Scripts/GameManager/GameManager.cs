@@ -60,6 +60,10 @@ public class GameManager : MonoBehaviour
         // get references to other managers
         _vacuumSpawner = FindObjectOfType<VacuumSpawner>();
     }
+    protected void Start()
+    {
+        StartGame();
+    }
 
     #endregion
 
