@@ -396,7 +396,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7939499007226353496}
   serializedVersion: 5
-  m_Mass: 0.01
+  m_Mass: 100
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -599,7 +599,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3701092363606843724}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1303,10 +1303,10 @@ HingeJoint:
     spring: 0
     damper: 0
     targetPosition: 0
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
     targetVelocity: 0
-    force: 0
+    force: 10
     freeSpin: 0
   m_UseLimits: 0
   m_ExtendedLimits: 0
@@ -1363,7 +1363,7 @@ SpringJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
-  m_Spring: 10
+  m_Spring: 100
   m_Damper: 0
   m_MinDistance: 0
   m_MaxDistance: 0
@@ -1500,7 +1500,7 @@ SpringJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
-  m_Spring: 10
+  m_Spring: 100
   m_Damper: 0
   m_MinDistance: 0
   m_MaxDistance: 0
@@ -1530,10 +1530,10 @@ HingeJoint:
     spring: 0
     damper: 0
     targetPosition: 0
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
     targetVelocity: 0
-    force: 0
+    force: 10
     freeSpin: 0
   m_UseLimits: 0
   m_ExtendedLimits: 0
@@ -1566,7 +1566,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3706316518049576684}
   serializedVersion: 5
-  m_Mass: 0.01
+  m_Mass: 100
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1745,7 +1745,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 16
@@ -1798,10 +1798,10 @@ HingeJoint:
     spring: 0
     damper: 0
     targetPosition: 0
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
     targetVelocity: 0
-    force: 0
+    force: 10
     freeSpin: 0
   m_UseLimits: 0
   m_ExtendedLimits: 0
@@ -1858,7 +1858,7 @@ SpringJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
-  m_Spring: 10
+  m_Spring: 100
   m_Damper: 0
   m_MinDistance: 0
   m_MaxDistance: 0
@@ -1909,7 +1909,7 @@ SpringJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
-  m_Spring: 10
+  m_Spring: 100
   m_Damper: 0
   m_MinDistance: 0
   m_MaxDistance: 0
@@ -1939,10 +1939,10 @@ HingeJoint:
     spring: 0
     damper: 0
     targetPosition: 0
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
     targetVelocity: 0
-    force: 0
+    force: 10
     freeSpin: 0
   m_UseLimits: 0
   m_ExtendedLimits: 0
