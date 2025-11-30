@@ -35,7 +35,7 @@ public class RecipeValidator
         if (part.GetModifications().Count > recipeModifications.Count)
             return false;
         
-        if (!CompareModificationsLists(part.GetModifications(), recipeModifications))
+        if (!CompareModificationsLists(part.GetModifications(), recipeModifications, false))
             return false;
 
         return true; 
@@ -59,14 +59,14 @@ public class RecipeValidator
         if (part.GetModifications().Count != recipeModifications.Count)
             return false;
         
-        if (!CompareModificationsLists(part.GetModifications(), recipeModifications))
+        if (!CompareModificationsLists(part.GetModifications(), recipeModifications, true))
             return false;
 
         return true;
     }
-    private bool CompareModificationsLists(List<PartModification> partModifications, List<PartModification> recipeModifications)
+    private bool CompareModificationsLists(List<PartModification> partModifications, List<PartModification> recipeModifications, bool shouldCompareCount)
     {
-        if (partModifications.Count != recipeModifications.Count)
+        if (partModifications.Count != recipeModifications.Count && shouldCompareCount)
             return false;
 
         for (int i = 0; i < partModifications.Count; i++)

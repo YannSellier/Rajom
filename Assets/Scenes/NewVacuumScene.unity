@@ -839,6 +839,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6b04780108e32462c8c637cd8f97fb3e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6cbe78386561940fbb21b207d3ce8183, type: 2}
     - target: {fileID: 919132149155446097, guid: 6b04780108e32462c8c637cd8f97fb3e, type: 3}
       propertyPath: m_Name
       value: WorkSlot_Cote
@@ -970,6 +974,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ef630cef87c8a49088605aba82adbddc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4de273d27dc2c4bdd8533734d291525e, type: 2}
     - target: {fileID: 919132149155446097, guid: ef630cef87c8a49088605aba82adbddc, type: 3}
       propertyPath: m_Name
       value: WorkSlot_Centre (1)
@@ -998,7 +1006,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 260706294870455350, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: _workStationType
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6189388932188375330, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: m_Name
@@ -2972,7 +2980,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 260706294870455350, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: _workStationType
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6189388932188375330, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: m_Name
@@ -3304,6 +3312,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6b04780108e32462c8c637cd8f97fb3e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ce88c3b426595449ba5275ab5ad14ce7, type: 2}
     - target: {fileID: 919132149155446097, guid: 6b04780108e32462c8c637cd8f97fb3e, type: 3}
       propertyPath: m_Name
       value: WorkSlot_Cote (1)
@@ -6596,7 +6608,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 260706294870455350, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: _workStationType
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6189388932188375330, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: m_Name
@@ -7159,6 +7171,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ef630cef87c8a49088605aba82adbddc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ca79be982c3c941ab8edc8ea519172c9, type: 2}
     - target: {fileID: 919132149155446097, guid: ef630cef87c8a49088605aba82adbddc, type: 3}
       propertyPath: m_Name
       value: WorkSlot_Centre
