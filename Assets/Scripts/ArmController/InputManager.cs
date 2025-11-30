@@ -25,8 +25,6 @@ public class InputManager : MonoBehaviour
         _playerInput.actions[_input.ToString()].performed += ctx => ManageGrabHeadPart();
     }
 
-
-
     private void ManageGrabHeadPart()
     {
         if (_partManager.GetCurrentGrabbedPart() != null || _partManager.GetCurrentPartUnderHead() != null)

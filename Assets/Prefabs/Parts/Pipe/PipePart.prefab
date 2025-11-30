@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: _partData._partType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4194712081661281936, guid: bd7ed684dc0eb4cc78f71c9407148e6d, type: 3}
+      propertyPath: _assemblingRotation.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6223990792194196854, guid: bd7ed684dc0eb4cc78f71c9407148e6d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

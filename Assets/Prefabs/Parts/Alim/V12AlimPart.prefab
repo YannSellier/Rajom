@@ -242,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8048744411383979367, guid: 1d2990dc317b5463e9b41b60cfe2eb32, type: 3}
       propertyPath: m_Name
-      value: AlimPart Variant
+      value: V12AlimPart
       objectReference: {fileID: 0}
     - target: {fileID: 8372873674991259421, guid: 1d2990dc317b5463e9b41b60cfe2eb32, type: 3}
       propertyPath: m_LocalPosition.z
@@ -264,8 +264,39 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8372873674991259421, guid: 1d2990dc317b5463e9b41b60cfe2eb32, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7512766012831720875}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8048744411383979367, guid: 1d2990dc317b5463e9b41b60cfe2eb32, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7652443279923372253}
   m_SourcePrefab: {fileID: 100100000, guid: 1d2990dc317b5463e9b41b60cfe2eb32, type: 3}
+--- !u!1 &318148973271743524 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8048744411383979367, guid: 1d2990dc317b5463e9b41b60cfe2eb32, type: 3}
+  m_PrefabInstance: {fileID: 7771146612943331651}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &7652443279923372253
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318148973271743524}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &2299866704674909790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8372873674991259421, guid: 1d2990dc317b5463e9b41b60cfe2eb32, type: 3}

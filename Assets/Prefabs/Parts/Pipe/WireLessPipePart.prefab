@@ -88,14 +88,49 @@ PrefabInstance:
       propertyPath: m_Name
       value: WireLessPipePart
       objectReference: {fileID: 0}
+    - target: {fileID: 8862742234990753477, guid: 201efb3f3b213459e980f62655672a94, type: 3}
+      propertyPath: _assemblingRotation.x
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4747059031398324191, guid: 201efb3f3b213459e980f62655672a94, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6451452613991775042}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6512345054247355813, guid: 201efb3f3b213459e980f62655672a94, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4798060498267698905}
   m_SourcePrefab: {fileID: 100100000, guid: 201efb3f3b213459e980f62655672a94, type: 3}
+--- !u!1 &216419589472867465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6512345054247355813, guid: 201efb3f3b213459e980f62655672a94, type: 3}
+  m_PrefabInstance: {fileID: 6440322474136097068}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &4798060498267698905
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216419589472867465}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1765532151666067187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4747059031398324191, guid: 201efb3f3b213459e980f62655672a94, type: 3}

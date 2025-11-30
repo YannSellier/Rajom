@@ -139,9 +139,8 @@ public class Part : MonoBehaviour, IGrabbable
         
         onPartCrafted?.Invoke();
         
-        indexStateVisible++;
-        if (indexStateVisible >= stateModificationsVisualObjects.Count)
-            indexStateVisible = stateModificationsVisualObjects.Count - 1;
+        if (indexStateVisible < stateModificationsVisualObjects.Count)
+            indexStateVisible++;
         
         refreshState();
         Debug.Log("Part modification added: " + modification.GetHeadType().ToString());
