@@ -146,7 +146,7 @@ public class HoverController : MonoBehaviour
         if (other == null)
             return;
         
-        IGrabbable grabbable = other.GetComponent<IGrabbable>();
+        IGrabbable grabbable = other.GetComponentInParent<IGrabbable>();
         if (grabbable == null)
             return;
         
@@ -157,7 +157,7 @@ public class HoverController : MonoBehaviour
         if (other == null)
             return;
         
-        IGrabbable grabbable = other.GetComponent<IGrabbable>();
+        IGrabbable grabbable = other.GetComponentInParent<IGrabbable>();
         if (grabbable == null)
             return;
         
