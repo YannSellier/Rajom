@@ -54,16 +54,6 @@ public class HeadManager : MonoBehaviour
     /**
      * Peut être ne pas utiliser !!
      */
-    public bool CheckHeadGrabbed()
-    {
-        return _currentGrabbedHead != null;
-    }
-
-    public bool CheckHeadUnderHead()
-    {
-        _currentHeadUnderHead = FindHeadUnderHead();
-        return _currentHeadUnderHead != null;
-    }
 
     #endregion
     
@@ -74,15 +64,6 @@ public class HeadManager : MonoBehaviour
         if (_currentHeadUnderHead != null)
         {
             return _currentGrabbedHead.getHead();
-        }
-        return null;
-    }
-
-    public Head GetCurrentHeadUnderHead()
-    {
-        if (_currentGrabbedHead != null)
-        {
-            return _currentHeadUnderHead.getHead();
         }
         return null;
     }

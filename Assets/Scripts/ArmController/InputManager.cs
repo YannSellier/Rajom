@@ -13,11 +13,6 @@ public class InputManager : MonoBehaviour
     #endregion
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
-    
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -32,7 +27,6 @@ public class InputManager : MonoBehaviour
         if (_partManager.GetCurrentGrabbedPart() != null || _partManager.GetCurrentPartUnderHead() != null)
         {
             _partManager.callOnGrabInput();
-            return;
         }
         else
         {

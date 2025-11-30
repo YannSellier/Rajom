@@ -41,7 +41,9 @@ public class PartGrabController : MonoBehaviour
 
     #region BUILT IN
 
-    /*protected void Awake()
+    /* Normalement plus nécessaire
+     
+     protected void Awake()
     {
         _playerInput = FindObjectOfType<PlayerInput>();
         _playerInput.actions[_grabInput.ToString()].performed += ctx => OnGrabInput();
