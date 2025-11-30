@@ -1,7 +1,7 @@
     public enum EHeadType
     {
         HAMMER,
-        DRILL,
+        SCREW,
         SAW,
-        WELDER
+        PLIERS
     }
