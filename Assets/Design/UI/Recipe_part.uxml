@@ -1,5 +1,9 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Design/UI/Part.uss?fileID=7433441132597879392&amp;guid=bd7e0af9831e90b4697c35a868a5ad59&amp;type=3#Part" />
     <ui:VisualElement name="PartData" class="part-item">
-        <ui:Label name="RecipePartType_Label" />
+        <ui:VisualElement name="background" class="recipe_background" style="flex-grow: 1; width: 100px; height: 150px; position: absolute;" />
+        <ui:VisualElement name="part" class="handle_part" style="flex-grow: 1; width: 100px; height: 150px; position: absolute;" />
+        <ui:VisualElement name="station" class="blue_station" style="flex-grow: 1; width: 100px; height: 150px; position: absolute;" />
+        <ui:VisualElement name="action" class="drill_action" style="flex-grow: 1; width: 100px; height: 150px; position: absolute;" />
     </ui:VisualElement>
 </ui:UXML>

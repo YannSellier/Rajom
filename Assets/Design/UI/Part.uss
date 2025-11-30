@@ -1,0 +1,54 @@
+:root {
+}
+
+.handle_part {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Hadle.png?fileID=2800000&guid=2dd3bbc6b06f047a0b79a8cd78e5e730&type=3#Carte_Hadle");
+}
+
+.head_part {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Head.png?fileID=2800000&guid=411c6b59f7d8f487181517a51ed78f97&type=3#Carte_Head");
+}
+
+.pipe_part {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Pipe.png?fileID=2800000&guid=7764bb6d5258642a693a07fc5abef1af&type=3#Carte_Pipe");
+}
+
+.hammer_action {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Marteau.png?fileID=2800000&guid=a5fff8daf2a444f97b9e1f41d56a9e7d&type=3#Carte_Marteau");
+}
+
+.power_part {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Power.png?fileID=2800000&guid=0f075efa37f3e4e249db428c4834529a&type=3#Carte_Power");
+}
+
+.green_station {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Green.png?fileID=2800000&guid=e695f7672a27c4180a4c1532217b2f2c&type=3#Carte_Green");
+}
+
+.blue_station {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Bleu.png?fileID=2800000&guid=172d3b29916cc48099f268754ca6d94b&type=3#Carte_Bleu");
+}
+
+.pink_station {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Pink.png?fileID=2800000&guid=fdbd91ec6c6d3449881688d0e1b58fa4&type=3#Carte_Pink");
+}
+
+.purple_station {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Purple.png?fileID=2800000&guid=d4d5ccbae906540a482e7b70e85b6452&type=3#Carte_Purple");
+}
+
+.welder_action {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Pince.png?fileID=2800000&guid=60e002f8524a54907808cdd31c0a499d&type=3#Carte_Pince");
+}
+
+.saw_action {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Scie.png?fileID=2800000&guid=c36d5872a4ad74b8899e663104b005e8&type=3#Carte_Scie");
+}
+
+.drill_action {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Tournevis.png?fileID=2800000&guid=967a519ffa7b54ae99d129af2ab525c7&type=3#Carte_Tournevis");
+}
+
+.recipe_background {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Fond.png?fileID=2800000&guid=7216677bac5d6453597d3289b8b43a60&type=3#Carte_Fond");
+}
