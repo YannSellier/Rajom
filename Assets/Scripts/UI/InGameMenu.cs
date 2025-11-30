@@ -85,6 +85,9 @@ public class InGameMenu : UIDisplayer
         base.RefreshUI();
         
         _timerLabel.text = GetTimerString();
+        
+        _recipeDisplayer?.RefreshUI();
+
     }
     private string GetTimerString()
     {

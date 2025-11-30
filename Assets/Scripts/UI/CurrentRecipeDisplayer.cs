@@ -31,7 +31,11 @@ public class CurrentRecipeDisplayer
         _currentPart2 = root.Q<VisualElement>($"RecipeCurrentPart_2");
         _currentPart3 = root.Q<VisualElement>($"RecipeCurrentPart_3");
         _currentPart4 = root.Q<VisualElement>($"RecipeCurrentPart_4");
-        
+
+        for (int i = 0; i < 4; i++)
+        {
+            GetCurrentPartElement(i+1).Clear();
+        }
         
 
         CreateCurrentRecipeDisplayer();
