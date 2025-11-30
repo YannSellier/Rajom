@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CraftManager
@@ -8,7 +9,8 @@ public class CraftManager
 
     #region VARIABLES
 
-
+    public Action onCraftComplete; 
+    
     #endregion
 
     #region STATIC
@@ -43,18 +45,21 @@ public class CraftManager
 
     public bool CraftPart(Part part, WorkStation workStation, Head head)
     {
+        
         if (part == null || head == null)
             return false;
 
         PartModification modification = CreatePartModification(head, workStation);
         part.AddModification(modification);
+        onCraftComplete?.Invoke();
 
         if (!ValidateCraftingResult(part))
         {
             part.Delete();
+            onCraftComplete?.Invoke();
             return false;
         }
-
+        
         return true;
     }
     

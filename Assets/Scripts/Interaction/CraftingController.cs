@@ -83,7 +83,10 @@ public class CraftingController : MonoBehaviour
         LayerMask mask = 1 << LayerMask.NameToLayer("WorkStation");
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f, mask))
         {
-            WorkStation part = hit.collider.GetComponentInParent<WorkStation>();
+            WorkStation part = hit.collider.GetComponentInChildren<WorkStation>();
+            if (part == null)
+                part = hit.collider.GetComponentInParent<WorkStation>();
+            
             if (part != null)
                 return part;
         }

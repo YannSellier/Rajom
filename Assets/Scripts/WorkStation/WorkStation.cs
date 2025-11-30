@@ -76,13 +76,13 @@ public class WorkStation : MonoBehaviour
 
     private void OnPartTriggerEnter(Collider other)
     {
-        Part part = other.GetComponent<Part>();
+        Part part = other.GetComponentInParent<Part>();
         if (part != null)
             SetCurrentPartInTrigger(part);
     }
     private void OnPartTriggerExit(Collider other)
     {
-        Part part = other.GetComponent<Part>();
+        Part part = other.GetComponentInParent<Part>();
         if (part != null && part == _currentPartInTrigger)
             SetCurrentPartInTrigger(null);
     }
