@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4812222528286752201}
   - component: {fileID: 2456169677470248980}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Saw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,6 +101,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b165d9ff3b5444ee48c2cb7ab6f67472, type: 3}
       propertyPath: m_Name
       value: Embout_Scie
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b165d9ff3b5444ee48c2cb7ab6f67472, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
