@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float _gameDuration = 120f;
     [SerializeField] private float _delayBetweenVacuums = 2f;
+
+    [SerializeField] private GameObject[] _tutorialObjects;
+    private int _tutorialStep = -1;
     
     // references to other managers
     private VacuumSpawner _vacuumSpawner;
@@ -81,6 +84,13 @@ public class GameManager : MonoBehaviour
         MainMenu();
     }
 
+    protected void Update()
+    {
+        PlayerInput playerInput = FindObjectOfType<PlayerInput>();
+        if (playerInput.actions["Enter"].WasPerformedThisFrame())
+            TutorialInput();
+    }
+
     #endregion
 
 
@@ -92,6 +102,10 @@ public class GameManager : MonoBehaviour
     #region GAME STATES
 
     public void StartGame()
+    {
+        StartTutorial();
+    }
+    public void ReallyStartGame()
     {
         SetGameState(EGameState.IN_GAME);
         
@@ -163,6 +177,41 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+    #region TUTORIAL
+
+    public void StartTutorial()
+    {
+        _tutorialStep = 0;
+        RefreshTutorialVisuals();
+    }
+
+    public void TutorialInput()
+    {
+        if (_tutorialStep == -1)
+            return;
+        
+        _tutorialStep++;
+        if (_tutorialStep >= _tutorialObjects.Length)
+            EndTutorial();
+        RefreshTutorialVisuals();
+    }
+    public void EndTutorial()
+    {
+        _tutorialStep = -1;
+        ReallyStartGame();
+    }
+
+    public void RefreshTutorialVisuals()
+    {
+        for (int i = 0; i < _tutorialObjects.Length; i++)
+        {
+            _tutorialObjects[i].SetActive(_tutorialStep == i);
+        }
+    }
+
+    #endregion
+
 
     
 
