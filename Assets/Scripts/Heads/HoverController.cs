@@ -70,7 +70,7 @@ public class HoverController : MonoBehaviour
 
     private void Update()
     {
-        DebugList();
+        //DebugList();
     }
     private void DebugList()
     {

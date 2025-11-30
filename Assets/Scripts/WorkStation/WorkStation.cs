@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WorkStation : MonoBehaviour
+public class WorkStation : MonoBehaviour, IGrabbable
 {
     //=============================================================================
     // VARIABLES
@@ -15,10 +15,26 @@ public class WorkStation : MonoBehaviour
     // properties
     private Part _currentPartInTrigger;
     [SerializeField] private EWorkStationType _workStationType;
+    
+    private bool _isPlayer1Hovering = false;
+    private bool _isPlayer2Hovering = false;
 
     #endregion
 
     #region GETTERS / SETTERS
+
+    public string GetName()
+    {
+        return "WorkStation" + _workStationType;
+    }
+    public bool IsGrabbable()
+    {
+        return true;
+    }
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
 
     public EWorkStationType GetWorkStationType() => _workStationType;
     public Part GetCurrentPartInTrigger() => _currentPartInTrigger;
@@ -45,7 +61,8 @@ public class WorkStation : MonoBehaviour
         _partTriggerCollider.onTriggerExit += OnPartTriggerExit;
         
         SetCurrentPartInTrigger(null);
-        OnHoverExit();
+        RefreshHoverStateVisual();
+        
     }
 
     #endregion
@@ -86,14 +103,28 @@ public class WorkStation : MonoBehaviour
         if (part != null && part == _currentPartInTrigger)
             SetCurrentPartInTrigger(null);
     }
-    
-    public void OnHoverEnter()
+    private void RefreshHoverStateVisual()
     {
-        _hoverVisualObject.SetActive(true);
+        _hoverVisualObject.SetActive(_isPlayer1Hovering || _isPlayer2Hovering);
     }
-    public void OnHoverExit()
+    
+    public void OnHoverEnter(bool isPlayer1)
     {
-        _hoverVisualObject.SetActive(false);
+        if (isPlayer1)
+            _isPlayer1Hovering = true;
+        else
+            _isPlayer2Hovering = true;
+        
+        RefreshHoverStateVisual();       
+    }
+    public void OnHoverExit(bool isPlayer1)
+    {
+        if (isPlayer1)
+            _isPlayer1Hovering = false;
+        else
+            _isPlayer2Hovering = false;
+        
+        RefreshHoverStateVisual();
     }
     
     #endregion

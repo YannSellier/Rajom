@@ -10,10 +10,11 @@ public class CraftingController : MonoBehaviour
 
     #region VARIABLES
 
-    private WorkStation _workStationUnderHead;
     private HeadManager _headManager;
     
     private PlayerInput _playerInput;
+
+    [SerializeField] private HoverController _hoverController;
 
     [SerializeField] private EInput _craftInput = EInput.Craft1;
 
@@ -45,8 +46,6 @@ public class CraftingController : MonoBehaviour
     }
     private void Update()
     {
-        UpdateStationUnderHead();
-        
         if (_playerInput.actions[_craftInput.ToString()].WasPerformedThisFrame())
         {
             TryCrafting();
@@ -64,12 +63,16 @@ public class CraftingController : MonoBehaviour
 
     #region INTERACTION
 
+    public WorkStation GetWorkStationUnderHead()
+    {
+        return _hoverController.GetClosestGrabbableOfType<WorkStation>();
+    }
     public void TryCrafting()
     {
-        if (GetCurrentHead() == null || _workStationUnderHead == null)
+        if (GetCurrentHead() == null ||  GetWorkStationUnderHead() == null)
             return;
 
-        CraftManager.GetRef().CraftPart(_workStationUnderHead.GetCurrentPartInTrigger(), _workStationUnderHead, GetCurrentHead());
+        CraftManager.GetRef().CraftPart(GetWorkStationUnderHead().GetCurrentPartInTrigger(), GetWorkStationUnderHead(), GetCurrentHead());
     }
 
     #endregion
@@ -93,24 +96,7 @@ public class CraftingController : MonoBehaviour
         
         return null;
     }
-    private void UpdateStationUnderHead()
-    {
-        WorkStation stationUnderHead = GetStationUnderHead();
-        SetStationUnderHead(stationUnderHead);
-    }
-    private void SetStationUnderHead(WorkStation stationUnderHead)
-    {
-        if (_workStationUnderHead == stationUnderHead)
-            return;
-        
-        if (_workStationUnderHead != null)
-            _workStationUnderHead.OnHoverExit();
-        
-        _workStationUnderHead = stationUnderHead;
-        if (_workStationUnderHead != null)
-            _workStationUnderHead.OnHoverEnter();
-    }
-
+    
     #endregion
 
 
