@@ -57,6 +57,7 @@ namespace DefaultNamespace.UI
         }
         private void OnRestartButtonClicked()
         {
+            GameManager.GetRef().VacuumCleaner();
             GameManager.GetRef().StartGame();
         }
         private void OnGiveUpButtonClicked()

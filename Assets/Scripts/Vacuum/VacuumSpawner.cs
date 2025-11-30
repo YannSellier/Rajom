@@ -91,11 +91,11 @@ public class VacuumSpawner : MonoBehaviour
         EPartType partType = part.GetPartType();
         SpawnPartOfType(partType);
     }
-
     #endregion
     
+    
+    
     #region UTILITIES
-
     private int GetPrefabIndex(EPartType partType)
     {
         switch (partType)

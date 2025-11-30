@@ -47,6 +47,7 @@ public class LostMenu : UIDisplayer
 
     private void OnRetryButtonClicked()
     {
+        GameManager.GetRef().VacuumCleaner();
         GameManager.GetRef().StartGame();
     }
 

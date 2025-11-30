@@ -2,19 +2,13 @@ using System;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-
+using UnityEngine.UIElements;
 
 
 public class armMouvement : MonoBehaviour
 {
-    /**
-     *  Variable :
-     */
-    
     [SerializeField]
     private float movementSpeed = 2.0f;
-
     [SerializeField] 
     private Vector2 anchorPoint;
     [SerializeField]
@@ -40,8 +34,16 @@ public class armMouvement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        velocity = new Vector2(move.x * movementSpeed, move.y * movementSpeed);
-        movement();
+        if (GameManager.GetRef().GetGameState() == EGameState.IN_GAME)
+        {
+            velocity = new Vector2(move.x * movementSpeed, move.y * movementSpeed);
+            movement();
+        }
+        else
+        {
+            velocity = Vector2.zero;
+            movement();
+        }
     }
 
     private void movement()
