@@ -163,7 +163,13 @@ public class HeadManager : MonoBehaviour
     
     private void SetCurrentHeadUnderHead(HeadPickUp headUnderHead)
     {
+        if (_currentHeadUnderHead != null)
+            _currentHeadUnderHead.OnHoverExit();
+        
         _currentHeadUnderHead = headUnderHead;
+        
+        if (_currentHeadUnderHead != null)
+            _currentHeadUnderHead.OnHoverEnter();
     }
     
     private HeadPickUp FindHeadUnderHead()

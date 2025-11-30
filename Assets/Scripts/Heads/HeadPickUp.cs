@@ -16,7 +16,20 @@ public class HeadPickUp : MonoBehaviour
         return _headToPickUp;
     }
     #endregion
-    
+
+    //=============================================================================
+    // BUILT IN
+    //=============================================================================
+
+    #region BUILT IN
+
+    protected void Awake()
+    {
+        OnHoverExit();
+    }
+
+    #endregion
+
     
     #region HOVER
     
