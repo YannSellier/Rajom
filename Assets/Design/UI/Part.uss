@@ -13,12 +13,12 @@
     background-image: url("project://database/Assets/Design/CarteBP/Carte_Pipe.png?fileID=2800000&guid=7764bb6d5258642a693a07fc5abef1af&type=3#Carte_Pipe");
 }
 
-.hammer_action {
-    background-image: url("project://database/Assets/Design/CarteBP/Carte_Marteau.png?fileID=2800000&guid=a5fff8daf2a444f97b9e1f41d56a9e7d&type=3#Carte_Marteau");
+.alim_part {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Power.png?fileID=2800000&guid=0f075efa37f3e4e249db428c4834529a&type=3#Carte_Power");
 }
 
-.power_part {
-    background-image: url("project://database/Assets/Design/CarteBP/Carte_Power.png?fileID=2800000&guid=0f075efa37f3e4e249db428c4834529a&type=3#Carte_Power");
+.hammer_action {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Marteau.png?fileID=2800000&guid=a5fff8daf2a444f97b9e1f41d56a9e7d&type=3#Carte_Marteau");
 }
 
 .green_station {

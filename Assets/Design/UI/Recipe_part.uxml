@@ -2,8 +2,8 @@
     <Style src="project://database/Assets/Design/UI/Part.uss?fileID=7433441132597879392&amp;guid=bd7e0af9831e90b4697c35a868a5ad59&amp;type=3#Part" />
     <ui:VisualElement name="PartData" class="part-item">
         <ui:VisualElement name="background" class="recipe_background" style="flex-grow: 1; width: 100px; height: 150px; position: absolute;" />
-        <ui:VisualElement name="part" class="handle_part" style="flex-grow: 1; width: 100px; height: 150px; position: absolute;" />
-        <ui:VisualElement name="station" class="blue_station" style="flex-grow: 1; width: 100px; height: 150px; position: absolute;" />
-        <ui:VisualElement name="action" class="drill_action" style="flex-grow: 1; width: 100px; height: 150px; position: absolute;" />
+        <ui:VisualElement name="part" style="flex-grow: 1; width: 100px; height: 150px; position: absolute;" />
+        <ui:VisualElement name="station" style="flex-grow: 1; width: 100px; height: 150px; position: absolute;" />
+        <ui:VisualElement name="action" style="flex-grow: 1; width: 100px; height: 150px; position: absolute;" />
     </ui:VisualElement>
 </ui:UXML>

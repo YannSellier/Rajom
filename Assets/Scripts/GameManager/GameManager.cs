@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -51,6 +52,8 @@ public class GameManager : MonoBehaviour
         onGameStateChanged?.Invoke(_gameState);
     }
 
+    public List<Part> GetParts() => new List<Part>(GameObject.FindObjectsOfType<Part>());
+        
     #endregion
 
     #region CONSTRUCTOR
@@ -145,10 +148,12 @@ public class GameManager : MonoBehaviour
         _vacuumSpawner.SpawnAllParts();
         
         TimerManager.GetRef().StartTimer(_gameDuration);
+
     }
 
     #endregion
 
+    
 
         
 }
