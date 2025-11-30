@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Pause_Menu_Root" style="flex-grow: 1;">
+        <ui:VisualElement name="BackGround" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; -unity-background-image-tint-color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0.57);" />
+        <ui:VisualElement name="Root_Button" style="flex-grow: 1; align-content: center; justify-content: center; align-items: center; align-self: auto;">
+            <ui:Button text="Resume" name="Resume_Button" />
+            <ui:Button text="Retry" name="Restart_Button" style="justify-content: center; align-content: center;" />
+            <ui:Button text="Give Up" name="Give_Up_Button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
