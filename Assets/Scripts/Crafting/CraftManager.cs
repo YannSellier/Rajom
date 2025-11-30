@@ -50,7 +50,7 @@ public class CraftManager
             return false;
 
         SoundManger _soundManager = GameObject.FindObjectOfType<SoundManger>();
-        _soundManager.PlaySfx(_soundManager.crafting, 0.5f, false);
+        _soundManager.PlaySfx(_soundManager.craft, 0.5f, false);
         
         
         PartModification modification = CreatePartModification(head, workStation);
@@ -59,6 +59,8 @@ public class CraftManager
 
         if (!ValidateCraftingResult(part))
         {
+            _soundManager.PlaySfx(_soundManager.destroyPart, 0.5f, false);
+            
             part.Delete();
             onCraftComplete?.Invoke();
             return false;

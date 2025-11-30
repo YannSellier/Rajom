@@ -140,6 +140,9 @@ public class HeadManager : MonoBehaviour
     }
     private void SetCurrentGrabbedHead(HeadPickUp headPickup)
     {
+        SoundManger _soundManager = FindObjectOfType<SoundManger>();
+        _soundManager.PlaySfx(_soundManager.changeHead, 0.2f, false);
+        
         if (_currentGrabbedHead != null)
         {
             _hoverController.RemoveGrabbableToIgnore(_currentGrabbedHead);

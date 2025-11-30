@@ -9,14 +9,19 @@ public class SoundManger : MonoBehaviour
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource sfxsSource;
     
-    [SerializeField] public AudioClip sendVacuum;
-    [SerializeField] public AudioClip armMove;
-    [SerializeField] public AudioClip crafting;
+    [SerializeField] public AudioClip ambientSound;
+    [SerializeField] public AudioClip armsMoving;
+    [SerializeField] public AudioClip changeHead;
+    [SerializeField] public AudioClip craft;
+    [SerializeField] public AudioClip destroyPart;
+    [SerializeField] public AudioClip dropPart;
+    [SerializeField] public AudioClip takePart;
+    [SerializeField] public AudioClip validPart;
     
     private void Start()
     {
-        // musicSource.clip = sendVacuum; 
-        // musicSource.Play();
+        musicSource.clip = ambientSound; 
+        musicSource.Play();
     }
     
     public void PlaySfx(AudioClip clip, float duration, bool loop)

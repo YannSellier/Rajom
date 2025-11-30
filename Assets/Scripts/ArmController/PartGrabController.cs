@@ -87,7 +87,7 @@ public class PartGrabController : MonoBehaviour
     private void OnGrabInput()
     {
         SoundManger _soundManager = FindObjectOfType<SoundManger>();
-        _soundManager.PlaySfx(_soundManager.crafting, 0.5f, false);
+        _soundManager.PlaySfx(_soundManager.takePart, 0.5f, false);
         
         if (_currentGrabbedPart != null)
         {
