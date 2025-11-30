@@ -1,0 +1,6 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Part_Holder_Root" style="flex-grow: 1; align-self: stretch; align-items: auto; align-content: center; flex-direction: column;">
+        <ui:VisualElement name="Right_Holder" style="flex-grow: 1; align-self: auto; align-content: auto; justify-content: flex-start; align-items: auto; position: absolute; height: 100px; width: 100px; top: auto; left: auto; bottom: 0; right: 0; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0);" />
+        <ui:VisualElement name="Left_Holder" style="flex-grow: 1; align-self: stretch; right: auto; flex-direction: column; position: absolute; left: 100px; bottom: 0; width: 111px; height: 100px; background-color: rgba(255, 255, 255, 0);" />
+    </ui:VisualElement>
+</ui:UXML>

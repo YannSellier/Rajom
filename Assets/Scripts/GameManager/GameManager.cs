@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
         
         onGameStateChanged?.Invoke(_gameState);
     }
+    
+    public EGameState GetGameState() => _gameState;
 
     public List<Part> GetParts() => new List<Part>(GameObject.FindObjectsOfType<Part>());
         
@@ -149,6 +151,15 @@ public class GameManager : MonoBehaviour
         
         TimerManager.GetRef().StartTimer(_gameDuration);
 
+    }
+
+    public void VacuumCleaner()
+    {
+        List<Part> listePart = GetParts();
+        foreach (Part partToDestroy in listePart)
+        {
+            Destroy(partToDestroy.gameObject);
+        }
     }
 
     #endregion
