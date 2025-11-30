@@ -2184,7 +2184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &584634877
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4130,7 +4130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1083624359
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4818,7 +4818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1273624154
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5565,7 +5565,7 @@ PrefabInstance:
       objectReference: {fileID: 856966468}
     - target: {fileID: 6726806018388701406, guid: 592dbf10d89164b0d840ec4da17e6e74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.6435404
+      value: 6.43
       objectReference: {fileID: 0}
     - target: {fileID: 6726806018388701406, guid: 592dbf10d89164b0d840ec4da17e6e74, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7359,7 +7359,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1854270799
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8608,7 +8608,7 @@ PrefabInstance:
       objectReference: {fileID: 856966468}
     - target: {fileID: 6726806018388701406, guid: 592dbf10d89164b0d840ec4da17e6e74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.1835401
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 6726806018388701406, guid: 592dbf10d89164b0d840ec4da17e6e74, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8616,7 +8616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6726806018388701406, guid: 592dbf10d89164b0d840ec4da17e6e74, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.66
+      value: -0.67
       objectReference: {fileID: 0}
     - target: {fileID: 6726806018388701406, guid: 592dbf10d89164b0d840ec4da17e6e74, type: 3}
       propertyPath: m_LocalRotation.w
