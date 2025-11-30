@@ -1,12 +1,12 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="Part_Holder_Root" style="flex-grow: 1; flex-direction: row;">
-        <ui:VisualElement name="Leftcontainer" style="flex-grow: 1; align-items: flex-end; flex-direction: row-reverse; flex-shrink: 1; justify-content: flex-start; align-content: flex-start; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px;">
+    <ui:VisualElement name="Part_Holder_Root" style="flex-grow: 1; flex-direction: row; width: 0; height: 0;">
+        <ui:VisualElement name="Leftcontainer" style="flex-grow: 1; align-items: flex-end; flex-direction: row-reverse; flex-shrink: 1; justify-content: flex-start; align-content: flex-start; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; width: 0; height: 0;">
             <ui:VisualElement name="LeftPart_Holder" style="flex-grow: 0; align-self: flex-end; flex-direction: column; width: 100px; height: 150px; background-color: rgba(255, 255, 255, 0);" />
             <ui:VisualElement name="LeftHead_Holder" style="flex-grow: 0; align-self: flex-end; flex-direction: column; width: 100px; height: 150px; background-color: rgba(255, 255, 255, 0);" />
         </ui:VisualElement>
-        <ui:VisualElement name="Rightcontainer" style="flex-grow: 1; flex-direction: row; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px;">
-            <ui:VisualElement name="RightPart_Holder" style="flex-grow: 0; align-self: flex-end; align-content: auto; justify-content: flex-start; align-items: auto; height: 150px; width: 100px; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0);" />
-            <ui:VisualElement name="RightHead_Holder" style="flex-grow: 0; align-self: flex-end; align-content: auto; justify-content: flex-start; align-items: auto; height: 150px; width: 100px; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0);" />
+        <ui:VisualElement name="Rightcontainer" style="flex-grow: 1; flex-direction: row; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; width: 0; height: 0;">
+            <ui:VisualElement name="RightPart_Holder" style="flex-grow: 0; align-self: flex-end; align-content: auto; justify-content: flex-start; align-items: auto; height: 0; width: 0; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0);" />
+            <ui:VisualElement name="RightHead_Holder" style="flex-grow: 0; align-self: flex-end; align-content: auto; justify-content: flex-start; align-items: auto; height: 0; width: 0; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0);" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
