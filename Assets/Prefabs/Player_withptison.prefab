@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _grabPosition: {fileID: 1458638641529437951}
   _grabInput: 4
+  _detectorTriggerCollider: {fileID: 2145911642209098054}
 --- !u!1 &1758097277331326300
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,7 +986,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 759
+    m_Bits: 631
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
