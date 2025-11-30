@@ -914,7 +914,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 260706294870455350, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: _workStationType
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1088031883024352173, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: m_Size.x
@@ -3103,7 +3103,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 260706294870455350, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: _workStationType
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1088031883024352173, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: m_Size.x
@@ -5669,7 +5669,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 260706294870455350, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: _workStationType
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6189388932188375330, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: m_Name
@@ -6589,6 +6589,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 711092284}
     m_Modifications:
+    - target: {fileID: 260706294870455350, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
+      propertyPath: _workStationType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6189388932188375330, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: m_Name
       value: WorkStation

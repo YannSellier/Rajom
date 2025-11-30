@@ -106,7 +106,6 @@ public class HeadManager : MonoBehaviour
     /// </summary>
     private void OnGrabInput()
     {
-        UpdateHeadUnderHead();
         if (_currentGrabbedHead != null && _currentHeadUnderHead != null)
         {
             SwitchHeadToHeadPickUp();

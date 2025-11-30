@@ -27,7 +27,7 @@ public class RecipesCreator
     private RecipesManager _recipesesManager;
 
     private static PartModification _drill = new PartModification(EHeadType.DRILL, EWorkStationType.ATOM); 
-    private static PartModification _saw = new PartModification(EHeadType.HAMMER, EWorkStationType.CUBE); 
+    private static PartModification _saw = new PartModification(EHeadType.SAW, EWorkStationType.CUBE); 
     private static PartModification _hammer = new PartModification(EHeadType.HAMMER, EWorkStationType.PLANET); 
     private static PartModification _welder = new PartModification(EHeadType.WELDER, EWorkStationType.STAR); 
     

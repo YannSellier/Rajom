@@ -43,7 +43,6 @@ public class PartGrabController : MonoBehaviour
 
     #region BUILT IN
 
-    /* Normalement plus nécessaire
      
      protected void Awake()
     {
