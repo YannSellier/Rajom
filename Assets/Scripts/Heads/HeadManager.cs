@@ -17,6 +17,8 @@ public class HeadManager : MonoBehaviour
     private HeadPickUp _currentGrabbedHead;
     private HeadPickUp _currentHeadUnderHead;
     [SerializeField] private EInput changeHeadInput = EInput.ChangeHead1;
+
+        
     //test sans _grabPosition
     [SerializeField] private Transform _armGrabPosition;
 
@@ -50,7 +52,6 @@ public class HeadManager : MonoBehaviour
     {
         if (playerInput.actions[changeHeadInput.ToString()].WasPressedThisFrame())
             OnGrabInput();
-            
     }
 
     #endregion
@@ -68,11 +69,7 @@ public class HeadManager : MonoBehaviour
 
     public Head GetCurrentHead()
     {
-        if (_currentHeadUnderHead != null)
-        {
-            return _currentGrabbedHead.getHead();
-        }
-        return null;
+        return _currentGrabbedHead?.getHead();
     }
     
 

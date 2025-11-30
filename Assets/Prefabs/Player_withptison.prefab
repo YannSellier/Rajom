@@ -1912,7 +1912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e6b05d29609434cb284a0860bf3e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
+  movementSpeed: 20
   anchorPoint: {x: 0, y: 0}
   distanceFromAnchor: 20
   playerInput: {fileID: 0}
