@@ -47,6 +47,7 @@ MonoBehaviour:
   _grabPosition: {fileID: 1458638641529437951}
   _grabInput: 4
   _hoverController: {fileID: 2410276305198163810}
+  _armPosition: 0
 --- !u!1 &1758097277331326300
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,10 +845,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.77
-  m_Height: 7.99
+  m_Radius: 2.55
+  m_Height: 10.83
   m_Direction: 1
-  m_Center: {x: 0, y: -4.25, z: -2.34}
+  m_Center: {x: 0, y: -4.94, z: -3.47}
 --- !u!1 &5382177983914845232
 GameObject:
   m_ObjectHideFlags: 0

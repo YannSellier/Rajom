@@ -7,7 +7,6 @@ public class RecipeDisplayer
     private Label _nameLabel; 
     private Label _descriptionLabel;
     
-    private Recipe _recipe; 
     private VisualElement _root;
     
     private VisualTreeAsset _recipePart_assets;
@@ -18,7 +17,6 @@ public class RecipeDisplayer
     
     public RecipeDisplayer(Recipe recipe, VisualElement root, VisualTreeAsset recipePartAssets, VisualTreeAsset recipePartModificationsAssets)
     {
-        _recipe = recipe;
         _root = root;
         _recipePart_assets = recipePartAssets;
         _recipePartModificationsAssets = recipePartModificationsAssets;
@@ -31,15 +29,19 @@ public class RecipeDisplayer
         RefreshUI();
     }
 
+    public Recipe GetRecipe()
+    {
+        return RecipesCreator.GetRef().GetRecipesesManager().GetCurrentRecipe();
+    }
     public void RefreshUI()
     {
-        _nameLabel.text = _recipe.GetName();
-        _descriptionLabel.text = _recipe.GetDescription();
+        _nameLabel.text = GetRecipe().GetName();
+        _descriptionLabel.text = GetRecipe().GetDescription();
     }
     
     public void CreatePartsDisplayer()
     {
-        foreach (PartData partData in _recipe.GetParts())
+        foreach (PartData partData in GetRecipe().GetParts())
         {
             CreatePartDisplayer(partData);
         }
