@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Part : MonoBehaviour, IGrabbable
@@ -86,6 +87,12 @@ public class Part : MonoBehaviour, IGrabbable
         RefreshHoverStateVisual();
     }
 
+    private void OnDestroy()
+    {
+        foreach(HoverController hoverController in FindObjectsOfType<HoverController>())
+            hoverController.RemoveGrabbableUnderGrabbable(this);
+    }
+
     #endregion
     
     //=============================================================================
@@ -112,7 +119,13 @@ public class Part : MonoBehaviour, IGrabbable
     private int GetDefaultStateIndex()
     {
         int targetModificationCount = GetTargetPartData().GetModifications().Count;
-        return stateModificationsVisualObjects.Count - targetModificationCount - 1;
+        int defaultStateIndex = stateModificationsVisualObjects.Count - targetModificationCount - 1;
+        if (defaultStateIndex < 0)
+        {
+            Debug.LogWarning("Wrong recipe or part (index out of range)");
+            return 0;
+        }
+        return  defaultStateIndex;
     }
     public void Delete()
     {
@@ -133,9 +146,8 @@ public class Part : MonoBehaviour, IGrabbable
         
         onPartCrafted?.Invoke();
         
-        indexStateVisible++;
-        if (indexStateVisible >= stateModificationsVisualObjects.Count)
-            indexStateVisible = stateModificationsVisualObjects.Count - 1;
+        if (indexStateVisible < stateModificationsVisualObjects.Count)
+            indexStateVisible++;
         
         refreshState();
         Debug.Log("Part modification added: " + modification.GetHeadType().ToString());

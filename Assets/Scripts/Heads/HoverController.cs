@@ -39,7 +39,6 @@ public class HoverController : MonoBehaviour
         
         UpdateClosestGrabbable();
     }
-    
     public T GetClosestGrabbableOfType<T>() where T : IGrabbable
     {
         if (_closestGrabbableUnderGrabbable is T)
@@ -87,7 +86,7 @@ public class HoverController : MonoBehaviour
         _currentGrabbablesUnderGrabbable.Add(grabbableUnderGrabbable);
         UpdateClosestGrabbable();
     }
-    private void RemoveGrabbableUnderGrabbable(IGrabbable grabbableUnderGrabbable)
+    public void RemoveGrabbableUnderGrabbable(IGrabbable grabbableUnderGrabbable)
     {
         if (!_currentGrabbablesUnderGrabbable.Contains(grabbableUnderGrabbable))
             return;
@@ -146,7 +145,7 @@ public class HoverController : MonoBehaviour
         if (other == null)
             return;
         
-        IGrabbable grabbable = other.GetComponent<IGrabbable>();
+        IGrabbable grabbable = other.GetComponentInParent<IGrabbable>();
         if (grabbable == null)
             return;
         
@@ -157,7 +156,7 @@ public class HoverController : MonoBehaviour
         if (other == null)
             return;
         
-        IGrabbable grabbable = other.GetComponent<IGrabbable>();
+        IGrabbable grabbable = other.GetComponentInParent<IGrabbable>();
         if (grabbable == null)
             return;
         
