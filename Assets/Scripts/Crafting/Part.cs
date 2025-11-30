@@ -150,7 +150,7 @@ public class Part : MonoBehaviour, IGrabbable
         
         onPartCrafted?.Invoke();
         
-        if (indexStateVisible < stateModificationsVisualObjects.Count)
+        if (indexStateVisible < stateModificationsVisualObjects.Count-1)
             indexStateVisible++;
         
         refreshState();
