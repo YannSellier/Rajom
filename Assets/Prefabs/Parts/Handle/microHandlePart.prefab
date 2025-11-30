@@ -79,8 +79,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9104761184505806436, guid: 86a20c9b6e702534e8cce8d08c7b13f5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5935573521771448531}
   m_SourcePrefab: {fileID: 100100000, guid: 86a20c9b6e702534e8cce8d08c7b13f5, type: 3}
+--- !u!1 &777336344035064970 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9104761184505806436, guid: 86a20c9b6e702534e8cce8d08c7b13f5, type: 3}
+  m_PrefabInstance: {fileID: 8400122909159211758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &5935573521771448531
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777336344035064970}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8511918589481013907, guid: 86a20c9b6e702534e8cce8d08c7b13f5, type: 3}
 --- !u!4 &8293803377766376709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 86a20c9b6e702534e8cce8d08c7b13f5, type: 3}
@@ -96,7 +126,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6728603595408690, guid: b2156cff710e8489db1042a7b6170b9b, type: 3}
       propertyPath: m_Name
-      value: GunHandlePart
+      value: microHandlePart
       objectReference: {fileID: 0}
     - target: {fileID: 2344495140757157458, guid: b2156cff710e8489db1042a7b6170b9b, type: 3}
       propertyPath: _assemblingLength
@@ -209,27 +239,22 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8293803377766376709}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6728603595408690, guid: b2156cff710e8489db1042a7b6170b9b, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 6942527630063326170, guid: b2156cff710e8489db1042a7b6170b9b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4332109374583107559}
+      addedObject: {fileID: 6611290350801160160}
   m_SourcePrefab: {fileID: 100100000, guid: b2156cff710e8489db1042a7b6170b9b, type: 3}
---- !u!4 &7468641873303590059 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1988174283108685640, guid: b2156cff710e8489db1042a7b6170b9b, type: 3}
-  m_PrefabInstance: {fileID: 8949386712641749987}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8945693044712097489 stripped
+--- !u!1 &2047532355268022329 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6728603595408690, guid: b2156cff710e8489db1042a7b6170b9b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6942527630063326170, guid: b2156cff710e8489db1042a7b6170b9b, type: 3}
   m_PrefabInstance: {fileID: 8949386712641749987}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &4332109374583107559
-CapsuleCollider:
+--- !u!64 &6611290350801160160
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8945693044712097489}
+  m_GameObject: {fileID: 2047532355268022329}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -241,8 +266,12 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.52
-  m_Height: 2.35
-  m_Direction: 2
-  m_Center: {x: 0, y: -0.73, z: 0.91}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1963768480334726819, guid: 18121f7e90a3e4fe3bcad2d0c6ac5684, type: 3}
+--- !u!4 &7468641873303590059 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1988174283108685640, guid: b2156cff710e8489db1042a7b6170b9b, type: 3}
+  m_PrefabInstance: {fileID: 8949386712641749987}
+  m_PrefabAsset: {fileID: 0}
