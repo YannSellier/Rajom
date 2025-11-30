@@ -86,6 +86,12 @@ public class Part : MonoBehaviour, IGrabbable
         RefreshHoverStateVisual();
     }
 
+    private void OnDestroy()
+    {
+        foreach(HoverController hoverController in FindObjectsOfType<HoverController>())
+            hoverController.RemoveGrabbableUnderGrabbable(this);
+    }
+
     #endregion
     
     //=============================================================================
