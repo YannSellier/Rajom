@@ -46,8 +46,8 @@ public class HeadManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerInput.actions[changeHeadInput.ToString()].WasPressedThisFrame())
-            OnGrabInput();
+        //if (playerInput.actions[changeHeadInput.ToString()].WasPressedThisFrame())
+        //    OnGrabInput();
         
     }
 

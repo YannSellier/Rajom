@@ -62,7 +62,7 @@ public class PartGrabController : MonoBehaviour
      protected void Awake()
     {
         _playerInput = FindObjectOfType<PlayerInput>();
-        _playerInput.actions[_grabInput.ToString()].performed += ctx => OnGrabInput();
+        //_playerInput.actions[_grabInput.ToString()].performed += ctx => OnGrabInput();
     }
 
     #endregion
