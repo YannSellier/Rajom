@@ -1,4 +1,6 @@
 using DefaultNamespace;
+using DefaultNamespace.ArmController;
+using DefaultNamespace.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,9 +16,10 @@ public class PartGrabController : MonoBehaviour
     [SerializeField] private EInput _grabInput = EInput.Grab1;
 
     [SerializeField] private HoverController _hoverController;
-    
+    [SerializeField] private EArmPosition _armPosition;
     private PlayerInput _playerInput;
     private Part _currentGrabbedPart;
+    private HoldingPartUI _holdingPartUI;
     
     #endregion
 
@@ -62,6 +65,7 @@ public class PartGrabController : MonoBehaviour
      protected void Awake()
     {
         _playerInput = FindObjectOfType<PlayerInput>();
+        _holdingPartUI = FindObjectOfType<HoldingPartUI>();
         //_playerInput.actions[_grabInput.ToString()].performed += ctx => OnGrabInput();
     }
 
@@ -85,6 +89,7 @@ public class PartGrabController : MonoBehaviour
         if (_currentGrabbedPart != null)
         {
             ReleasePart(_currentGrabbedPart);
+            _holdingPartUI.VoidHoldingPartUI(_armPosition);
         }
         else
         {
@@ -103,7 +108,8 @@ public class PartGrabController : MonoBehaviour
     {
         if (part == null || _grabPosition == null)
             return;
-        
+
+        _holdingPartUI.SetHoldingPartUI(_armPosition, part.GetPartType());
         part.transform.SetParent(_grabPosition);
         part.transform.localPosition = Vector3.zero;
         part.transform.localRotation = Quaternion.identity;

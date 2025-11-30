@@ -1,5 +1,6 @@
 using System;
 using DefaultNamespace;
+using DefaultNamespace.ArmController;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -22,7 +23,6 @@ public class armMouvement : MonoBehaviour
 
     [SerializeField] 
     private EInput inputParam = EInput.Move1;
-    
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
