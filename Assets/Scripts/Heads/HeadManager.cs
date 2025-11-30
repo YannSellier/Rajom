@@ -15,15 +15,14 @@ public class HeadManager : MonoBehaviour
 
     private PlayerInput playerInput;
     private HeadPickUp _currentGrabbedHead;
-    private HeadPickUp _currentHeadUnderHead;
     [SerializeField] private EInput changeHeadInput = EInput.ChangeHead1;
+
+    [SerializeField] private HoverController _hoverController;
 
         
     //test sans _grabPosition
     [SerializeField] private Transform _armGrabPosition;
 
-    [SerializeField] private TriggerCollider _detectorTriggerCollider;
-    private TriggerStack<HeadPickUp> _triggerStack;
     
     private List<Head> heads;
     
@@ -37,9 +36,6 @@ public class HeadManager : MonoBehaviour
     private void Awake()
     {
         playerInput = FindObjectOfType<PlayerInput>();
-
-        _triggerStack = new TriggerStack<HeadPickUp>(_detectorTriggerCollider);
-        _triggerStack.onCurrentObjChanged += SetCurrentHeadUnderHead;
     }
     void Start()
     {
@@ -50,8 +46,9 @@ public class HeadManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerInput.actions[changeHeadInput.ToString()].WasPressedThisFrame())
-            OnGrabInput();
+        //if (playerInput.actions[changeHeadInput.ToString()].WasPressedThisFrame())
+        //    OnGrabInput();
+        
     }
 
     #endregion
@@ -71,6 +68,8 @@ public class HeadManager : MonoBehaviour
     {
         return _currentGrabbedHead?.getHead();
     }
+
+    public HeadPickUp GetClosestHeadPickup() => _hoverController.GetClosestGrabbableOfType<HeadPickUp>();
     
 
     #endregion
@@ -106,37 +105,55 @@ public class HeadManager : MonoBehaviour
     /// </summary>
     private void OnGrabInput()
     {
-        if (_currentGrabbedHead != null && _currentHeadUnderHead != null)
+        HeadPickUp closestHeadUnderHead = GetClosestHeadPickup();
+        
+        if (_currentGrabbedHead != null && closestHeadUnderHead != null)
         {
             SwitchHeadToHeadPickUp();
         } 
-        else if (_currentGrabbedHead != null && _currentHeadUnderHead == null)
+        else if (_currentGrabbedHead != null && closestHeadUnderHead == null)
         {
             ReleaseCurrentGrabbedHead();
         } 
         else
         {
-            TryGrabbingHeadUnderHead();
+            TryGrabbingHeadUnderHead(GetClosestHeadPickup());
         }
     }
 
-    private void TryGrabbingHeadUnderHead()
+    private void TryGrabbingHeadUnderHead(HeadPickUp closestHeadUnderHead)
     {
-        if (_currentHeadUnderHead != null)
+        if (closestHeadUnderHead != null)
         {
-            GrabCurrentHeadUnderHead();
+            GrabCurrentHeadUnderHead(closestHeadUnderHead);
         }
     }
 
-    private void GrabCurrentHeadUnderHead()
+    private void GrabCurrentHeadUnderHead(HeadPickUp closestHeadUnderHead)
     {
-        if (_currentHeadUnderHead == null || _armGrabPosition == null)
+        if (closestHeadUnderHead == null || _armGrabPosition == null)
             return;
         
-        _currentGrabbedHead = _currentHeadUnderHead;
+        SetCurrentGrabbedHead(closestHeadUnderHead);
+    }
+    private void SetCurrentGrabbedHead(HeadPickUp headPickup)
+    {
+        if (_currentGrabbedHead != null)
+        {
+            _hoverController.RemoveGrabbableToIgnore(_currentGrabbedHead);
+            _currentGrabbedHead.SetIsGrabbed(false);
+        }
+
+        _currentGrabbedHead = headPickup;
+
+        if (_currentGrabbedHead != null)
+        {
+            _hoverController.AddGrabbableToIgnore(headPickup);
+            _currentGrabbedHead.gameObject.SetActive(false);
+            _currentGrabbedHead.SetIsGrabbed(true);
+        }
+
         RefreshArmHeadVisibility();
-        _currentGrabbedHead.gameObject.SetActive(false);
-        _currentHeadUnderHead = null;
     }
     
     private void ReleaseCurrentGrabbedHead()
@@ -147,7 +164,7 @@ public class HeadManager : MonoBehaviour
         _currentGrabbedHead.transform.position = _armGrabPosition.position;
         _currentGrabbedHead.gameObject.SetActive(true);
         _currentGrabbedHead.GetComponent<Rigidbody>().useGravity = true;
-        _currentGrabbedHead = null;
+        SetCurrentGrabbedHead(null);
         RefreshArmHeadVisibility();
         
     }
@@ -157,65 +174,16 @@ public class HeadManager : MonoBehaviour
     
     
     #region HEAD UNDER HEAD
-    
-    private void SetCurrentHeadUnderHead(HeadPickUp headUnderHead)
-    {
-        if (_currentHeadUnderHead != null)
-        {
-            _currentHeadUnderHead.OnHoverExit();
-            _triggerStack.UnsetCurrentObj(_currentHeadUnderHead);
-        }
 
-        _currentHeadUnderHead = headUnderHead;
-        
-        if (_currentHeadUnderHead != null)
-            _currentHeadUnderHead.OnHoverEnter();
-    }
-    
-    private HeadPickUp FindHeadUnderHead()
-    {
-        RaycastHit hit;
-        LayerMask mask = LayerMask.GetMask("head");
-        if (Physics.Raycast(transform.position, -transform.up, out hit, 100, mask))
-        {
-            HeadPickUp head = hit.collider.GetComponent<HeadPickUp>();
-            return head;
-        }
-
-        return null;
-    }
-    private void OnDetectorTriggerEnter(Collider other)
-    {
-        if (other == null)
-            return;
-        
-        HeadPickUp head = other.GetComponent<HeadPickUp>();
-        if (head == null)
-            return;
-        
-        SetCurrentHeadUnderHead(head);
-    }
-    private void OnDetectorTriggerExit(Collider other)
-    {
-        if (other == null)
-            return;
-        
-        HeadPickUp head = other.GetComponent<HeadPickUp>();
-        if (head == null)
-            return;
-        
-        if (head == _currentHeadUnderHead)
-            SetCurrentHeadUnderHead(null);
-    }
-    
     #endregion
 
     #region SWITCH
 
     private void SwitchHeadToHeadPickUp()
     {
+        HeadPickUp closestHeadUnderHead = GetClosestHeadPickup();
         ReleaseCurrentGrabbedHead();
-        GrabCurrentHeadUnderHead();
+        GrabCurrentHeadUnderHead(closestHeadUnderHead);
     }
 
     #endregion

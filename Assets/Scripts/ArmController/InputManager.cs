@@ -9,11 +9,16 @@ public class InputManager : MonoBehaviour
     [SerializeField] private HeadManager _headManager;
     [SerializeField] private PartGrabController _partManager;
     [SerializeField] private EInput _input = EInput.Grab1;
-    [SerializeField] private PlayerInput _playerInput;
+    private PlayerInput _playerInput;
+    
     #endregion
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
 
+
+    protected void Awake()
+    {
+        _playerInput = FindObjectOfType<PlayerInput>();
+    }
     // Update is called once per frame
     void Update()
     {
