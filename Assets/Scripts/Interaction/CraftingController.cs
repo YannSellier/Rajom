@@ -10,7 +10,7 @@ public class CraftingController : MonoBehaviour
 
     #region VARIABLES
 
-    private Part _partUnderHead = null;
+    private WorkStation _workStationUnderHead;
     private HeadManager _headManager;
     
     private PlayerInput _playerInput;
@@ -45,7 +45,7 @@ public class CraftingController : MonoBehaviour
     }
     private void Update()
     {
-        UpdatePartUnderHead();
+        UpdateStationUnderHead();
         
         if (_playerInput.actions[_craftInput.ToString()].WasPerformedThisFrame())
         {
@@ -66,46 +66,46 @@ public class CraftingController : MonoBehaviour
 
     public void TryCrafting()
     {
-        if (GetCurrentHead() == null || _partUnderHead == null)
+        if (GetCurrentHead() == null || _workStationUnderHead == null)
             return;
 
-        CraftManager.GetRef().CraftPart(_partUnderHead, GetCurrentHead());
+        CraftManager.GetRef().CraftPart(_workStationUnderHead.GetCurrentPartInTrigger(), _workStationUnderHead, GetCurrentHead());
     }
 
     #endregion
 
     #region PART UNDER HEAD
 
-    private Part GetPartUnderHead()
+    private WorkStation GetStationUnderHead()
     {
         // Ray cast under
         RaycastHit hit;
-        LayerMask mask = 1 << LayerMask.NameToLayer("Part");
+        LayerMask mask = 1 << LayerMask.NameToLayer("WorkStation");
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f, mask))
         {
-            Part part = hit.collider.GetComponent<Part>();
+            WorkStation part = hit.collider.GetComponentInParent<WorkStation>();
             if (part != null)
                 return part;
         }
         
         return null;
     }
-    private void UpdatePartUnderHead()
+    private void UpdateStationUnderHead()
     {
-        Part partUnderHead = GetPartUnderHead();
-        SetPartUnderHead(partUnderHead);
+        WorkStation stationUnderHead = GetStationUnderHead();
+        SetStationUnderHead(stationUnderHead);
     }
-    private void SetPartUnderHead(Part part)
+    private void SetStationUnderHead(WorkStation stationUnderHead)
     {
-        if (_partUnderHead == part)
+        if (_workStationUnderHead == stationUnderHead)
             return;
         
-        if (_partUnderHead != null)
-            _partUnderHead.OnHoverExit();
+        if (_workStationUnderHead != null)
+            _workStationUnderHead.OnHoverExit();
         
-        _partUnderHead = part;
-        if (_partUnderHead != null)
-            _partUnderHead.OnHoverEnter();
+        _workStationUnderHead = stationUnderHead;
+        if (_workStationUnderHead != null)
+            _workStationUnderHead.OnHoverEnter();
     }
 
     #endregion
