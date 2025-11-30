@@ -52,8 +52,8 @@ public class Part : MonoBehaviour, IGrabbable
         _isGrabbed = newStateIsGrabbed;
         
         // Disable all colliders
-        foreach (var collider in GetComponentsInChildren<Collider>())
-            collider.enabled = !_isGrabbed;
+        //foreach (var collider in GetComponentsInChildren<Collider>())
+        //    collider.enabled = !_isGrabbed;
     }
     public bool IsGrabbable()
     {
