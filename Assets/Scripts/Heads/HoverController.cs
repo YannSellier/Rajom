@@ -23,6 +23,7 @@ public class HoverController : MonoBehaviour
 
     #region GETTERS / SETTERS
 
+    public bool IsPlayer1() => _isPlayer1;
     public void AddGrabbableToIgnore(IGrabbable grabbableToIgnore)
     {
         if (_grabbablesToIgnore.Contains(grabbableToIgnore))

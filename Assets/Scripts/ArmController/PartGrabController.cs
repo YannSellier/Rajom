@@ -106,10 +106,10 @@ public class PartGrabController : MonoBehaviour
     }
     private void GrabPart(Part part)
     {
+        _holdingPartUI.SetHoldingPartUI(_armPosition, part);
         if (part == null || _grabPosition == null)
             return;
 
-        _holdingPartUI.SetHoldingPartUI(_armPosition, part.GetPartType());
         part.transform.SetParent(_grabPosition);
         part.transform.localPosition = Vector3.zero;
         part.transform.localRotation = Quaternion.identity;
