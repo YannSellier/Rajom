@@ -42,16 +42,20 @@ public class HeadManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerInput.actions[changeHeadInput.ToString()].WasPressedThisFrame())
-            OnGrabInput();
-            
         UpdateHeadUnderHead();
         // PickNextHead(); plus utile
     }
 
     #endregion
 
+    #region CHECK
+
     
+    /**
+     * Peut être ne pas utiliser !!
+     */
+
+    #endregion
     
     #region GETTERS
 
@@ -63,9 +67,9 @@ public class HeadManager : MonoBehaviour
         }
         return null;
     }
+    
 
     #endregion
-    
     
     
     #region  GRAB INPUT RELEASE
@@ -84,21 +88,31 @@ public class HeadManager : MonoBehaviour
             h.gameObject.SetActive(shouldBeActive);
         }
     }
-    
+
+
+    public void CallOnGrabInput()
+    {
+        OnGrabInput();
+    }
+    /// <summary>
+    /// Quand l'input est appuyé peut :
+    /// switch la head tenu avec celle en dessous
+    /// Poser la head maintenue
+    /// Recupérer une head
+    /// </summary>
     private void OnGrabInput()
     {
-        if (_currentGrabbedHead != null && _currentHeadUnderHead == null)
-        {
-            //drop la head
-            ReleaseCurrentGrabbedHead();
-        } 
-        else if (_currentGrabbedHead != null && _currentHeadUnderHead != null)
+        UpdateHeadUnderHead();
+        if (_currentGrabbedHead != null && _currentHeadUnderHead != null)
         {
             SwitchHeadToHeadPickUp();
         } 
+        else if (_currentGrabbedHead != null && _currentHeadUnderHead == null)
+        {
+            ReleaseCurrentGrabbedHead();
+        } 
         else
         {
-            //Debug.Log("try Grabbing");
             TryGrabbingHeadUnderHead();
         }
     }
@@ -159,7 +173,6 @@ public class HeadManager : MonoBehaviour
         LayerMask mask = LayerMask.GetMask("head");
         if (Physics.Raycast(transform.position, -transform.up, out hit, 100, mask))
         {
-            Debug.Log("ray cast");
             HeadPickUp head = hit.collider.GetComponent<HeadPickUp>();
             return head;
         }

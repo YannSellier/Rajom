@@ -21,7 +21,15 @@ public class PartGrabController : MonoBehaviour
 
     #region GETTERS / SETTERS
 
-    
+    public Part GetCurrentGrabbedPart()
+    {
+        return _currentGrabbedPart;
+    }
+
+    public Part GetCurrentPartUnderHead()
+    {
+        return _currentPartUnderHead;
+    }
 
     #endregion
 
@@ -33,11 +41,13 @@ public class PartGrabController : MonoBehaviour
 
     #region BUILT IN
 
-    protected void Awake()
+    /* Normalement plus nécessaire
+     
+     protected void Awake()
     {
         _playerInput = FindObjectOfType<PlayerInput>();
         _playerInput.actions[_grabInput.ToString()].performed += ctx => OnGrabInput();
-    }
+    }*/
     protected void Update()
     {
         UpdatePartUnderHead();
@@ -53,6 +63,11 @@ public class PartGrabController : MonoBehaviour
 
     #region GRAB CONTROLLER
 
+    public void callOnGrabInput()
+    {
+        OnGrabInput();
+    }
+    
     private void OnGrabInput()
     {
         if (_currentGrabbedPart != null)
