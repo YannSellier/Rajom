@@ -41,12 +41,12 @@ public class CraftManager
 
     #region CRAFTING
 
-    public bool CraftPart(Part part, Head head)
+    public bool CraftPart(Part part, WorkStation workStation, Head head)
     {
         if (part == null || head == null)
             return false;
 
-        PartModification modification = CreatePartModification(head);
+        PartModification modification = CreatePartModification(head, workStation);
         part.AddModification(modification);
 
         if (!ValidateCraftingResult(part))
@@ -70,9 +70,9 @@ public class CraftManager
         
         return result;
     }
-    private PartModification CreatePartModification(Head head)
+    private PartModification CreatePartModification(Head head, WorkStation workStation)
     {
-        return new PartModification(head.GetHeadType());
+        return new PartModification(head.GetHeadType(), workStation.GetWorkStationType());
     }
 
     #endregion

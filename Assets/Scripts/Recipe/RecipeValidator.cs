@@ -35,13 +35,8 @@ public class RecipeValidator
         if (part.GetModifications().Count > recipeModifications.Count)
             return false;
         
-        for (var i = 0; i < part.GetModifications().Count; i++)
-        {
-            PartModification pm = part.GetModifications()[i];
-            PartModification recipeModification = recipeModifications[i];
-            if (pm.GetHeadType() != recipeModification.GetHeadType())
-                return false;
-        }
+        if (!CompareModificationsLists(part.GetModifications(), recipeModifications))
+            return false;
 
         return true; 
         
@@ -64,13 +59,31 @@ public class RecipeValidator
         if (part.GetModifications().Count != recipeModifications.Count)
             return false;
         
-        for (var i = 0; i < part.GetModifications().Count; i++)
+        if (!CompareModificationsLists(part.GetModifications(), recipeModifications))
+            return false;
+
+        return true;
+    }
+    private bool CompareModificationsLists(List<PartModification> partModifications, List<PartModification> recipeModifications)
+    {
+        if (partModifications.Count != recipeModifications.Count)
+            return false;
+
+        for (int i = 0; i < partModifications.Count; i++)
         {
-            PartModification pm = part.GetModifications()[i];
-            PartModification recipeModification = recipeModifications[i];
-            if (pm.GetHeadType() != recipeModification.GetHeadType())
+            if (!CompareModifications(partModifications[i], recipeModifications[i]))
                 return false;
         }
+
+        return true;
+    }
+    private bool CompareModifications(PartModification pm1, PartModification pm2)
+    {
+        if (pm1.GetHeadType() != pm2.GetHeadType())
+            return false;
+        
+        if (pm1.GetWorkStationType() != pm2.GetWorkStationType())
+            return false;
 
         return true;
     }

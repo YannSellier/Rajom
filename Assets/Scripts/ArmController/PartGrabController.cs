@@ -12,6 +12,8 @@ public class PartGrabController : MonoBehaviour
 
     [SerializeField] private Transform _grabPosition;
     [SerializeField] private EInput _grabInput = EInput.Grab1;
+
+    [SerializeField] private TriggerCollider _detectorTriggerCollider;
     
     private PlayerInput _playerInput;
     private Part _currentGrabbedPart;
@@ -41,16 +43,14 @@ public class PartGrabController : MonoBehaviour
 
     #region BUILT IN
 
-    /* Normalement plus nécessaire
      
      protected void Awake()
     {
         _playerInput = FindObjectOfType<PlayerInput>();
         _playerInput.actions[_grabInput.ToString()].performed += ctx => OnGrabInput();
-    }*/
-    protected void Update()
-    {
-        UpdatePartUnderHead();
+        
+        _detectorTriggerCollider.onTriggerEnter += OnDetectorTriggerEnter;
+        _detectorTriggerCollider.onTriggerExit += OnDetectorTriggerExit;
     }
 
     #endregion
@@ -115,12 +115,6 @@ public class PartGrabController : MonoBehaviour
 
     #region PART UNDER HEAD
 
-    private void UpdatePartUnderHead()
-    {
-        Part partUnderHead = FindPartUnderHead();
-        if (partUnderHead != _currentPartUnderHead)
-            SetCurrentPartUnderHead(partUnderHead);
-    }
     private void SetCurrentPartUnderHead(Part part)
     {
         if (_currentPartUnderHead != null)
@@ -131,21 +125,38 @@ public class PartGrabController : MonoBehaviour
         if (_currentPartUnderHead != null)
             _currentPartUnderHead.OnHoverEnter();
     }
-    private Part FindPartUnderHead()
-    {
-        // Raycast to find part under head
-        RaycastHit hit;
-        LayerMask mask = LayerMask.GetMask("Part");
-        if (Physics.Raycast(transform.position, -transform.up, out hit, 100, mask))
-        {
-            Part part = hit.collider.GetComponent<Part>();
-            return part;
-        }
-
-        return null;
-    }
 
     #endregion
+
+    #region DETECTOR
+
+    private void OnDetectorTriggerEnter(Collider other)
+    {
+        if (other == null)
+            return;
+        
+        Part part = other.GetComponent<Part>();
+        if (part == null)
+            return;
+        
+        SetCurrentPartUnderHead(part);
+    }
+    private void OnDetectorTriggerExit(Collider other)
+    {
+        if (other == null)
+            return;
+        
+        Part part = other.GetComponent<Part>();
+        if (part == null)
+            return;
+        
+        if (part == _currentPartUnderHead)
+            SetCurrentPartUnderHead(null);
+    }
+
+
+    #endregion
+
 
         
 
