@@ -9,7 +9,7 @@
             <ui:VisualElement name="RecipeCurrentPart_1" style="flex-grow: 1;" />
             <ui:VisualElement name="RecipeCurrentPart_2" style="flex-grow: 1;" />
             <ui:VisualElement name="RecipeCurrentPart_3" style="flex-grow: 1;" />
-            <ui:VisualElement name="RecipeCurrentPart_1" style="flex-grow: 1;" />
+            <ui:VisualElement name="RecipeCurrentPart_4" style="flex-grow: 1;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

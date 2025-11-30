@@ -149,9 +149,9 @@ public class CurrentRecipeDisplayer
         return type switch
         {
             EHeadType.HAMMER => "hammer_action",
-            EHeadType.DRILL => "drill_action",
+            EHeadType.SCREW => "drill_action",
             EHeadType.SAW => "saw_action",
-            EHeadType.WELDER => "welder_action",
+            EHeadType.PLIERS => "welder_action",
             _ => string.Empty
         };
     }
