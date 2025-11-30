@@ -12,6 +12,7 @@ public interface IGrabbable
     public void OnHoverExit(bool isPlayer1);
     public bool IsGrabbable();
     public Vector3 GetPosition();
+    public string GetName();
 
     #endregion
 

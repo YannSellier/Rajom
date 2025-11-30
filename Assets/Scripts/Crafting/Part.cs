@@ -36,9 +36,16 @@ public class Part : MonoBehaviour, IGrabbable
     private bool _isPlayer1Hovering = false;
     private bool _isPlayer2Hovering = false;
     
+    private PartSlot _selectedPartSlot;
+    
     #endregion
 
     #region GETTERS / SETTERS
+
+    public string GetName()
+    {
+        return "Part_" + GetPartType();
+    }
 
     public void SetIsGrabbed(bool newStateIsGrabbed)
     {
@@ -89,12 +96,22 @@ public class Part : MonoBehaviour, IGrabbable
         CreateComponents();
         initiateStateModifications();
         RefreshHoverStateVisual();
+        
+        // Find the part slot
+        foreach(var slot in RecipesCreator.GetRef().GetRecipesesManager().GetPartsSlots())
+            if (slot.GetDesignatedPartType() == GetPartType())
+            {
+                slot.SetCurrentPart(this);
+                _selectedPartSlot = slot;
+            }
     }
 
     private void OnDestroy()
     {
         foreach(HoverController hoverController in FindObjectsOfType<HoverController>())
             hoverController.RemoveGrabbableUnderGrabbable(this);
+        
+        _selectedPartSlot?.SetCurrentPart(null);
     }
 
     #endregion

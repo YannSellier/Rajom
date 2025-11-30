@@ -16,6 +16,10 @@ public class HeadPickUp : MonoBehaviour, IGrabbable
     
     #region GETTERS SETTERS
 
+    public string GetName()
+    {
+        return "Head_" + getHead().GetHeadType();
+    }
     public void SetIsGrabbed(bool newStateIsGrabbed)
     {
         _isGrabbed = newStateIsGrabbed;

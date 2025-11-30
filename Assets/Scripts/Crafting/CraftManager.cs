@@ -60,6 +60,8 @@ public class CraftManager
             return false;
         }
         
+        RecipesCreator.GetRef().GetRecipesesManager().OnPartSlotChanged();
+        
         return true;
     }
     

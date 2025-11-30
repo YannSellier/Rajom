@@ -97,8 +97,16 @@ PrefabInstance:
       value: Head_CL02_Step_02
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 99e959c27ff3f1d4d9f308f38f6e66ba, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 99e959c27ff3f1d4d9f308f38f6e66ba, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662731630305907651, guid: 99e959c27ff3f1d4d9f308f38f6e66ba, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -228,6 +236,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlenderHeadPart
       objectReference: {fileID: 0}
+    - target: {fileID: 6878208455631017812, guid: b57455c58239b413c9b3707d133bbd2d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635495243024576230, guid: b57455c58239b413c9b3707d133bbd2d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457573803523210423, guid: b57455c58239b413c9b3707d133bbd2d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -351,6 +371,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4210045577676436961, guid: 15292ee1ab2bcef40b3a3aae1253c30f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -2283595472406821444, guid: 15292ee1ab2bcef40b3a3aae1253c30f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -394,6 +418,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 15292ee1ab2bcef40b3a3aae1253c30f, type: 3}
       propertyPath: m_Name
       value: Head_CL02_Step_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 15292ee1ab2bcef40b3a3aae1253c30f, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
