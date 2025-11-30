@@ -48,9 +48,6 @@ public class armMouvement : MonoBehaviour
 
     private void movement()
     {
-        // SoundManger _soundManager = FindObjectOfType<SoundManger>();
-        // _soundManager.PlaySFX(_soundManager.armMove);
-        
         move = playerInput.actions[inputParam.ToString()].ReadValue<Vector2>();
         Vector2 newVelocity = getNewVelocity();
         Vector2 arrivedPoint = new Vector2(transform.position.x, transform.position.z) + newVelocity * Time.deltaTime;
