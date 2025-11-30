@@ -84,6 +84,9 @@ public class CurrentRecipeDisplayer
     
     public void DisplayPartOfType(EPartType partType, int index)
     {
+        if (_recipe == null)
+            return;
+        
         // On recupere le slot qui corresponde a la partie de la reccete que l'on veut afficher
         Part part = GetPartOfType(partType);
         

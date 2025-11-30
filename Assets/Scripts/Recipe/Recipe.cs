@@ -3,7 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using UnityEngine;
 
+[Serializable]
+public class PartPrefab
+{
+    [SerializeField] public GameObject prefab;
+    [SerializeField] public int numberSteps;
+    [SerializeField] public EPartType partType;
+}
+[Serializable]
 public class Recipe
 {
     //=============================================================================
@@ -12,9 +21,16 @@ public class Recipe
 
     #region VARIABLES
 
+    [SerializeField] 
     private string _name;
+
+    [SerializeField] 
     private string _description;
+
+    [SerializeField] 
     private List<PartData> _parts;
+
+    [SerializeField] public GameObject[] partPrefabs = new  GameObject[4];
 
     #endregion
 
