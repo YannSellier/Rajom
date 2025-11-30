@@ -761,6 +761,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorkSlot_Cote
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b04780108e32462c8c637cd8f97fb3e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1017,6 +1021,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorkSlot_Centre (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ef630cef87c8a49088605aba82adbddc, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1043,9 +1051,17 @@ PrefabInstance:
       propertyPath: _workStationType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1505946642368819556, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6189388932188375330, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: m_Name
       value: WorkStation
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189388932188375330, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7788973107397816286, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2885,9 +2901,17 @@ PrefabInstance:
       propertyPath: _workStationType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1505946642368819556, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6189388932188375330, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: m_Name
       value: WorkStation (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189388932188375330, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7788973107397816286, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3186,9 +3210,17 @@ PrefabInstance:
       propertyPath: _workStationType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1505946642368819556, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6189388932188375330, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: m_Name
       value: WorkStation (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189388932188375330, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7788973107397816286, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3523,6 +3555,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6b04780108e32462c8c637cd8f97fb3e, type: 3}
       propertyPath: m_Name
       value: WorkSlot_Cote (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b04780108e32462c8c637cd8f97fb3e, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6138,7 +6174,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 439
+    m_Bits: 951
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -7214,9 +7250,17 @@ PrefabInstance:
       propertyPath: _workStationType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1505946642368819556, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6189388932188375330, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: m_Name
       value: WorkStation (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189388932188375330, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7788973107397816286, guid: db6201e9b86dc49d1a013e3fed5bc2f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8024,6 +8068,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ef630cef87c8a49088605aba82adbddc, type: 3}
       propertyPath: m_Name
       value: WorkSlot_Centre
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ef630cef87c8a49088605aba82adbddc, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
