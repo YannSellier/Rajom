@@ -2,8 +2,8 @@
     <ui:VisualElement name="Lost_Menu_Root" style="flex-grow: 1; align-self: auto; align-content: flex-start;">
         <ui:VisualElement name="background" style="flex-grow: 1; align-content: center; justify-content: flex-start; align-items: stretch; color: rgba(0, 0, 0, 0.75); background-color: rgba(0, 0, 0, 0.62); width: 100%; position: absolute; height: 100%;" />
         <ui:VisualElement name="button" style="flex-grow: 1; align-content: center; justify-content: center; height: auto; width: auto; align-items: stretch; align-self: center;">
-            <ui:Button text="Retry" name="Retry_Button" style="left: auto; bottom: auto; top: auto; -unity-text-align: middle-center; justify-content: flex-start;" />
-            <ui:Button text="mainMenu" name="Main_Menu_Button" style="bottom: auto; top: auto;" />
+            <ui:Button text="Retry" name="Retry_Button" style="left: auto; bottom: auto; top: auto; -unity-text-align: middle-center; justify-content: flex-start; background-color: rgb(49, 84, 101); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; height: 75px; font-size: 28px; -unity-font-style: bold; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; color: rgb(213, 204, 167);" />
+            <ui:Button text="Main Menu" name="Main_Menu_Button" style="bottom: auto; top: auto; background-color: rgb(49, 84, 101); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; height: 75px; font-size: 28px; -unity-font-style: bold; width: 200px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; margin-top: 30px; color: rgb(213, 204, 167);" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

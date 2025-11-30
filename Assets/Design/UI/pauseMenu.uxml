@@ -2,9 +2,9 @@
     <ui:VisualElement name="Pause_Menu_Root" style="flex-grow: 1;">
         <ui:VisualElement name="BackGround" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; -unity-background-image-tint-color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0.57);" />
         <ui:VisualElement name="Root_Button" style="flex-grow: 1; align-content: center; justify-content: center; align-items: center; align-self: auto;">
-            <ui:Button text="Resume" name="Resume_Button" />
-            <ui:Button text="Retry" name="Restart_Button" style="justify-content: center; align-content: center;" />
-            <ui:Button text="Give Up" name="Give_Up_Button" />
+            <ui:Button text="Resume" name="Resume_Button" style="margin-top: 2px; height: 75px; width: 200px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; font-size: 28px; -unity-font-style: bold; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; background-color: rgb(49, 84, 101); color: rgb(213, 204, 167);" />
+            <ui:Button text="Retry" name="Restart_Button" style="justify-content: center; align-content: center; margin-top: 20px; height: 75px; width: 200px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; font-size: 28px; -unity-font-style: bold; background-color: rgb(49, 84, 101); color: rgb(213, 204, 167);" />
+            <ui:Button text="Give Up" name="Give_Up_Button" style="margin-top: 20px; width: 200px; height: 75px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; font-size: 28px; -unity-font-style: bold; background-color: rgb(49, 84, 101); color: rgb(213, 204, 167);" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
