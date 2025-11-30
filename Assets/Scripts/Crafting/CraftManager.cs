@@ -49,12 +49,18 @@ public class CraftManager
         if (part == null || head == null)
             return false;
 
+        SoundManger _soundManager = GameObject.FindObjectOfType<SoundManger>();
+        _soundManager.PlaySfx(_soundManager.craft, 0.5f, false);
+        
+        
         PartModification modification = CreatePartModification(head, workStation);
         part.AddModification(modification);
         onCraftComplete?.Invoke();
 
         if (!ValidateCraftingResult(part))
         {
+            _soundManager.PlaySfx(_soundManager.destroyPart, 0.5f, false);
+            
             part.Delete();
             onCraftComplete?.Invoke();
             return false;
@@ -84,4 +90,8 @@ public class CraftManager
 
     #endregion
         
+}
+
+public class AudioManager
+{
 }

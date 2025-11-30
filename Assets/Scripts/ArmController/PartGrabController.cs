@@ -86,6 +86,9 @@ public class PartGrabController : MonoBehaviour
     
     private void OnGrabInput()
     {
+        SoundManger _soundManager = FindObjectOfType<SoundManger>();
+        _soundManager.PlaySfx(_soundManager.takePart, 0.5f, false);
+        
         if (_currentGrabbedPart != null)
         {
             ReleasePart(_currentGrabbedPart);
@@ -98,6 +101,7 @@ public class PartGrabController : MonoBehaviour
     }
     private void TryGrabbingPartUnderHead()
     {
+        
         Part currentPartUnderHead = GetCurrentPartUnderHead();
         if (currentPartUnderHead != null)
         {

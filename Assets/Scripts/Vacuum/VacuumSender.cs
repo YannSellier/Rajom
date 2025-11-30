@@ -42,6 +42,8 @@ public class VacuumAssembler : MonoBehaviour
 
     #endregion
 
+    
+
 
 
     //=============================================================================
@@ -72,6 +74,7 @@ public class VacuumAssembler : MonoBehaviour
 
     public void AssembleVacuum()
     {
+
         // get the parts from the VacuumSpawner
         RecipesManager recipesManager = RecipesCreator.GetRef().GetRecipesesManager();
         
