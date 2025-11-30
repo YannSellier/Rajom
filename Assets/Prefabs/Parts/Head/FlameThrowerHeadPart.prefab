@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 7cccfb9be743ba841bdb16fdffd80197, type: 2}
+    - target: {fileID: -1801792933032900068, guid: cdab74a29fc0ec24e88b47c3eae91bc1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -1682735576178522577, guid: cdab74a29fc0ec24e88b47c3eae91bc1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -83,6 +87,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cdab74a29fc0ec24e88b47c3eae91bc1, type: 3}
       propertyPath: m_Name
       value: Head_CL01_Step_02 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cdab74a29fc0ec24e88b47c3eae91bc1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6215155789633703690, guid: cdab74a29fc0ec24e88b47c3eae91bc1, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -252,6 +264,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlameThrowerHeadPart
       objectReference: {fileID: 0}
+    - target: {fileID: 6878208455631017812, guid: b57455c58239b413c9b3707d133bbd2d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6940438579679434183, guid: b57455c58239b413c9b3707d133bbd2d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.005
@@ -267,6 +283,14 @@ PrefabInstance:
     - target: {fileID: 6940438579679434183, guid: b57455c58239b413c9b3707d133bbd2d, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635495243024576230, guid: b57455c58239b413c9b3707d133bbd2d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457573803523210423, guid: b57455c58239b413c9b3707d133bbd2d, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8501248580309332464, guid: b57455c58239b413c9b3707d133bbd2d, type: 3}
       propertyPath: _assemblingLength
@@ -393,9 +417,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8406957215967083475, guid: c7b0ff585c78e964f8ab14049f4812d9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -1779594782881808596, guid: c7b0ff585c78e964f8ab14049f4812d9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c7b0ff585c78e964f8ab14049f4812d9, type: 3}
       propertyPath: m_Name
       value: Head_CL01_Step_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c7b0ff585c78e964f8ab14049f4812d9, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4317238711426323071, guid: c7b0ff585c78e964f8ab14049f4812d9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -533,9 +569,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -880691038876365592, guid: e52b714fc3ec7764d977bf74bc9fdcf1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e52b714fc3ec7764d977bf74bc9fdcf1, type: 3}
       propertyPath: m_Name
       value: Head_01_CL01_Step_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e52b714fc3ec7764d977bf74bc9fdcf1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949277679991728844, guid: e52b714fc3ec7764d977bf74bc9fdcf1, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

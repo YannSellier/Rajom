@@ -76,9 +76,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -880691038876365592, guid: 4c5649a53a8137f49b2ae5bd97f505f2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4c5649a53a8137f49b2ae5bd97f505f2, type: 3}
       propertyPath: m_Name
       value: Alim_01_CL01_Step_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c5649a53a8137f49b2ae5bd97f505f2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3257603519979232094, guid: 4c5649a53a8137f49b2ae5bd97f505f2, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -176,6 +188,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5650208425829202480, guid: 601d57cfd1716704eb3ddd2f15e6374b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 850330737958027056, guid: 601d57cfd1716704eb3ddd2f15e6374b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -183,6 +199,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 601d57cfd1716704eb3ddd2f15e6374b, type: 3}
       propertyPath: m_Name
       value: Alim_CL01_Step_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 601d57cfd1716704eb3ddd2f15e6374b, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3140173368852643638, guid: 601d57cfd1716704eb3ddd2f15e6374b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -195,6 +215,10 @@ PrefabInstance:
     - target: {fileID: 3140173368852643638, guid: 601d57cfd1716704eb3ddd2f15e6374b, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6215155789633703690, guid: 601d57cfd1716704eb3ddd2f15e6374b, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -488,6 +512,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1247198632144767532}
     m_Modifications:
+    - target: {fileID: -8878154198637111396, guid: c2b3a1037655ca54897f11bb0f9e37a8, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2b3a1037655ca54897f11bb0f9e37a8, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.009999999
@@ -536,9 +564,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1779594782881808596, guid: c2b3a1037655ca54897f11bb0f9e37a8, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c2b3a1037655ca54897f11bb0f9e37a8, type: 3}
       propertyPath: m_Name
       value: Alim_CL01_Step_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c2b3a1037655ca54897f11bb0f9e37a8, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2046065157041728251, guid: c2b3a1037655ca54897f11bb0f9e37a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -671,6 +707,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8ef1d24c8eb25324199c265ba6944168, type: 3}
       propertyPath: m_Name
       value: Alim_01_CL01_Step_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ef1d24c8eb25324199c265ba6944168, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110701915013409301, guid: 8ef1d24c8eb25324199c265ba6944168, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339713931607822825, guid: 8ef1d24c8eb25324199c265ba6944168, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

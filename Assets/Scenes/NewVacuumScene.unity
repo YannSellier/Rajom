@@ -817,10 +817,10 @@ MonoBehaviour:
   - {fileID: 192633161}
   - {fileID: 1156139148}
   _vacuumPrefabs:
-  - {fileID: 6810711966170723696, guid: 7dbc1a9f772f45140b8acae67a600b74, type: 3}
-  - {fileID: 318148973271743524, guid: 9c1e7be5398661d4184361de07a1dc9c, type: 3}
-  - {fileID: 216419589472867465, guid: 2010bc72462cfdd44824b20c4691a324, type: 3}
-  - {fileID: 5234303379907033755, guid: 418c03bd4830c6b4182aaa08839fc344, type: 3}
+  - {fileID: 8945693044712097489, guid: 5b1a195668749437d81e1d8daf2bb6d7, type: 3}
+  - {fileID: 778699248978270294, guid: 80482606b46674d87a0cf699fd215515, type: 3}
+  - {fileID: 8345501945942443243, guid: 5d8cc0882df494d8ab263652e5ad0d12, type: 3}
+  - {fileID: 1600031951766378365, guid: 756d442064748420da375c7bed7a3a25, type: 3}
   _partsParent: {fileID: 1750746499}
 --- !u!4 &311063612
 Transform:

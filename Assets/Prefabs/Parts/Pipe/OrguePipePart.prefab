@@ -44,6 +44,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1479338866130111174, guid: 201efb3f3b213459e980f62655672a94, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599247818274859690, guid: 201efb3f3b213459e980f62655672a94, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1632655834368832803, guid: 201efb3f3b213459e980f62655672a94, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -84,9 +92,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4794068499519868980, guid: 201efb3f3b213459e980f62655672a94, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6491316281293188950, guid: 201efb3f3b213459e980f62655672a94, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6512345054247355813, guid: 201efb3f3b213459e980f62655672a94, type: 3}
       propertyPath: m_Name
       value: OrguePipePart
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512345054247355813, guid: 201efb3f3b213459e980f62655672a94, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824790626584696548, guid: 201efb3f3b213459e980f62655672a94, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8862742234990753477, guid: 201efb3f3b213459e980f62655672a94, type: 3}
       propertyPath: _assemblingLength
@@ -169,6 +193,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7516969120439080593}
     m_Modifications:
+    - target: {fileID: -9154556415352812097, guid: 915d53f1a34ad224fa90974e3e0a658e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 915d53f1a34ad224fa90974e3e0a658e, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.009999999
@@ -222,8 +250,16 @@ PrefabInstance:
       value: Tuyeau_CL01_Step_02
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 915d53f1a34ad224fa90974e3e0a658e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 915d53f1a34ad224fa90974e3e0a658e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6215155789633703690, guid: 915d53f1a34ad224fa90974e3e0a658e, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6568677893543099398, guid: 915d53f1a34ad224fa90974e3e0a658e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -337,13 +373,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -880691038876365592, guid: 9efb22d906aa68349a5017193ea4e2a6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9efb22d906aa68349a5017193ea4e2a6, type: 3}
       propertyPath: m_Name
       value: Tuyeau_01_CL01_Step_03
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9efb22d906aa68349a5017193ea4e2a6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9efb22d906aa68349a5017193ea4e2a6, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888412377529706141, guid: 9efb22d906aa68349a5017193ea4e2a6, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5331311168175633089, guid: 9efb22d906aa68349a5017193ea4e2a6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -473,13 +521,25 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 7cccfb9be743ba841bdb16fdffd80197, type: 2}
+    - target: {fileID: -1779594782881808596, guid: c6c48168e51c4864889ec5aba8a28aa2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c6c48168e51c4864889ec5aba8a28aa2, type: 3}
       propertyPath: m_Name
       value: Tuyeau_CL01_Step_01
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c6c48168e51c4864889ec5aba8a28aa2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c6c48168e51c4864889ec5aba8a28aa2, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7351673668620685118, guid: c6c48168e51c4864889ec5aba8a28aa2, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

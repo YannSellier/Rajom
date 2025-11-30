@@ -40,6 +40,11 @@ public class Part : MonoBehaviour, IGrabbable
 
     #region GETTERS / SETTERS
 
+    public string GetName()
+    {
+        return "Part_" + GetPartType();
+    }
+
     public void SetIsGrabbed(bool newStateIsGrabbed)
     {
         _isGrabbed = newStateIsGrabbed;

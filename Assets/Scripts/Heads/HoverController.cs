@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -65,6 +66,26 @@ public class HoverController : MonoBehaviour
     {
         _detectorTriggerCollider.onTriggerEnter += OnDetectorTriggerEnter;
         _detectorTriggerCollider.onTriggerExit += OnDetectorTriggerExit;
+    }
+
+    private void Update()
+    {
+        DebugList();
+    }
+    private void DebugList()
+    {
+        string result = "";
+        result += _isPlayer1 ? "Player1: " : "Player 2:";
+        result += _closestGrabbableUnderGrabbable?.GetName() + " (";
+        foreach (var grabbable in _currentGrabbablesUnderGrabbable)
+        {
+            result += grabbable.GetName();
+            result += ", ";
+        }
+
+        result += ")";
+        
+        Debug.Log(result);
     }
 
     #endregion

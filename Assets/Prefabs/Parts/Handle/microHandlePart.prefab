@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1779594782881808596, guid: 86a20c9b6e702534e8cce8d08c7b13f5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -1380872075473498913, guid: 86a20c9b6e702534e8cce8d08c7b13f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -75,6 +79,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 86a20c9b6e702534e8cce8d08c7b13f5, type: 3}
       propertyPath: m_Name
       value: Poignee_CL01_Step_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 86a20c9b6e702534e8cce8d08c7b13f5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104761184505806436, guid: 86a20c9b6e702534e8cce8d08c7b13f5, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -211,6 +223,18 @@ PrefabInstance:
     - target: {fileID: 5868208722840017694, guid: b2156cff710e8489db1042a7b6170b9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950128296702440789, guid: b2156cff710e8489db1042a7b6170b9b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6942527630063326170, guid: b2156cff710e8489db1042a7b6170b9b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210806663612288231, guid: b2156cff710e8489db1042a7b6170b9b, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8025543275184583030, guid: b2156cff710e8489db1042a7b6170b9b, type: 3}
       propertyPath: m_LocalRotation.w
