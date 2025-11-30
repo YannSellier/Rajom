@@ -8,8 +8,8 @@
         <ui:VisualElement name="Recipe_Root" style="flex-grow: 1;">
             <ui:VisualElement name="RecipeCurrentPart_1" picking-mode="Ignore" style="flex-grow: 1;" />
             <ui:VisualElement name="RecipeCurrentPart_2" picking-mode="Ignore" style="flex-grow: 1;" />
-            <ui:VisualElement name="RecipeCurrentPart_3" picking-mode="Ignore" style="flex-grow: 1;" />
             <ui:VisualElement name="RecipeCurrentPart_4" picking-mode="Ignore" style="flex-grow: 1;" />
+            <ui:VisualElement name="RecipeCurrentPart_3" picking-mode="Ignore" style="flex-grow: 1;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

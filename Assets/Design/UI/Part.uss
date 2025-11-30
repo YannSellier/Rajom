@@ -51,4 +51,6 @@
 
 .recipe_background {
     background-image: url("project://database/Assets/Design/CarteBP/Carte_Fond.png?fileID=2800000&guid=7216677bac5d6453597d3289b8b43a60&type=3#Carte_Fond");
+    width: 600px;
+    height: 1000px;
 }

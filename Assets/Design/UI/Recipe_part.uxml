@@ -1,9 +1,9 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Design/UI/Part.uss?fileID=7433441132597879392&amp;guid=bd7e0af9831e90b4697c35a868a5ad59&amp;type=3#Part" />
-    <ui:VisualElement name="PartData" class="part-item" style="width: 200px; height: 300px; margin-left: 20px; margin-top: 20px; margin-bottom: 20px;">
-        <ui:VisualElement name="background" class="recipe_background" style="flex-grow: 1; position: absolute; width: 100%; height: 100%;" />
-        <ui:VisualElement name="part" style="flex-grow: 1; width: 100%; height: 100%; position: absolute;" />
-        <ui:VisualElement name="station" style="flex-grow: 1; width: 100%; height: 100%; position: absolute;" />
-        <ui:VisualElement name="action" style="flex-grow: 1; width: 100%; height: 100%; position: absolute;" />
+    <ui:VisualElement name="PartData" class="part-item" style="width: 200px; height: 330px; margin-left: 0; margin-top: 0; margin-bottom: 20px; flex-shrink: 1; flex-grow: 0; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0; -unity-background-scale-mode: scale-and-crop; background-position-y: top 0;">
+        <ui:VisualElement name="background" class="recipe_background" style="flex-grow: 0; position: absolute; width: 100%; height: 100%; -unity-background-scale-mode: scale-to-fit; background-position-y: top 0; -unity-slice-type: sliced; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0;" />
+        <ui:VisualElement name="part" style="flex-grow: 1; width: 100%; height: 100%; position: absolute; background-size: 200px 330px; background-position-y: top 0; -unity-background-scale-mode: scale-to-fit;" />
+        <ui:VisualElement name="station" style="flex-grow: 1; width: 100%; height: 100%; position: absolute; flex-shrink: 1; -unity-background-scale-mode: scale-to-fit; background-position-y: top 0;" />
+        <ui:VisualElement name="action" style="flex-grow: 0; width: 100%; height: 100%; position: absolute; flex-shrink: 0; min-width: 100%; max-width: 100%; max-height: 100%; min-height: 100%; background-position-x: center 0; background-position-y: top 0; -unity-background-scale-mode: scale-to-fit;" />
     </ui:VisualElement>
 </ui:UXML>
