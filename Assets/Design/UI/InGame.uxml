@@ -5,10 +5,11 @@
                 <ui:Label text="02:35" name="Timer_Label" style="color: rgb(243, 243, 243); font-size: 16px; align-self: center; justify-content: center; align-content: center; align-items: center;" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="RecipeDisplayer_Root" style="flex-grow: 1;">
-            <ui:Label text="Label" name="RecipeName_Label" />
-            <ui:Label text="Label" name="RecipeDescription_Label" />
-            <ui:VisualElement name="PartData_Container" style="flex-grow: 1;" />
+        <ui:VisualElement name="Recipe_Root" style="flex-grow: 1;">
+            <ui:VisualElement name="RecipeCurrentPart_1" style="flex-grow: 1;" />
+            <ui:VisualElement name="RecipeCurrentPart_2" style="flex-grow: 1;" />
+            <ui:VisualElement name="RecipeCurrentPart_3" style="flex-grow: 1;" />
+            <ui:VisualElement name="RecipeCurrentPart_4" style="flex-grow: 1;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
