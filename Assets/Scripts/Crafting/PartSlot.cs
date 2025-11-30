@@ -46,22 +46,6 @@ public class PartSlot : MonoBehaviour
         _recipesManager.RegisterPartSlot(this);
     }
     
-    // on trigger enter
-    private void OnTriggerEnter(Collider other)
-    {
-        // check if other is a part
-        Part part = other.GetComponent<Part>();
-        if (part != null)
-            SetCurrentPart(part);
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        // check if other is a part
-        Part part = other.GetComponent<Part>();
-        if (part != null && part == _currentPart)
-            SetCurrentPart(null);
-    }
-
 
     #endregion
 
@@ -74,7 +58,7 @@ public class PartSlot : MonoBehaviour
 
     #region PART SLOT
 
-    private void SetCurrentPart(Part part)
+    public void SetCurrentPart(Part part)
     {
         if (_currentPart == part)
             return;
