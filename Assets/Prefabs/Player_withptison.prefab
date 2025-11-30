@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _grabPosition: {fileID: 1458638641529437951}
   _grabInput: 4
-  _detectorTriggerCollider: {fileID: 2145911642209098054}
+  _hoverController: {fileID: 2410276305198163810}
 --- !u!1 &1758097277331326300
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeHeadInput: 6
+  _hoverController: {fileID: 2410276305198163810}
   _armGrabPosition: {fileID: 1458638641529437951}
-  _detectorTriggerCollider: {fileID: 2145911642209098054}
 --- !u!1 &2393320107006952420
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +951,7 @@ GameObject:
   - component: {fileID: 2491409089267145621}
   - component: {fileID: 5171875839859128829}
   - component: {fileID: 2145911642209098054}
+  - component: {fileID: 2410276305198163810}
   m_Layer: 0
   m_Name: PartDetector
   m_TagString: Untagged
@@ -1008,6 +1009,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f0d5e9a2ffbb4a43af3a94bf2174e3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2410276305198163810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5328340961372486448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee41082c91844efa57d4260643aea39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _detectorTriggerCollider: {fileID: 2145911642209098054}
+  _isPlayer1: 0
 --- !u!1 &6941293224362379592
 GameObject:
   m_ObjectHideFlags: 0

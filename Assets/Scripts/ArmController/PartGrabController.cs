@@ -13,11 +13,10 @@ public class PartGrabController : MonoBehaviour
     [SerializeField] private Transform _grabPosition;
     [SerializeField] private EInput _grabInput = EInput.Grab1;
 
-    [SerializeField] private TriggerCollider _detectorTriggerCollider;
+    [SerializeField] private HoverController _hoverController;
     
     private PlayerInput _playerInput;
     private Part _currentGrabbedPart;
-    private Part _currentPartUnderHead;
     
     #endregion
 
@@ -30,7 +29,23 @@ public class PartGrabController : MonoBehaviour
 
     public Part GetCurrentPartUnderHead()
     {
-        return _currentPartUnderHead;
+        return _hoverController.GetClosestGrabbableOfType<Part>();
+    }
+    public void SetCurrentGrabbedPart(Part newGrabbedPart)
+    {
+        if (_currentGrabbedPart != null)
+        {
+            _hoverController.RemoveGrabbableToIgnore(_currentGrabbedPart);
+            _currentGrabbedPart.SetIsGrabbed(false);
+        }
+
+        _currentGrabbedPart = newGrabbedPart;
+
+        if (_currentGrabbedPart != null)
+        {
+            _hoverController.AddGrabbableToIgnore(newGrabbedPart);
+            _currentGrabbedPart.SetIsGrabbed(true);
+        }
     }
 
     #endregion
@@ -48,9 +63,6 @@ public class PartGrabController : MonoBehaviour
     {
         _playerInput = FindObjectOfType<PlayerInput>();
         _playerInput.actions[_grabInput.ToString()].performed += ctx => OnGrabInput();
-        
-        _detectorTriggerCollider.onTriggerEnter += OnDetectorTriggerEnter;
-        _detectorTriggerCollider.onTriggerExit += OnDetectorTriggerExit;
     }
 
     #endregion
@@ -73,7 +85,6 @@ public class PartGrabController : MonoBehaviour
         if (_currentGrabbedPart != null)
         {
             ReleasePart(_currentGrabbedPart);
-            _currentGrabbedPart = null;
         }
         else
         {
@@ -82,11 +93,10 @@ public class PartGrabController : MonoBehaviour
     }
     private void TryGrabbingPartUnderHead()
     {
-        if (_currentPartUnderHead != null)
+        Part currentPartUnderHead = GetCurrentPartUnderHead();
+        if (currentPartUnderHead != null)
         {
-            GrabPart(_currentPartUnderHead);
-            _currentGrabbedPart = _currentPartUnderHead;
-            _currentPartUnderHead = null;
+            GrabPart(currentPartUnderHead);
         }
     }
     private void GrabPart(Part part)
@@ -100,6 +110,8 @@ public class PartGrabController : MonoBehaviour
 
         part.GetRigidbody().useGravity = false;
         part.GetRigidbody().isKinematic = true;
+        
+        SetCurrentGrabbedPart(part);
     }
     private void ReleasePart(Part part)
     {
@@ -109,53 +121,12 @@ public class PartGrabController : MonoBehaviour
         part.transform.SetParent(null);
         part.GetComponent<Rigidbody>().useGravity = true;
         part.GetComponent<Rigidbody>().isKinematic = false;
+        
+        SetCurrentGrabbedPart(null);
     }
 
     #endregion
 
-    #region PART UNDER HEAD
-
-    private void SetCurrentPartUnderHead(Part part)
-    {
-        if (_currentPartUnderHead != null)
-            _currentPartUnderHead.OnHoverExit();
-        
-        _currentPartUnderHead = part;
-        
-        if (_currentPartUnderHead != null)
-            _currentPartUnderHead.OnHoverEnter();
-    }
-
-    #endregion
-
-    #region DETECTOR
-
-    private void OnDetectorTriggerEnter(Collider other)
-    {
-        if (other == null)
-            return;
-        
-        Part part = other.GetComponent<Part>();
-        if (part == null)
-            return;
-        
-        SetCurrentPartUnderHead(part);
-    }
-    private void OnDetectorTriggerExit(Collider other)
-    {
-        if (other == null)
-            return;
-        
-        Part part = other.GetComponent<Part>();
-        if (part == null)
-            return;
-        
-        if (part == _currentPartUnderHead)
-            SetCurrentPartUnderHead(null);
-    }
-
-
-    #endregion
 
 
         

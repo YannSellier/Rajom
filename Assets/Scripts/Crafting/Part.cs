@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Part : MonoBehaviour
+public class Part : MonoBehaviour, IGrabbable
 {
     //=============================================================================
     // VARIABLES
@@ -30,12 +30,26 @@ public class Part : MonoBehaviour
     [SerializeField] private float _assemblingLength = 1f;
 
     private int indexStateVisible = 0;
+    private bool _isGrabbed = false;
+    
+    private bool _isPlayer1Hovering = false;
+    private bool _isPlayer2Hovering = false;
     
     #endregion
 
     #region GETTERS / SETTERS
 
-    
+    public void SetIsGrabbed(bool newStateIsGrabbed)
+    {
+        _isGrabbed = newStateIsGrabbed;
+    }
+    public bool IsGrabbable()
+    {
+        return !_isGrabbed;
+    }
+
+    public Vector3 GetPosition() => transform.position;
+
     // components
     public Rigidbody GetRigidbody() => _rigidbody;
     
@@ -69,7 +83,7 @@ public class Part : MonoBehaviour
     {
         CreateComponents();
         initiateStateModifications();
-        OnHoverExit();
+        RefreshHoverStateVisual();
     }
 
     #endregion
@@ -138,17 +152,32 @@ public class Part : MonoBehaviour
     #endregion
 
     #region HOVER
-
-    private Color baseColor;
-    public void OnHoverEnter()
+    
+    public void OnHoverEnter(bool isPlayer1)
     {
-        _selectionVisualObject.SetActive(true);
-    }
-    public void OnHoverExit()
-    {
-        _selectionVisualObject.SetActive(false);
+        if (isPlayer1)
+            _isPlayer1Hovering = true;
+        else
+            _isPlayer2Hovering = true;
+        
+        RefreshHoverStateVisual();
     }
 
+    public void OnHoverExit(bool isPlayer1)
+    {
+        if (isPlayer1)
+            _isPlayer1Hovering = false;
+        else
+            _isPlayer2Hovering = false;
+        
+        RefreshHoverStateVisual();
+    }
+
+    private void RefreshHoverStateVisual()
+    {
+        _selectionVisualObject.SetActive(_isPlayer1Hovering || _isPlayer2Hovering);
+    }
+    
     #endregion
 
 

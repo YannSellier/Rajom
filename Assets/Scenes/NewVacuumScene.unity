@@ -8598,6 +8598,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2410276305198163810, guid: 592dbf10d89164b0d840ec4da17e6e74, type: 3}
+      propertyPath: _isPlayer1
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3541480063696112050, guid: 592dbf10d89164b0d840ec4da17e6e74, type: 3}
       propertyPath: m_Name
       value: Player_withptison

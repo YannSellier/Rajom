@@ -1,16 +1,30 @@
 using UnityEngine;
 
-public class HeadPickUp : MonoBehaviour
+public class HeadPickUp : MonoBehaviour, IGrabbable
 {
     #region VARIABLES
     
     [SerializeField] private GameObject _selectionVisualHead;
     [SerializeField] private Head _headToPickUp;
+    private bool _isGrabbed = false;
+
+    private bool _isPlayer1Hovering = false;
+    private bool _isPlayer2Hovering = false;
+    
     #endregion
     // Update is called once per frame
     
     #region GETTERS SETTERS
 
+    public void SetIsGrabbed(bool newStateIsGrabbed)
+    {
+        _isGrabbed = newStateIsGrabbed;
+    }
+    public bool IsGrabbable()
+    {
+        return !_isGrabbed;
+    }
+    public Vector3 GetPosition() => transform.position;
     public Head getHead()
     {
         return _headToPickUp;
@@ -25,7 +39,7 @@ public class HeadPickUp : MonoBehaviour
 
     protected void Awake()
     {
-        OnHoverExit();
+        RefreshHoverStateVisual();
     }
 
     #endregion
@@ -33,14 +47,30 @@ public class HeadPickUp : MonoBehaviour
     
     #region HOVER
     
-    public void OnHoverEnter()
+    public void OnHoverEnter(bool isPlayer1)
     {
-        _selectionVisualHead.SetActive(true);
+        if (isPlayer1)
+            _isPlayer1Hovering = true;
+        else
+            _isPlayer2Hovering = true;
+        
+        RefreshHoverStateVisual();
     }
 
-    public void OnHoverExit()
+    public void OnHoverExit(bool isPlayer1)
     {
-        _selectionVisualHead.SetActive(false);
+        if (isPlayer1)
+            _isPlayer1Hovering = false;
+        else
+            _isPlayer2Hovering = false;
+        
+        RefreshHoverStateVisual();
     }
+
+    private void RefreshHoverStateVisual()
+    {
+        _selectionVisualHead.SetActive(_isPlayer1Hovering || _isPlayer2Hovering);
+    }
+    
     #endregion
 }
