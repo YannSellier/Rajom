@@ -3718,6 +3718,11 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 0f075efa37f3e4e249db428c4834529a, type: 3}
   - {fileID: 2800000, guid: 411c6b59f7d8f487181517a51ed78f97, type: 3}
   - {fileID: 2800000, guid: 7764bb6d5258642a693a07fc5abef1af, type: 3}
+  texturesForHoldingHead:
+  - {fileID: 2800000, guid: a5fff8daf2a444f97b9e1f41d56a9e7d, type: 3}
+  - {fileID: 2800000, guid: 967a519ffa7b54ae99d129af2ab525c7, type: 3}
+  - {fileID: 2800000, guid: c36d5872a4ad74b8899e663104b005e8, type: 3}
+  - {fileID: 2800000, guid: 60e002f8524a54907808cdd31c0a499d, type: 3}
 --- !u!1 &990853816
 GameObject:
   m_ObjectHideFlags: 0
@@ -4757,8 +4762,8 @@ Transform:
   m_GameObject: {fileID: 1187974034}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.78066, y: 0.29, z: 0.4195}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.78066, y: 3.35, z: 0.4195}
+  m_LocalScale: {x: 1, y: 3.4725, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1495142988}
@@ -5932,6 +5937,10 @@ PrefabInstance:
       propertyPath: _grabInput
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6881739349122829850, guid: 592dbf10d89164b0d840ec4da17e6e74, type: 3}
+      propertyPath: _armPosition
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6392,7 +6401,7 @@ Transform:
   m_GameObject: {fileID: 1517747543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5303724, y: -0, z: -0, w: 0.8477648}
-  m_LocalPosition: {x: 0, y: 9.764, z: -5.079}
+  m_LocalPosition: {x: -0.42, y: 10.67, z: -5.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8757,6 +8766,10 @@ PrefabInstance:
     - target: {fileID: 6726806018388701406, guid: 592dbf10d89164b0d840ec4da17e6e74, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881739349122829850, guid: 592dbf10d89164b0d840ec4da17e6e74, type: 3}
+      propertyPath: _armPosition
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

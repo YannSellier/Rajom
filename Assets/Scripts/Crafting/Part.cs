@@ -52,8 +52,8 @@ public class Part : MonoBehaviour, IGrabbable
         _isGrabbed = newStateIsGrabbed;
         
         // Disable all colliders
-        foreach (var collider in GetComponentsInChildren<Collider>())
-            collider.enabled = !_isGrabbed;
+        //foreach (var collider in GetComponentsInChildren<Collider>())
+        //    collider.enabled = !_isGrabbed;
     }
     public bool IsGrabbable()
     {
@@ -138,14 +138,7 @@ public class Part : MonoBehaviour, IGrabbable
     }
     private int GetDefaultStateIndex()
     {
-        int targetModificationCount = GetTargetPartData().GetModifications().Count;
-        int defaultStateIndex = stateModificationsVisualObjects.Count - targetModificationCount - 1;
-        if (defaultStateIndex < 0)
-        {
-            Debug.LogWarning("Wrong recipe or part (index out of range)");
-            return 0;
-        }
-        return  defaultStateIndex;
+        return 0;
     }
     public void Delete()
     {
@@ -166,9 +159,15 @@ public class Part : MonoBehaviour, IGrabbable
         _partData.AddModification(modification);
         
         onPartCrafted?.Invoke();
+
         
         if (indexStateVisible < stateModificationsVisualObjects.Count-1)
             indexStateVisible++;
+        
+        Recipe recipe = RecipesCreator.GetRef().GetRecipesesManager().GetCurrentRecipe();
+        PartData partData = recipe.GetPartDataFromPartType(GetPartType());
+        if(indexStateVisible >= partData.GetModifications().Count - 1)
+            indexStateVisible = stateModificationsVisualObjects.Count - 1;
         
         refreshState();
         Debug.Log("Part modification added: " + modification.GetHeadType().ToString());
