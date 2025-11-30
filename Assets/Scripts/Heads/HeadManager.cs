@@ -19,6 +19,8 @@ public class HeadManager : MonoBehaviour
     [SerializeField] private EInput changeHeadInput = EInput.ChangeHead1;
     //test sans _grabPosition
     [SerializeField] private Transform _armGrabPosition;
+
+    [SerializeField] private TriggerCollider _detectorTriggerCollider;
     
     private List<Head> heads;
     
@@ -32,6 +34,9 @@ public class HeadManager : MonoBehaviour
     private void Awake()
     {
         playerInput = FindObjectOfType<PlayerInput>();
+
+        _detectorTriggerCollider.onTriggerEnter += OnDetectorTriggerEnter;
+        _detectorTriggerCollider.onTriggerExit += OnDetectorTriggerExit;
     }
     void Start()
     {
@@ -42,8 +47,9 @@ public class HeadManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateHeadUnderHead();
-        // PickNextHead(); plus utile
+        if (playerInput.actions[changeHeadInput.ToString()].WasPressedThisFrame())
+            OnGrabInput();
+            
     }
 
     #endregion
@@ -154,13 +160,6 @@ public class HeadManager : MonoBehaviour
     
     
     #region HEAD UNDER HEAD
-    private void UpdateHeadUnderHead()
-    {
-        HeadPickUp headUnderHead = FindHeadUnderHead();
-        
-        if (headUnderHead != _currentHeadUnderHead)
-            SetCurrentHeadUnderHead(headUnderHead);
-    }
     
     private void SetCurrentHeadUnderHead(HeadPickUp headUnderHead)
     {
@@ -178,6 +177,29 @@ public class HeadManager : MonoBehaviour
         }
 
         return null;
+    }
+    private void OnDetectorTriggerEnter(Collider other)
+    {
+        if (other == null)
+            return;
+        
+        HeadPickUp head = other.GetComponent<HeadPickUp>();
+        if (head == null)
+            return;
+        
+        SetCurrentHeadUnderHead(head);
+    }
+    private void OnDetectorTriggerExit(Collider other)
+    {
+        if (other == null)
+            return;
+        
+        HeadPickUp head = other.GetComponent<HeadPickUp>();
+        if (head == null)
+            return;
+        
+        if (head == _currentHeadUnderHead)
+            SetCurrentHeadUnderHead(null);
     }
     
     #endregion
