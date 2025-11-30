@@ -1,83 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &919012562241375026
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 7516969120439080593}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 2a7ad5b39262447658d62e918fa02ca0, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.018574
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2a7ad5b39262447658d62e918fa02ca0, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.01618334
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2a7ad5b39262447658d62e918fa02ca0, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.018574
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2a7ad5b39262447658d62e918fa02ca0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2a7ad5b39262447658d62e918fa02ca0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.0000000095643
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2a7ad5b39262447658d62e918fa02ca0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.17
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2a7ad5b39262447658d62e918fa02ca0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2a7ad5b39262447658d62e918fa02ca0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2a7ad5b39262447658d62e918fa02ca0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2a7ad5b39262447658d62e918fa02ca0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2a7ad5b39262447658d62e918fa02ca0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2a7ad5b39262447658d62e918fa02ca0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2a7ad5b39262447658d62e918fa02ca0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -5114522909894504941, guid: 2a7ad5b39262447658d62e918fa02ca0, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 07d7b6acf324a41f4b4a06c389723a41, type: 2}
-    - target: {fileID: 919132149155446097, guid: 2a7ad5b39262447658d62e918fa02ca0, type: 3}
-      propertyPath: m_Name
-      value: Tuyaux_CL00
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2a7ad5b39262447658d62e918fa02ca0, type: 3}
---- !u!4 &813537943845711065 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2a7ad5b39262447658d62e918fa02ca0, type: 3}
-  m_PrefabInstance: {fileID: 919012562241375026}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3004273269773992270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,9 +117,6 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4747059031398324191, guid: 201efb3f3b213459e980f62655672a94, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 813537943845711065}
-    - targetCorrespondingSourceObject: {fileID: 4747059031398324191, guid: 201efb3f3b213459e980f62655672a94, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8118356548005000565}
     - targetCorrespondingSourceObject: {fileID: 4747059031398324191, guid: 201efb3f3b213459e980f62655672a94, type: 3}
       insertIndex: -1
@@ -303,6 +222,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tuyeau_CL01_Step_02
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 915d53f1a34ad224fa90974e3e0a658e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6568677893543099398, guid: 915d53f1a34ad224fa90974e3e0a658e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -388,6 +311,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9efb22d906aa68349a5017193ea4e2a6, type: 3}
       propertyPath: m_Name
       value: Tuyeau_01_CL01_Step_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9efb22d906aa68349a5017193ea4e2a6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5331311168175633089, guid: 9efb22d906aa68349a5017193ea4e2a6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -490,6 +417,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c6c48168e51c4864889ec5aba8a28aa2, type: 3}
       propertyPath: m_Name
       value: Tuyeau_CL01_Step_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c6c48168e51c4864889ec5aba8a28aa2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
