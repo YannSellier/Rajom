@@ -111,7 +111,6 @@ public class Part : MonoBehaviour, IGrabbable
         foreach(HoverController hoverController in FindObjectsOfType<HoverController>())
             hoverController.RemoveGrabbableUnderGrabbable(this);
         
-        _selectedPartSlot?.SetCurrentPart(null);
     }
 
     #endregion
@@ -152,6 +151,7 @@ public class Part : MonoBehaviour, IGrabbable
     {
         Debug.LogWarning("Part deleted: " + gameObject.name);
         
+        _selectedPartSlot?.SetCurrentPart(null);
         onPartDeleted?.Invoke(this);
         
         Destroy(gameObject);

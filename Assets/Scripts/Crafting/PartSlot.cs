@@ -73,7 +73,6 @@ public class PartSlot : MonoBehaviour
         
         OnPartChanged();
         
-        Debug.Log("PartSlot: Current part set to " + (_currentPart != null ? _currentPart.name : "null"));
     }
     private void OnPartChanged()
     {

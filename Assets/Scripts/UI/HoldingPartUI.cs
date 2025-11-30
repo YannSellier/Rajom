@@ -24,9 +24,9 @@ namespace DefaultNamespace.UI
         protected override void FindUIReferences()
         {
             base.FindUIReferences();
-            Open();
             _holdingPartUILeft = FindVisualElement<VisualElement>(PART_HOLDER_VISUAL_LEFT_NAME);
             _holdingPartUIRight = FindVisualElement<VisualElement>(PART_HOLDER_VISUAL_RIGHT_NAME);
+            Open();
         }
         
         public void SetHoldingPartUI(EArmPosition armPosition, EPartType partType)
