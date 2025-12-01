@@ -1001,7 +1001,7 @@ MonoBehaviour:
     - {fileID: 8345501945942443243, guid: 5d8cc0882df494d8ab263652e5ad0d12, type: 3}
     - {fileID: 1600031951766378365, guid: 756d442064748420da375c7bed7a3a25, type: 3}
   partPrefabs:
-  - prefab: {fileID: 6810711966170723696, guid: 7dbc1a9f772f45140b8acae67a600b74, type: 3}
+  - prefab: {fileID: 8945693044712097489, guid: 5b1a195668749437d81e1d8daf2bb6d7, type: 3}
     numberSteps: 1
     partType: 0
   - prefab: {fileID: 778699248978270294, guid: 80482606b46674d87a0cf699fd215515, type: 3}
@@ -1935,7 +1935,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.84896463, g: 0.43529415, b: 1, a: 1}
-  m_Intensity: 61.2
+  m_Intensity: 80
   m_Range: 5.931091
   m_SpotAngle: 57.536728
   m_InnerSpotAngle: 40.60026
@@ -5527,7 +5527,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 0.71886796, g: 0.8894385, b: 1, a: 1}
-  m_Intensity: 0.8
+  m_Intensity: 1.4
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -7868,7 +7868,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.43529415, g: 0.7609694, b: 1, a: 1}
-  m_Intensity: 61.2
+  m_Intensity: 80
   m_Range: 5.931091
   m_SpotAngle: 57.536728
   m_InnerSpotAngle: 40.60026
@@ -7989,7 +7989,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.9685534, g: 0.2176664, b: 0.1431509, a: 1}
-  m_Intensity: 61.2
+  m_Intensity: 80
   m_Range: 5.931091
   m_SpotAngle: 57.536728
   m_InnerSpotAngle: 40.60026
@@ -8319,7 +8319,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.30372146, g: 0.5849056, b: 0.26302356, a: 1}
-  m_Intensity: 61.2
+  m_Intensity: 80
   m_Range: 5.931091
   m_SpotAngle: 57.536728
   m_InnerSpotAngle: 40.60026

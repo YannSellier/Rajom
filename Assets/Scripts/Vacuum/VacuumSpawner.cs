@@ -52,25 +52,28 @@ public class VacuumSpawner : MonoBehaviour
         List<Recipe> recipes = new List<Recipe>();
         
         for (int i = 0; i < recipeCount; i++)
-            recipes.Add(CreateRecipe());
+            recipes.Add(CreateRecipe(i));
 
         return recipes;
     }
-    public Recipe CreateRecipe()
+    public Recipe CreateRecipe(int indexRecipe)
     {
         return new Recipe("oui", "oui", new List<PartData>()
         {
-            CreatePartDataOfType(EPartType.HANDLE),
-            CreatePartDataOfType(EPartType.ALIM),
-            CreatePartDataOfType(EPartType.PIPE),
-            CreatePartDataOfType(EPartType.HEAD),
+            CreatePartDataOfType(EPartType.HANDLE, indexRecipe),
+            CreatePartDataOfType(EPartType.ALIM, indexRecipe ),
+            CreatePartDataOfType(EPartType.PIPE, indexRecipe),
+            CreatePartDataOfType(EPartType.HEAD, indexRecipe),
         });
     }
-    public PartData CreatePartDataOfType(EPartType partType)
+    public PartData CreatePartDataOfType(EPartType partType, int indexRecipe)
     {
         PartPrefab partPrefab = GetPartPrefabOfType(partType);
 
-        List<PartModification> modifications = CreatePartModifications(partPrefab.numberSteps);
+        int nbSteps = Mathf.Min(partPrefab.numberSteps, indexRecipe);
+        if (nbSteps == 0)
+            nbSteps = 1;
+        List<PartModification> modifications = CreatePartModifications(nbSteps);
         PartData partData = new PartData(partType, modifications);
         partData.partPrefab = partPrefab.prefab;
         return partData;
