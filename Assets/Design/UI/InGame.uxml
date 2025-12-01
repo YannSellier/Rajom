@@ -1,4 +1,5 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="Recipe_part" src="project://database/Assets/Design/UI/Recipe_part.uxml?fileID=9197481963319205126&amp;guid=5d9d2041480b5ea46b9143d076ca7675&amp;type=3#Recipe_part" />
     <Style src="project://database/Assets/Design/UI/Part.uss?fileID=7433441132597879392&amp;guid=bd7e0af9831e90b4697c35a868a5ad59&amp;type=3#Part" />
     <ui:VisualElement name="InGameMenu_Root" style="flex-grow: 1;">
         <ui:VisualElement name="Timer_Root" style="flex-grow: 0; width: 100px; align-items: center; justify-content: center; align-self: center; margin-top: 10px; color: rgb(32, 32, 32); height: 50px;">
@@ -6,14 +7,26 @@
                 <ui:Label text="02:35" name="Timer_Label" style="color: rgb(213, 207, 183); font-size: 28px; align-self: center; justify-content: center; align-content: center; align-items: center; -unity-font-style: bold; padding-bottom: 2px; padding-left: 2px; padding-top: 2px; margin-top: 2px; margin-right: 2px; width: 150px; -unity-text-align: upper-center;" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="Horizontal" style="flex-grow: 1; flex-direction: row;">
-            <ui:VisualElement name="Recipe_Root" style="flex-grow: 1; width: 10%;">
-                <ui:VisualElement name="RecipeCurrentPart_1" picking-mode="Ignore" style="flex-grow: 1;" />
-                <ui:VisualElement name="RecipeCurrentPart_2" picking-mode="Ignore" style="flex-grow: 1;" />
-                <ui:VisualElement name="RecipeCurrentPart_4" picking-mode="Ignore" style="flex-grow: 1;" />
-                <ui:VisualElement name="RecipeCurrentPart_3" picking-mode="Ignore" style="flex-grow: 1;" />
+        <ui:VisualElement name="Horizontal" style="flex-grow: 1; flex-direction: column;">
+            <ui:VisualElement name="Recipe_Root" picking-mode="Ignore" style="flex-grow: 1; width: 100%; position: relative; height: 100%; flex-direction: row; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px;">
+                <ui:VisualElement style="flex-grow: 1;">
+                    <ui:VisualElement name="RecipeCurrentPart_4" picking-mode="Ignore" style="flex-grow: 1; justify-content: center;">
+                        <ui:Instance template="Recipe_part" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="RecipeCurrentPart_3" picking-mode="Ignore" style="flex-grow: 1; justify-content: center;">
+                        <ui:Instance template="Recipe_part" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="TopLeft" style="flex-grow: 1; justify-content: center;">
+                    <ui:VisualElement name="RecipeCurrentPart_1" picking-mode="Ignore" style="flex-grow: 1; justify-content: center; align-self: flex-end;">
+                        <ui:Instance template="Recipe_part" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="RecipeCurrentPart_2" picking-mode="Ignore" style="flex-grow: 1; align-self: flex-end; justify-content: center;">
+                        <ui:Instance template="Recipe_part" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="Hold_Root" style="flex-grow: 1; flex-direction: row; width: 90%; padding-top: 40px; padding-right: 40px; padding-bottom: 5px; padding-left: 40px;">
+            <ui:VisualElement name="Hold_Root" style="flex-grow: 1; flex-direction: row; width: 100%; padding-top: 40px; padding-right: 40px; padding-bottom: 5px; padding-left: 40px;">
                 <ui:VisualElement name="Leftcontainer" style="flex-grow: 1; align-content: flex-end; align-self: flex-end; justify-content: flex-end; align-items: flex-start; flex-direction: row-reverse;">
                     <ui:Button name="Tool" focusable="false" picking-mode="Ignore" style="width: 100px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; background-color: rgb(49, 84, 101); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 100px; height: 100px; color: rgb(213, 204, 167); font-size: 28px; -unity-font-style: bold; align-self: flex-end; justify-content: center; align-items: center; align-content: center;">
                         <ui:VisualElement name="LeftHead_Holder" style="flex-grow: 0; align-self: center; flex-direction: column; width: 90px; height: 90px; background-color: rgba(255, 255, 255, 0); justify-content: center;" />
