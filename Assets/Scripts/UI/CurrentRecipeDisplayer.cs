@@ -1,5 +1,6 @@
 
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -102,6 +103,11 @@ public class CurrentRecipeDisplayer
             
         // comparaison des modification afin de trouver que est l'index de la recipe modifications du current slot
         int currentModificationIndex = FindCurrentModificationIndexInRecipe(recipeModifications, partModifications);
+        
+        bool isRecipeComplete = currentModificationIndex == recipeModifications.Count - 1;
+        GetCurrentPartElement(index + 1).style.display = !isRecipeComplete ? DisplayStyle.Flex : DisplayStyle.None;
+        if (isRecipeComplete)
+            return;
             
         // réécuper la prochaaine modif 
         int nextIndex = Mathf.Min(currentModificationIndex + 1, recipeModifications.Count - 1);
