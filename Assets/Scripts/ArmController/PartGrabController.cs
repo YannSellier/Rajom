@@ -137,7 +137,7 @@ public class PartGrabController : MonoBehaviour
         return desiredGrabPos - offset;// - _grabPosition.forward * size.z;
     }
     
-    public Bounds GetObjectMeshBounds(GameObject obj)
+    public static Bounds GetObjectMeshBounds(GameObject obj)
     {
         if (obj == null)
         {

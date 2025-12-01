@@ -146,7 +146,8 @@ public class VacuumSpawner : MonoBehaviour
     private Part SpawnPartAtPoint(EPartType partType, Recipe recipe)
     {
         Transform spawnPoint = GetSpawnPoint(partType);
-        GameObject prefab = GetVacuumPrefab(partType, recipe);
+        PartPrefab partPrefab = GetPartPrefabOfType(partType);
+        GameObject prefab = GetVacuumPrefab(partPrefab);
         
         if (spawnPoint ==null)
             throw new System.NullReferenceException("Spawn point for part type " + partType + " is null.");
@@ -156,7 +157,10 @@ public class VacuumSpawner : MonoBehaviour
         GameObject partInstance = Instantiate(prefab, _partsParent);
         partInstance.transform.position = spawnPoint.position;
         partInstance.transform.localScale = Vector3.one;
-        return partInstance.GetComponent<Part>();
+        Part part = partInstance.GetComponent<Part>();
+        part.SetPartLength(partPrefab.partLength);
+
+        return part;
     }
 
     #endregion
@@ -203,13 +207,9 @@ public class VacuumSpawner : MonoBehaviour
             return _spawnPoints[index];
         return null;
     }
-    private GameObject GetVacuumPrefab(EPartType partType, Recipe recipe)
+    private GameObject GetVacuumPrefab(PartPrefab partPrefab)
     {
-        return recipe.GetPartDataFromPartType(partType).partPrefab;
-        int index = GetPrefabIndex(partType);
-        if (index != -1)
-            return recipe.partPrefabs[index];
-        return null;
+        return partPrefab.prefab;
     }
 
     #endregion

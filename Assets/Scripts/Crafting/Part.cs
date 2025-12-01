@@ -81,7 +81,20 @@ public class Part : MonoBehaviour, IGrabbable
     
     // assembling
     public Vector3 GetAssemblingRotation() => _assemblingRotation;
-    public float GetAssemblingLength() => _assemblingLength;
+
+    public float GetAssemblingLength() //=> _assemblingLength;
+    {
+        if (GetPartType() == EPartType.HANDLE || GetPartType() == EPartType.HEAD)
+            return 0;
+        
+        Bounds bounds = PartGrabController.GetObjectMeshBounds(gameObject);
+        return bounds.size.z;
+    }
+
+    public void SetPartLength(float length)
+    {
+        _assemblingLength = length;
+    }
 
     #endregion
 

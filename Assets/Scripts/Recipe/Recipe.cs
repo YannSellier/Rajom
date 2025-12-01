@@ -11,6 +11,7 @@ public class PartPrefab
     [SerializeField] public GameObject prefab;
     [SerializeField] public int numberSteps;
     [SerializeField] public EPartType partType;
+    [SerializeField] public float partLength;
 }
 [Serializable]
 public class Recipe
