@@ -54,3 +54,19 @@
     width: 600px;
     height: 1000px;
 }
+
+.hammer_icon {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Marteau%20copy.png?fileID=2800000&guid=5e1537d7d57c34d0aa6422e290967609&type=3#Carte_Marteau copy");
+}
+
+.welder_icon {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Pince%20copy.png?fileID=2800000&guid=6c55f49768e514ce7bfd58609208c0ff&type=3#Carte_Pince copy");
+}
+
+.drill_icon {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Tournevis%20copy.png?fileID=2800000&guid=a171f2ce5d9114293946abd0d532ecc7&type=3#Carte_Tournevis copy");
+}
+
+.saw_icon {
+    background-image: url("project://database/Assets/Design/CarteBP/Carte_Scie%20copy.png?fileID=2800000&guid=8205a5fab18df45d39daaf18b0df9f7f&type=3#Carte_Scie copy");
+}

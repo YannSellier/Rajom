@@ -19,7 +19,6 @@ public class PartGrabController : MonoBehaviour
     [SerializeField] private EArmPosition _armPosition;
     private PlayerInput _playerInput;
     private Part _currentGrabbedPart;
-    private HoldingPartUI _holdingPartUI;
     
     #endregion
 
@@ -65,7 +64,6 @@ public class PartGrabController : MonoBehaviour
      protected void Awake()
     {
         _playerInput = FindObjectOfType<PlayerInput>();
-        _holdingPartUI = FindObjectOfType<HoldingPartUI>();
         //_playerInput.actions[_grabInput.ToString()].performed += ctx => OnGrabInput();
     }
 
@@ -92,7 +90,6 @@ public class PartGrabController : MonoBehaviour
         if (_currentGrabbedPart != null)
         {
             ReleasePart(_currentGrabbedPart);
-            _holdingPartUI.VoidHoldingPartUI(_armPosition);
         }
         else
         {
@@ -110,7 +107,6 @@ public class PartGrabController : MonoBehaviour
     }
     private void GrabPart(Part part)
     {
-        _holdingPartUI.SetHoldingPartUI(_armPosition, part);
         if (part == null || _grabPosition == null)
             return;
 
