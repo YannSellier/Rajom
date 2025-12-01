@@ -8,7 +8,7 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="Horizontal" style="flex-grow: 1; flex-direction: column;">
-            <ui:VisualElement name="Recipe_Root" picking-mode="Ignore" style="flex-grow: 1; width: 100%; position: relative; height: 100%; flex-direction: row; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px;">
+            <ui:VisualElement name="Recipe_Root" picking-mode="Ignore" style="flex-grow: 1; width: 100%; position: relative; height: 100%; flex-direction: row; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
                 <ui:VisualElement style="flex-grow: 1;">
                     <ui:VisualElement name="RecipeCurrentPart_4" picking-mode="Ignore" style="flex-grow: 1; justify-content: center;">
                         <ui:Instance template="Recipe_part" />
@@ -26,7 +26,7 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="Hold_Root" style="flex-grow: 1; flex-direction: row; width: 100%; padding-top: 40px; padding-right: 40px; padding-bottom: 5px; padding-left: 40px;">
+            <ui:VisualElement name="Hold_Root" style="flex-grow: 1; flex-direction: row; width: 100%; padding-top: 20px; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 20px;">
                 <ui:VisualElement name="Leftcontainer" style="flex-grow: 1; align-content: flex-end; align-self: flex-end; justify-content: flex-end; align-items: flex-start; flex-direction: row-reverse;">
                     <ui:Button name="Tool" focusable="false" picking-mode="Ignore" style="width: 100px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; background-color: rgb(49, 84, 101); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 100px; height: 100px; color: rgb(213, 204, 167); font-size: 28px; -unity-font-style: bold; align-self: flex-end; justify-content: center; align-items: center; align-content: center;">
                         <ui:VisualElement name="LeftHead_Holder" style="flex-grow: 0; align-self: center; flex-direction: column; width: 90px; height: 90px; background-color: rgba(255, 255, 255, 0); justify-content: center;" />
