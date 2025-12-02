@@ -36,7 +36,7 @@ public class armMouvement : MonoBehaviour
     {
         if (GameManager.GetRef().GetGameState() == EGameState.IN_GAME)
         {
-            velocity = new Vector2(move.x * movementSpeed, move.y * movementSpeed);
+            velocity = ConvertVelocity(new Vector2(move.x * movementSpeed, move.y * movementSpeed));
             movement();
         }
         else
@@ -44,6 +44,13 @@ public class armMouvement : MonoBehaviour
             velocity = Vector2.zero;
             movement();
         }
+    }
+
+    private Vector2 ConvertVelocity(Vector2 velocity)
+    {
+        Vector2 forward = new Vector2(transform.forward.x, transform.forward.z);
+        Vector2 right = new Vector2(transform.right.x, transform.right.z);
+        return forward * velocity.y + right * velocity.x;
     }
 
     private void movement()

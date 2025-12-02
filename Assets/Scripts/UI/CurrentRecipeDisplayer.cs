@@ -1,11 +1,11 @@
 
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class CurrentRecipeDisplayer
 {
-    private Recipe _recipe;
     private VisualElement _root;
     private VisualTreeAsset _recipePart_assets;
     private VisualElement _currentPartsData_Container;
@@ -21,7 +21,6 @@ public class CurrentRecipeDisplayer
     
     public CurrentRecipeDisplayer (Recipe recipe, VisualElement root, VisualTreeAsset recipePartAssets)
     {
-        _recipe = recipe;
         _root = root;
         _recipePart_assets = recipePartAssets;
 
@@ -41,7 +40,11 @@ public class CurrentRecipeDisplayer
         CreateCurrentRecipeDisplayer();
         DisplayCurrentParts();
     }
-    
+
+    public Recipe GetCurrentRecipe()
+    {
+        return RecipesCreator.GetRef().GetRecipesesManager().GetCurrentRecipe();
+    }
     public void RefreshUI()
     {
         DisplayCurrentParts(); 
@@ -84,6 +87,9 @@ public class CurrentRecipeDisplayer
     
     public void DisplayPartOfType(EPartType partType, int index)
     {
+        if (GetCurrentRecipe() == null)
+            return;
+        
         // On recupere le slot qui corresponde a la partie de la reccete que l'on veut afficher
         Part part = GetPartOfType(partType);
         
@@ -92,11 +98,16 @@ public class CurrentRecipeDisplayer
         List<PartModification> partModifications = part?.GetModifications(); 
             
         // on recupere les modif pour le type part de la recette en  cours 
-        List<PartModification>recipeModifications = _recipe.GetPartModificationsByTypeAndIndex(_partTypes[index]); 
+        List<PartModification>recipeModifications = GetCurrentRecipe().GetPartModificationsByTypeAndIndex(_partTypes[index]); 
             
             
         // comparaison des modification afin de trouver que est l'index de la recipe modifications du current slot
         int currentModificationIndex = FindCurrentModificationIndexInRecipe(recipeModifications, partModifications);
+        
+        bool isRecipeComplete = currentModificationIndex == recipeModifications.Count - 1;
+        GetCurrentPartElement(index + 1).style.display = !isRecipeComplete ? DisplayStyle.Flex : DisplayStyle.None;
+        if (isRecipeComplete)
+            return;
             
         // réécuper la prochaaine modif 
         int nextIndex = Mathf.Min(currentModificationIndex + 1, recipeModifications.Count - 1);
@@ -133,15 +144,15 @@ public class CurrentRecipeDisplayer
     {
         // sécurité : éviter dépassement
         if (slotModif == null ||  index >= recipeModif.Count || index >= slotModif.Count)
-            return 0;
+            return index - 1;
 
         bool same =
             recipeModif[index].GetHeadType() == slotModif[index].GetHeadType() &&
             recipeModif[index].GetWorkStationType() == slotModif[index].GetWorkStationType();
 
-        if (same)
+        if (!same)
         {
-            return index; // correspondance trouvée
+            return index - 1; // correspondance trouvée
         }
 
         // appel récursif avec retour !

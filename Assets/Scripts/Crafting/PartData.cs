@@ -20,6 +20,7 @@ public class PartData
 
     [SerializeField] private EPartType _partType;
     [SerializeField] private List<PartModification> _modifications;
+    public GameObject partPrefab;
     
     #endregion
 

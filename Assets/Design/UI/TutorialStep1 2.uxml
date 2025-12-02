@@ -1,3 +1,3 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="tutorialStep" style="flex-grow: 1; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Design/TUTO/TUTO_03.png?fileID=2800000&amp;guid=a40e40e24b8d6459793c7a80b2c245a9&amp;type=3#TUTO_03&quot;); -unity-slice-type: sliced; -unity-background-scale-mode: scale-and-crop;" />
+    <ui:VisualElement name="tutorialStep" style="flex-grow: 1; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Design/TUTO/TUTO_03.png?fileID=2800000&amp;guid=2cd08b67f083aac45a8d728b626c55f3&amp;type=3#TUTO_03&quot;); -unity-slice-type: sliced; -unity-background-scale-mode: scale-to-fit; margin-top: 60px; margin-right: 60px; margin-bottom: 60px; margin-left: 60px;" />
 </ui:UXML>

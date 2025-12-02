@@ -81,7 +81,23 @@ public class Part : MonoBehaviour, IGrabbable
     
     // assembling
     public Vector3 GetAssemblingRotation() => _assemblingRotation;
-    public float GetAssemblingLength() => _assemblingLength;
+
+    public float GetAssemblingLength() //=> _assemblingLength;
+    {
+        if (GetPartType() == EPartType.HANDLE || GetPartType() == EPartType.HEAD)
+            return 0;
+
+        if (GetPartType() == EPartType.PIPE)
+            return 1.39f;
+        
+        Bounds bounds = PartGrabController.GetObjectMeshBounds(gameObject);
+        return bounds.size.z;
+    }
+
+    public void SetPartLength(float length)
+    {
+        _assemblingLength = length;
+    }
 
     #endregion
 
@@ -161,12 +177,11 @@ public class Part : MonoBehaviour, IGrabbable
         onPartCrafted?.Invoke();
 
         
-        if (indexStateVisible < stateModificationsVisualObjects.Count-1)
-            indexStateVisible++;
+        indexStateVisible++;
         
         Recipe recipe = RecipesCreator.GetRef().GetRecipesesManager().GetCurrentRecipe();
         PartData partData = recipe.GetPartDataFromPartType(GetPartType());
-        if(indexStateVisible >= partData.GetModifications().Count - 1)
+        if(indexStateVisible >= partData.GetModifications().Count)
             indexStateVisible = stateModificationsVisualObjects.Count - 1;
         
         refreshState();

@@ -151,7 +151,6 @@ public class HeadManager : MonoBehaviour
 
         _currentGrabbedHead = headPickup;
         
-        FindObjectOfType<HoldingPartUI>().SetHoldingHeadUI(_hoverController.IsPlayer1() ? EArmPosition.LEFT : EArmPosition.RIGHT, _currentGrabbedHead);
 
         if (_currentGrabbedHead != null)
         {

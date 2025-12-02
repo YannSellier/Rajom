@@ -55,7 +55,7 @@ public class RecipesCreator
 
     public RecipesCreator()
     { 
-        _recipesesManager = new RecipesManager(_recipes) ;
+        _recipesesManager = new RecipesManager(VacuumSpawner.GetRef().CreateRecipes()) ;
     }
 
     public RecipesManager GetRecipesesManager()
